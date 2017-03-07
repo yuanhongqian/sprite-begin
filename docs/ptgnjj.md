@@ -200,7 +200,9 @@ text {
 <text class="a b">给某个div元素定义.a和.b两个类</text>
 ```   
 
-####  CSS外部导入
+####  **CSS外部导入**
+
+> 路径说明  
 
 css样式和css文件导入都必须写在&lt;style&gt;标签里面，sprite中支持3种外部路径的写法来引入css样式文件，格式为：@import  url("CSS路径")。  
 注：路径必须是本地路径，不支持网络的css路径。  
@@ -211,7 +213,106 @@ css样式和css文件导入都必须写在&lt;style&gt;标签里面，sprite中�
 
 路径标识：在入口文件的require.config中的cssPaths节点配置css文件的标识，引入时直接写标识即可；   
 
-#### js语法规范  
+> 优先级  
+
+Sprite处理逻辑为：@import  url("xxx")不是绝对路径，则进行require.config里配置的标识匹配，若无法匹配则再进行相对路径处理。
+
+#### **js语法规范**  
+
+Sprite平台中，js遵循 JavaScript(ES5)语法规范，基于ES5标准的js函数都可以使用，例如Date和Math对象里面的函数，不过由于平台的差异性android和ios采用的javascript引擎并不一样，Android采用google v8引擎，jni桥接，iOS使用系统Javascript core，可能在某些特殊的函数上有细微的差别，比如Math里面关于三角形勾股定理的函数ios有，android就没有，这个开发者如果遇到需要留意下。  
+
+在sprite页面中js代码必须写在.uixml文件中<script>中，如果需要封装函数，javascript代码可作为函数模块，这样可在不同项目或页面中方便使用。  
+
+Sprite采用CommonJS规范，JS模块中通过module.exports实现函数声明，通过require("模块标识")来加载外部JS模块。  
+
+> 定义js函数
+
+JS模块文件后缀为.js, JS模块中通过module.exports实现函数声明，示例如下：
+示例：文件名 calculate.js。  
+
+```javascript
+
+//函数定义，形式一：
+function  sumValue(t1,t2){
+	return t1+t2 ;
+}
+//函数声明
+module.exports.sum = sumValue;
+```
+
+```javascript
+
+
+//函数定义，形式二：
+module.exports.sum = function(t1,t2){
+ return t1+t2 ;
+};
+```
+
+```javascript
+//函数定义，形式三：
+module.exports = {
+  sum:function(t1,t2){
+        return t1+t2 ;
+   }
+};
+```  
+
+> 使用js函数  
+
+通过require("js模块标识|js文件绝对路由|js文件相对路径")来加载外部JS模块，只支持加载本地js文件，传入模块标识为js文件路径，支持绝对路径及相对路径。  
+
+示例：文件名test.uixml。  
+
+根据模块标识引用：
+
+```javascript 
+
+//配置相关require
+require.config({
+	jsPaths: {
+		"sumjs": "res: testSprite/js/calculate.js "
+	}
+});
+
+
+```
+
+```javascript 
+
+//页面中使用
+var calculate  = require(“sumjs”);
+var  result = calculate.sum(8,12);
+
+```
+
+根据绝对路径引用：
+
+```javascript 
+
+//页面中使用
+var calculate  = require(“res: testSprite/js/calculate.js”);
+var  result = calculate.sum(8,12);
+
+
+```
+
+根据相对路径引用，加入test.uixml目录在testSprite/page/test.uixml，calculate.js 的目录为testSprite/js/calculate.js  
+
+```javascript 
+
+//页面中使用
+var calculate  = require(“../js/calculate.js”);
+var  result = calculate.sum(8,12);
+
+```
+
+> 优先级：  
+
+Sprite处理逻辑为：若require("xx")不是绝对路径，则进行require.config里配置的标识匹配，若无法匹配则再进行相对路径处理。
+
+
+
 
 
 
