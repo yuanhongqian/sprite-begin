@@ -23,7 +23,7 @@
 
 1.在apps目录下创建一个名为app.json的文件（文件名固定写法），然后编写如下json内容：  
 
-<img  src="image/hw_2.png" />   
+<img   src="image/hw_2.png" />   
 
 homeJs:应用的入口js地址，res:前缀是基于apps目录开始；  
 

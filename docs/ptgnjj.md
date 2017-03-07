@@ -265,7 +265,7 @@ module.exports = {
 根据模块标识引用：  
 
 ```javascript 
-//配置相关require
+//在home.js文件里面配置相关require
 require.config({
 	jsPaths: {
 		"sumjs": "res: testSprite/js/calculate.js "
