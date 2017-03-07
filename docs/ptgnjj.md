@@ -117,7 +117,7 @@ Sprite中的组件依赖于sprite客户端的解析引擎才能够识别，解�
 
 关于sprite的基础标签API说明，可以参考《Sprite详细设计文档》，本教程后面章节也会对每个组件具体使用做讲解。  
 
-###  功能组件简介（js接口）  
+##  功能组件简介（js接口）  
 
 Sprite平台除了提供了布局UI组件，还提供了一非常丰富了JSAPI功能组件，通过JSAPI功能组件开发者可以非常方便了调用本地能力，比如定位、电话、拍照、短信、本地数据库、网络请求等。其中网络请求能力是原生的网络请求，不会出现html的ajax的跨域问题。  
 
@@ -125,7 +125,7 @@ Sprite平台除了提供了布局UI组件，还提供了一非常丰富了JSAPI�
 
 如果开发者想自己扩展功能，sprite还可以作为sdk提供开发者进行功能扩展。 
 
-###  CSS语法规范   
+##  CSS语法规范   
 
 Sprite中css全部是官方定义的，可能部分写法和标准css3类似，开发者不能全部照搬css3的样式规范，可以视为css3的一个子集。具体那个控件支持什么样式还是要查看《sprite详细设计文档》中具体标签的样式定义。  
 
@@ -136,7 +136,7 @@ Sprite中css全部是官方定义的，可能部分写法和标准css3类似，�
 注：sprite样式不支持样式继承，另外只支持类型选择器、ID选择器和类选择器3种形式。其他形式选择器一律不支持。比如div p{}、div,p{}、div>p{}这种类型的都不支持。  
 
 
-#### 选择器  
+### 选择器  
 
 目前sprite中支持类型选择器、ID选择器和类选择器3种形式。  
 
@@ -200,7 +200,7 @@ text {
 <text class="a b">给某个div元素定义.a和.b两个类</text>
 ```   
 
-####  CSS外部导入  
+###  CSS外部导入  
 
 > 路径说明  
 
@@ -217,9 +217,7 @@ css样式和css文件导入都必须写在&lt;style&gt;标签里面，sprite中�
 
 Sprite处理逻辑为：@import  url("xxx")不是绝对路径，则进行require.config里配置的标识匹配，若无法匹配则再进行相对路径处理。  
 
-
-
-####  js语法规范    
+##  js语法规范    
 
 Sprite平台中，js遵循 JavaScript(ES5)语法规范，基于ES5标准的js函数都可以使用，例如Date和Math对象里面的函数，不过由于平台的差异性android和ios采用的javascript引擎并不一样，Android采用google v8引擎，jni桥接，iOS使用系统Javascript core，可能在某些特殊的函数上有细微的差别，比如Math里面关于三角形勾股定理的函数ios有，android就没有，这个开发者如果遇到需要留意下。  
 
@@ -227,13 +225,13 @@ Sprite平台中，js遵循 JavaScript(ES5)语法规范，基于ES5标准的js函
 
 Sprite采用CommonJS规范，JS模块中通过module.exports实现函数声明，通过require("模块标识")来加载外部JS模块。  
 
-> 定义js函数
+> 定义js函数  
 
-JS模块文件后缀为.js, JS模块中通过module.exports实现函数声明，示例如下：
+JS模块文件后缀为.js, JS模块中通过module.exports实现函数声明，示例如下：  
+
 示例：文件名 calculate.js。  
 
 ```javascript
-
 //函数定义，形式一：
 function  sumValue(t1,t2){
 	return t1+t2 ;
@@ -243,8 +241,6 @@ module.exports.sum = sumValue;
 ```
 
 ```javascript
-
-
 //函数定义，形式二：
 module.exports.sum = function(t1,t2){
  return t1+t2 ;
@@ -266,10 +262,9 @@ module.exports = {
 
 示例：文件名test.uixml。  
 
-根据模块标识引用：
+根据模块标识引用：  
 
 ```javascript 
-
 //配置相关require
 require.config({
 	jsPaths: {
@@ -281,22 +276,18 @@ require.config({
 ```
 
 ```javascript 
-
 //页面中使用
 var calculate  = require(“sumjs”);
 var  result = calculate.sum(8,12);
 
 ```
 
-根据绝对路径引用：
+根据绝对路径引用：  
 
 ```javascript 
-
 //页面中使用
 var calculate  = require(“res: testSprite/js/calculate.js”);
 var  result = calculate.sum(8,12);
-
-
 ```
 
 根据相对路径引用，加入test.uixml目录在testSprite/page/test.uixml，calculate.js 的目录为testSprite/js/calculate.js  
@@ -312,14 +303,3 @@ var  result = calculate.sum(8,12);
 > 优先级：  
 
 Sprite处理逻辑为：若require("xx")不是绝对路径，则进行require.config里配置的标识匹配，若无法匹配则再进行相对路径处理。
-
-
-
-
-
-
-
-
-
-
-
