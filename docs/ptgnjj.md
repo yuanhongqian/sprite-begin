@@ -12,7 +12,7 @@ Sprite支持iOS和Android平台，iOS支持8.0及以上系统，Android支持4.5
 
 Sprite特点如下：
 
-<img width="600"  src="image/ptgnjj_1.png" />   
+<img width="750"  src="image/ptgnjj_1.png" />   
 
 ##  应用程序入口  
 

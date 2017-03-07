@@ -35,12 +35,14 @@ syncname：设置同步小工具服务器名称，随便定义。
 
 由于app.json这个文件不会被同步，所以暂时需要手动的拷贝到手机对应的目录里，通过手机助手找到对应目录spirte/apps:  
 
-Ios手机对应目录：
-<img width="600"  src="image/hw_5.png" />    
+Ios手机对应目录：  
 
-android手机对应目录：  
+<img width="750"  src="image/hw_5.png" />     
 
-<img width="600"  src="image/hw_15.png" />  
+android手机对应目录：    
+
+
+<img width="750"  src="image/hw_15.png" />    
 
 
 2.创建程序入口文件home.js  
