@@ -2,7 +2,7 @@
 
 ----------
 
-## 开发环境搭建
+## 开发环境搭建  
 
 1.	从官网下载Mbuilder5 IDE，sprite客户端（apk和ipa）和代码同步小工具SpriteHttpServer.exe。  
 
@@ -17,7 +17,7 @@
 5.	然后开启SpriteHttpServer.exe。
 
  
-##  新建项目
+##  新建项目    
 
 1.	在apps目录下创建一个名为app.json的文件（文件名固定写法），然后编写如下json内容：  
 
@@ -113,7 +113,7 @@ Index.uixml页面基本格式如下:
 
 然后在box里面用<text>控件写上文字，并调整下样式让其居中。  
 
-<img  src="image/hw_7png" /> 
+<img  src="image/hw_7.png" /> 
 
 这个时候，可以用手机查看效果，注意：手机端会在页面关闭和程序关闭的时候进行代码同步。如果没有看到效果，尝试多关闭几次页面。  
 
@@ -122,7 +122,7 @@ Index.uixml页面基本格式如下:
 <img width="250"  src="image/hw_8.png" />  
 
 
-##  实现一个动画
+##  实现一个动画  
 
 下面我们实现一个动画，让文字从小变大并且选中起来。代码如下：  
 
