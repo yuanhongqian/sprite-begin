@@ -5,8 +5,8 @@
 		"contains": [
 			{
 				"subject": "从Hello World开始",
-				"mdlink": ""
-			},			
+				"mdlink": "helloworld.md"
+			},
 			{
 				"subject": "平台功能简介",
 				"mdlink": ""
