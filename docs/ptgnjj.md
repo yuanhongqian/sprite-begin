@@ -200,7 +200,7 @@ text {
 <text class="a b">给某个div元素定义.a和.b两个类</text>
 ```   
 
-####  **CSS外部导入**
+####  CSS外部导入  
 
 > 路径说明  
 
@@ -211,13 +211,15 @@ css样式和css文件导入都必须写在&lt;style&gt;标签里面，sprite中�
 
 相对路径：如果在uixml里面引入就写基于uixml页面的相对路径，如果在模板文件里面引入，相对路径就是具有模板文件的；  
 
-路径标识：在入口文件的require.config中的cssPaths节点配置css文件的标识，引入时直接写标识即可；   
+路径标识：在入口文件的require.config中的cssPaths节点配置css文件的标识，引入时直接写标识即可；     
 
 > 优先级  
 
-Sprite处理逻辑为：@import  url("xxx")不是绝对路径，则进行require.config里配置的标识匹配，若无法匹配则再进行相对路径处理。
+Sprite处理逻辑为：@import  url("xxx")不是绝对路径，则进行require.config里配置的标识匹配，若无法匹配则再进行相对路径处理。  
 
-#### **js语法规范**  
+
+
+####  js语法规范    
 
 Sprite平台中，js遵循 JavaScript(ES5)语法规范，基于ES5标准的js函数都可以使用，例如Date和Math对象里面的函数，不过由于平台的差异性android和ios采用的javascript引擎并不一样，Android采用google v8引擎，jni桥接，iOS使用系统Javascript core，可能在某些特殊的函数上有细微的差别，比如Math里面关于三角形勾股定理的函数ios有，android就没有，这个开发者如果遇到需要留意下。  
 
@@ -258,7 +260,7 @@ module.exports = {
 };
 ```  
 
-> 使用js函数  
+> 使用js函数    
 
 通过require("js模块标识|js文件绝对路由|js文件相对路径")来加载外部JS模块，只支持加载本地js文件，传入模块标识为js文件路径，支持绝对路径及相对路径。  
 
