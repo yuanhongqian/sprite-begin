@@ -6,22 +6,22 @@
 
 ## 开发环境搭建  
 
-1.	从官网下载Mbuilder5 IDE，sprite客户端（apk和ipa）和代码同步小工具SpriteHttpServer.exe。  
+1.从官网下载Mbuilder5 IDE，sprite客户端（apk和ipa）和代码同步小工具SpriteHttpServer.exe。  
 
-2.	在手机上安装sprite.apk或者aprite.ipa，注意ios提供的是企业版，可以直接通过手机助手进行安装，安装后需要手动的在“设置-通用-描述文件与设备管理”对应用添加信任。  
+2.在手机上安装sprite.apk或者aprite.ipa，注意ios提供的是企业版，可以直接通过手机助手进行安装，安装后需要手动的在“设置-通用-描述文件与设备管理”对应用添加信任。  
 
-3.	随便在某个磁盘下创建一个文件目录，然后在目录里面创建一个apps目录，然后再把SpriteHttpServer.exe同步小工具放在和apps同级的目录下。  
+3.随便在某个磁盘下创建一个文件目录，然后在目录里面创建一个apps目录，然后再把SpriteHttpServer.exe同步小工具放在和apps同级的目录下。  
 
 <img  src="image/hw_1.png" /> 
 
-4.	要保证手机和自己的开发电脑在同一个wifi内，并且可以网通。  
+4.要保证手机和自己的开发电脑在同一个wifi内，并且可以网通。  
 
-5.	然后开启SpriteHttpServer.exe。
+5.然后开启SpriteHttpServer.exe。
 
  
 ##  新建项目    
 
-1.	在apps目录下创建一个名为app.json的文件（文件名固定写法），然后编写如下json内容：  
+1.在apps目录下创建一个名为app.json的文件（文件名固定写法），然后编写如下json内容：  
 
 <img  src="image/hw_2.png" />   
 
@@ -43,7 +43,7 @@ android手机对应目录：
 <img  src="image/hw_15.png" />  
 
 
-2.	创建程序入口文件home.js  
+2.创建程序入口文件home.js  
 
 该文件名和文件路径和app.json里面指向的保存一致即可，上图示例中home.js文件是直接放在apps根目录下。然后编写home.js里面的内容代码如下：  
 
@@ -81,7 +81,7 @@ app.on("launch",function(e,jsonData){
 
 关于home.js里面的配置说明，我们后面会详细介绍，home.js作为程序入口，那么就需要指定一个应用程序的起始页面，示例代码里面指向了res:myapp/index.uixml。  
 
-3.	根据指定的路径创建myapp文件目录，并且创建一个index.uixml文件。  
+3.根据指定的路径创建myapp文件目录，并且创建一个index.uixml文件。  
 
 <img  src="image/hw_3.png" />  
 <img  src="image/hw_4.png" />   
