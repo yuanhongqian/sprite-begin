@@ -9,7 +9,7 @@
 			},			
 			{
 				"subject": "平台功能简介",
-				"mdlink": "switch"
+				"mdlink": ""
 			},
 			{
 				"subject": "Flex布局原理",
@@ -17,7 +17,7 @@
 			},
 			{
 				"subject": "完成一个sprite应用",
-				"mdlink": "checkbox"
+				"mdlink": ""
 			}
 		 ]
         }
