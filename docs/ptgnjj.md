@@ -223,7 +223,7 @@ Sprite处理逻辑为：@import  url("xxx")不是绝对路径，则进行require
 
 Sprite平台中，js遵循 JavaScript(ES5)语法规范，基于ES5标准的js函数都可以使用，例如Date和Math对象里面的函数，不过由于平台的差异性android和ios采用的javascript引擎并不一样，Android采用google v8引擎，jni桥接，iOS使用系统Javascript core，可能在某些特殊的函数上有细微的差别，比如Math里面关于三角形勾股定理的函数ios有，android就没有，这个开发者如果遇到需要留意下。  
 
-在sprite页面中js代码必须写在.uixml文件中<script>中，如果需要封装函数，javascript代码可作为函数模块，这样可在不同项目或页面中方便使用。  
+在sprite页面中js代码必须写在.uixml文件中&lt;script&gt;中，如果需要封装函数，javascript代码可作为函数模块，这样可在不同项目或页面中方便使用。  
 
 Sprite采用CommonJS规范，JS模块中通过module.exports实现函数声明，通过require("模块标识")来加载外部JS模块。  
 
