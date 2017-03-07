@@ -2,6 +2,8 @@
 
 ----------
 
+>示例代码下载：[helloworld.zip](https://github.com/yuanhongqian/sprite_introduction/blob/master/src/helloworld.zip?raw=true "helloworld.zip")
+
 ## 开发环境搭建  
 
 1.	从官网下载Mbuilder5 IDE，sprite客户端（apk和ipa）和代码同步小工具SpriteHttpServer.exe。  
