@@ -16,6 +16,22 @@
 				"mdlink": "flexbjyl"
 			},
 			{
+				"subject": "公共属性",
+				"mdlink": "ggsx"
+			},
+			{
+				"subject": "公共样式",
+				"mdlink": "ggys"
+			},
+			{
+				"subject": "公共事件",
+				"mdlink": "ggsj"
+			},
+			{
+				"subject": "公共方法",
+				"mdlink": "ggff"
+			},
+			{
 				"subject": "完成一个sprite应用",
 				"mdlink": "spirteapp"
 			}
