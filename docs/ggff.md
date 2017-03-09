@@ -136,10 +136,16 @@ jsonData：组件动画定义，Json类型 ，json属性如下：
 > 
 > pivotY：缩放/旋转动画时设置起点y轴起点位置，取值0 - 1，可选项；
 > 
-> 注：pivotX，pivotY 设置的是位置比例，比如pivotX=0;pivotY=0 表示的控件左上角顶点位置；pivotX=0;pivotY=0.5 表示控件左侧Y轴中间位置；pivotX=0.5;pivotY=0.5标示控件中心点位置（默认就是该位置）；
+> animationSet：组件动画定义，Json数组格式，必选项，动画包括：opacity透明度动画，transfer位移动画，scale缩放动画，rotate旋转动画四种类型，Json参数定义如下：
+
+** 注：** 
+
+- pivotX，pivotY 设置的是位置比例，比如pivotX=0;pivotY=0 表示的控件左上角顶点位置；pivotX=0;pivotY=0.5 表示控件左侧Y轴中间位置；pivotX=0.5;pivotY=0.5标示控件中心点位置（默认就是该位置）；
+
+- animationSet存放的是动画json数组，如果有多种动画同时执行，定义各种动画的json数据，存放在animationSet数组里即可。
 
 
-animationSet：组件动画定义，Json数组格式，必选项，动画包括：opacity透明度动画，transfer位移动画，scale缩放动画，rotate旋转动画四种类型，Json参数定义如下：  
+animationSet数组格式中各个动画Json属性定义如下：  
 
 【opacity透明度动画】，json属性如下：  
 
