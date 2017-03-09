@@ -171,7 +171,7 @@ animationSet数组格式中各个动画Json属性定义如下：
 
 示例：  
 
-````javascript
+```javascript
 var jsonData = {};
 jsonData.fillAfter = 0;
 var animationSet = new Array();
@@ -221,7 +221,7 @@ button.startAnimation(jsonData,function(code){
 
 示例： 
 
-````javascript
+```javascript
 var jsonData = {};
 jsonData.fillAfter = 0;
 var animationSet = new Array();
@@ -276,7 +276,7 @@ button.startAnimation(jsonData,function(code){
 
 示例： 
 
-````javascript
+```javascript
 var jsonData = {};
 jsonData.fillAfter = 0;
 var animationSet = new Array();
@@ -327,7 +327,7 @@ button.startAnimation(jsonData,function(code){
 
 示例： 
 
-````javascript
+```javascript
 var jsonData = {};
 //这里设置从右下角旋转
 jsonData.pivotX = 1;
@@ -349,8 +349,7 @@ jsonData.animationSet = animationSet;
 button.startAnimation(jsonData,function(code){
 //动画结束后，回调里面做处理
 });
-
-```
+```  
 
 function：组件动画结束回调函数，可选参数，入参为Json对象，定义如下：  
 
