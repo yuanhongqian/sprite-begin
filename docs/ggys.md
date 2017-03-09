@@ -112,3 +112,140 @@ Sprite盒模型基于 CSS 盒模型，每个UI组件均可视作一个盒子，�
 
 ## 边框 ##  
 
+ 边框样式，【solid,dashed,dotted】  
+>  solid：定义实线（默认）  
+>  
+>  dashed：定义虚线  
+>  
+>  dotted：定义点状边框
+
+**border-color**    
+
+> 边框色，默认transparent  
+
+**border-width**   
+
+> 边框宽度，默认0dp  
+
+**border-radius** 
+
+> 边框弧度，默认0  
+
+**border-bottom-left-radius**
+
+
+> 左下边框弧度，默认0  
+
+**border-bottom-right-radius**
+
+
+> 右下边框弧度，默认0  
+
+**border-top-left-radius**
+
+> 左上边框弧度，默认0  
+
+**border-bottom-left-radius**  
+
+> 左下边框弧度，默认0
+
+
+## 背景 ##  
+
+**background-color**
+
+
+> 设置背景色，默认值transparent透明色；  
+
+**opacity**  
+
+> 透明度，数字，取值范围为 [0, 1]。默认值是 1，即完全不透明；0 是完全透明；0.5 是 50% 的透明度；  
+
+**注：**  
+
+- opacity设置的是整个控件的透明，如果控件是容器，那么容器内部所有的控件都会跟着一起变透明。如果想实现背景色透明，可以使用background-color:rgba(rgba(255, 0, 0, 0.5))来设置。    
+
+## 文本样式 ##  
+
+文档类组件共享一些共同特性, 如：text，textfiled，textarea；  
+
+**color**
+
+> 文字颜色，默认值#333333；  
+
+**font-size**
+
+> 文字大小，数字，单位dp，默认16  
+
+**font-style**
+
+> 字体类别，【normal,italic】 
+>
+> - normal：普通字体；（默认）
+> 
+> -  italic：斜体；  
+
+**font-weight**
+> 字体粗细程度，【normal,bold】
+>  -  normal：正常字体；（默认）
+>  -  bold：粗体；  
+
+
+**text-decoration**  
+
+> 字体装饰样式，【none,underline,line-through】  
+> 
+> -  none: 无装饰；（默认）  
+> 
+> -  underline：文字装饰为下划线；  
+> 
+> -  line-through：文字装饰为中间贯穿线；  
+
+
+**text-align**
+
+> 文字水平方向对齐方式，【left,center,right】
+> 
+> - left：文本水平方向左对齐；（默认）
+> 
+> - center：文本水平方向居中对齐；
+> 
+> - right：文本水平方向右对齐；
+
+
+**text-overflow**  
+
+> 内容超长时文本省略样式，【clip,ellipsis】
+> 
+> - clip：省略无法显示文本；（默认）
+> 
+> - ellipsis：显示省略符号来代表被裁剪的文本；
+
+**注：** 
+
+- 如果想设置文字为省略样式，首先必须设置文本单行显示，如text样式singleline：true，并且text宽度应该小于等于父容器的宽度。  
+
+**显影**  
+
+**display**  
+
+> 控件是否显示，字符串枚举型，【block,none】 
+> - block：显示；
+> 
+> - none：隐藏，且不分配占位空间，注：使用该属性显隐控件后，需要调用document.refresh()刷新布局；  
+
+**visibility**  
+
+> 控件是否可见，字符串枚举型，【visible, hidden】  
+> 
+> - visible：显示； 
+> 
+> - hidden：隐藏，分配占位空间，不需要document.refresh()进行布局刷新;  
+
+**注：**  
+
+在使用显影控制时，如果不涉及整个页面布局变动，建议用visibility来做显影，这样就不要刷新布局，提高显影效率。那么什么情况下是布局变动呢，比如隐藏一个控件后，这个控件下面的控件都会网上移动，这种情况下需要使用document.refresh()刷新页面布局。  
+
+**flexbox布局**
+
+参考 [flexbox布局原理](https://gitdocument.exmobi.cn/sprite-begin/flexbjyl.html)  
