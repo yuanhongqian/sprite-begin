@@ -169,6 +169,29 @@ animationSet数组格式中各个动画Json属性定义如下：
 > 
 > to：动画结束透明值，数字类型，取值0-1，0表示透明，0表示透明，1标识不透明；  
 
+示例：  
+
+````javascript
+var jsonData = {};
+jsonData.fillAfter = 0;
+var animationSet = new Array();
+var opacityAni = {};
+opacityAni.type = "opacity";
+opacityAni.delay = 1000;
+opacityAni.duration = 1000;
+opacityAni.curve = "ease_out";
+opacityAni.from = 0;
+opacityAni.to = 1;
+animationSet.push(opacityAni);
+
+jsonData.animationSet = animationSet;
+
+//启动动画
+button.startAnimation(jsonData,function(code){
+//动画结束后，回调里面做处理
+});
+
+```
 
 【transfer位移动画】，json属性如下： 
 
@@ -196,6 +219,34 @@ animationSet数组格式中各个动画Json属性定义如下：
 > 
 > toY：结束y坐标；
 
+示例： 
+
+````javascript
+var jsonData = {};
+jsonData.fillAfter = 0;
+var animationSet = new Array();
+
+var transferAni = {};
+transferAni.type = "transfer";
+transferAni.delay = 0;
+transferAni.duration = 1000;
+transferAni.curve = "ease_out";
+transferAni.fromX = 0;
+transferAni.toX = 100;
+transferAni.fromY = 0;
+transferAni.toY = -100;
+animationSet.push(transferAni);
+
+jsonData.animationSet = animationSet;
+
+//启动动画
+button.startAnimation(jsonData,function(code){
+//动画结束后，回调里面做处理
+});
+
+```
+
+
 【scale缩放动画】，json属性如下：  
 
 > type：动画类型，字符串，固定为"scale"; 
@@ -222,6 +273,35 @@ animationSet数组格式中各个动画Json属性定义如下：
 > 
 > scaleToY：结束y的伸缩比例；
 
+
+示例： 
+
+````javascript
+var jsonData = {};
+jsonData.fillAfter = 0;
+var animationSet = new Array();
+
+var scaleAni = {};
+scaleAni.type = "scale";
+scaleAni.delay = 0;
+scaleAni.duration = 1000;
+scaleAni.curve = "ease_out";
+scaleAni.scaleFromX = 1;
+scaleAni.scaleToX = 2;
+scaleAni.scaleFromY = 1;
+scaleAni.scaleToY = 2;
+animationSet.push(scaleAni);
+
+jsonData.animationSet = animationSet;
+
+//启动动画
+button.startAnimation(jsonData,function(code){
+//动画结束后，回调里面做处理
+});
+
+```
+
+
 【rotate旋转动画】 ，json属性如下：
 
 > type：动画类型，字符串，固定为"rotate";
@@ -244,6 +324,33 @@ animationSet数组格式中各个动画Json属性定义如下：
 > 
 > toDegree：结束旋转角度，数字；
 
+
+示例： 
+
+````javascript
+var jsonData = {};
+//这里设置从右下角旋转
+jsonData.pivotX = 1;
+jsonData.pivotY = 1;
+jsonData.fillAfter = 0;
+var animationSet = new Array();
+
+var rotateAni = {};
+rotateAni.type = "rotate";
+rotateAni.duration = 1000;
+rotateAni.curve = "ease_out";
+rotateAni.fromDegree = 0;
+rotateAni.toDegree = 180;
+animationSet.push(rotateAni);
+
+jsonData.animationSet = animationSet;
+
+//启动动画
+button.startAnimation(jsonData,function(code){
+//动画结束后，回调里面做处理
+});
+
+```
 
 function：组件动画结束回调函数，可选参数，入参为Json对象，定义如下：  
 
