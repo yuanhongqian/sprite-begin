@@ -140,11 +140,11 @@ Sprite中css全部是官方定义的，可能部分写法和标准css3类似，�
 
 目前sprite中支持类型选择器、ID选择器和类选择器3种形式。  
 
->类型选择器：  
+**类型选择器：**  
 
-语法：E { sRules }  
-
-说明：以UI组件类型(Type Selector)作为UI对象选择符。  
+> 语法：E { sRules }  
+> 
+> 说明：以UI组件类型(Type Selector)作为UI对象选择符。  
 
 示例如下：  
 
@@ -162,11 +162,11 @@ text {
 </style>  
 ```  
 
->ID选择器  
+**ID选择器：**   
 
-语法： #myid { sRules }  
-
-说明：以唯一标识符id属性作为UI对象选择符  
+> 语法： #myid { sRules }  
+> 
+> 说明：以唯一标识符id属性作为UI对象选择符  
 
 示例：
 
@@ -180,13 +180,13 @@ text {
   
 ``` 
 
->类选择器  
+**类选择器：**  
 
 类选择器一般用的是比较多的一种写法。  
 
-语法： .myclass { sRules }  
-
-说明：以class属性作为UI对象选择符，类选择符可以同时定义多个,以空格分隔  
+> 语法： .myclass { sRules }  
+> 
+> 说明：以class属性作为UI对象选择符，类选择符可以同时定义多个,以空格分隔  
 
 示例：  
 
@@ -202,7 +202,7 @@ text {
 
 ###  CSS外部导入  
 
-> 路径说明  
+**路径说明：**   
 
 css样式和css文件导入都必须写在&lt;style&gt;标签里面，sprite中支持3种外部路径的写法来引入css样式文件，格式为：@import  url("CSS路径")。  
 注：路径必须是本地路径，不支持网络的css路径。  
@@ -213,7 +213,7 @@ css样式和css文件导入都必须写在&lt;style&gt;标签里面，sprite中�
 
 路径标识：在入口文件的require.config中的cssPaths节点配置css文件的标识，引入时直接写标识即可；     
 
-> 优先级  
+**优先级：**  
 
 Sprite处理逻辑为：@import  url("xxx")不是绝对路径，则进行require.config里配置的标识匹配，若无法匹配则再进行相对路径处理。  
 
@@ -225,7 +225,7 @@ Sprite平台中，js遵循 JavaScript(ES5)语法规范，基于ES5标准的js函
 
 Sprite采用CommonJS规范，JS模块中通过module.exports实现函数声明，通过require("模块标识")来加载外部JS模块。  
 
-> 定义js函数  
+**定义js函数**  
 
 JS模块文件后缀为.js, JS模块中通过module.exports实现函数声明，示例如下：  
 
@@ -256,7 +256,7 @@ module.exports = {
 };
 ```  
 
-> 使用js函数    
+**使用js函数**    
 
 通过require("js模块标识|js文件绝对路由|js文件相对路径")来加载外部JS模块，只支持加载本地js文件，传入模块标识为js文件路径，支持绝对路径及相对路径。  
 
@@ -300,6 +300,6 @@ var  result = calculate.sum(8,12);
 
 ```
 
-> 优先级：  
+**优先级：**  
 
 Sprite处理逻辑为：若require("xx")不是绝对路径，则进行require.config里配置的标识匹配，若无法匹配则再进行相对路径处理。

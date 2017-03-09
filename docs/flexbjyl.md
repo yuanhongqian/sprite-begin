@@ -8,13 +8,13 @@ Sprite从web中借鉴了Flexbox模式，采用facebook提供的布局库css-layo
 
 Sprite采用Flexbox布局模型，工作原理和web上的CSS基本一致，可视为子集，以下为详细说明。  
 
-> flex-direction  
+**flex-direction**   
 
-定义flex 容器中 flex 成员项的排列方向，【row, column】  
-
-- row：从左到右  
-
-- column：从上到下（默认）  
+> 定义flex 容器中 flex 成员项的排列方向，【row, column】  
+> 
+> - row：从左到右  
+> 
+> - column：从上到下（默认）  
 
 
 > flex-wrap  
