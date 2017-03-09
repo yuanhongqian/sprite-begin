@@ -67,6 +67,7 @@ button.fire("click");
 //带参数事件触发
 var params = new Array();
 params.concat("George","John");
+//params 是数组，这里传递了2个参数给login事件，接受参数参考上面on的示例
 button.fire("login", params);
 ``` 
 
@@ -131,14 +132,16 @@ jsonData：组件动画定义，Json类型 ，json属性如下：
 > 
 > -  1：动画结束停留在最后一帧；
 > 
-> pivotX：缩放/旋转动画时设置起点x坐标，可选项；
+> pivotX：缩放/旋转动画时设置起点x轴起点位置，取值0 - 1，可选项；
 > 
-> pivotY：缩放/旋转动画时设置起点y坐标，可选项；
+> pivotY：缩放/旋转动画时设置起点y轴起点位置，取值0 - 1，可选项；
+> 
+> 注：pivotX，pivotY 设置的是位置比例，比如pivotX=0;pivotY=0 表示的控件左上角顶点位置；pivotX=0;pivotY=0.5 表示控件左侧Y轴中间位置；pivotX=0.5;pivotY=0.5标示控件中心点位置（默认就是该位置）；
 
 
 animationSet：组件动画定义，Json数组格式，必选项，动画包括：opacity透明度动画，transfer位移动画，scale缩放动画，rotate旋转动画四种类型，Json参数定义如下：  
 
-<code>opacity透明度动画</code>，json属性如下：  
+**opacity透明度动画**，json属性如下：  
 
 > type：动画类型，字符串，固定为"opacity";  
 > 
@@ -161,7 +164,7 @@ animationSet：组件动画定义，Json数组格式，必选项，动画包括�
 > to：动画结束透明值，数字类型，取值0-1，0表示透明，0表示透明，1标识不透明；  
 
 
-<code>transfer位移动画</code>，json属性如下： 
+**transfer位移动画**，json属性如下： 
 
 > type：动画类型，字符串，固定为"transfer";  
 > 
@@ -187,7 +190,7 @@ animationSet：组件动画定义，Json数组格式，必选项，动画包括�
 > 
 > toY：结束y坐标；
 
-<code>scale缩放动画</code>，json属性如下：  
+**scale缩放动画**，json属性如下：  
 
 > type：动画类型，字符串，固定为"scale"; 
 > 
@@ -213,17 +216,38 @@ animationSet：组件动画定义，Json数组格式，必选项，动画包括�
 > 
 > scaleToY：结束y的伸缩比例；
 
-【rotate旋转动画】
-type：动画类型，字符串，固定为"rotate";
-delay：动画延迟时间，数字类型，单位毫秒；
-duration：动画过渡时间，数字类型，单位毫秒；
-curve：动画速率，字符串枚举型，【ease_in, ease_out, ease_in_out, linear】，ease_in：动画启动的时候慢；ease_out：动画结束的时候慢；ease_in_out：动画启动时候慢，中间快，结束的时候慢；linear动画速度不变（默认）；
-fromDegree：起始旋转角度，数字；
-toDegree：结束旋转角度，数字；
+**rotate旋转动画**  ，json属性如下：
 
-function：组件动画结束回调函数，可选参数，入参为Json对象，定义如下：
-code：回应状态码，数字[0,-1]。 0：执行动画成功；-1：执行动画失败； 
+> type：动画类型，字符串，固定为"rotate";
+> 
+> delay：动画延迟时间，数字类型，单位毫秒；
+> 
+> duration：动画过渡时间，数字类型，单位毫秒；
+> 
+> curve：动画速率，字符串枚举型，【ease_in, ease_out, ease_in_out, linear】
+> 
+> - ease_in：动画启动的时候慢；
+> 
+> - ease_out：动画结束的时候慢；
+> 
+> - ease_in_out：动画启动时候慢，中间快，结束的时候慢；
+> 
+> - linear动画速度不变（默认）；
+> 
+> fromDegree：起始旋转角度，数字；
+> 
+> toDegree：结束旋转角度，数字；
+
+
+function：组件动画结束回调函数，可选参数，入参为Json对象，定义如下：  
+
+> code：回应状态码，数字【0,-1】  
+> 
+> -  0：执行动画成功；
+> 
+> - -1：执行动画失败； 
+
 
 返回值：无
 
-注：该方法仅做动画效果，并不涉及UI组件真实属性变化
+**注：** 该方法仅做动画效果，并不涉及UI组件真实属性变化，如果不设置fillAfter=1，那么该方法做完动画后，直接还原。 
