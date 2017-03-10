@@ -366,45 +366,6 @@ function：组件动画结束回调函数，可选参数，入参为Json对象�
 
 **注：**  该方法仅做动画效果，并不涉及UI组件真实属性变化，如果不设置fillAfter=1，那么该方法做完动画后，直接还原。 
 
-示例：  
-
-```javascript
-
-//多种动画组合
-var jsonData = {};
-//这里设置从右下角旋转
-jsonData.pivotX = 1;
-jsonData.pivotY = 1;
-jsonData.fillAfter = 0;
-var animationSet = new Array();
-//缩放动画
-var scaleAni = {};
-scaleAni.type = "scale";
-scaleAni.delay = 0;
-scaleAni.duration = 1000;
-scaleAni.curve = "ease_out";
-scaleAni.scaleFromX = 1;
-scaleAni.scaleToX = 2;
-scaleAni.scaleFromY = 1;
-scaleAni.scaleToY = 2;
-animationSet.push(scaleAni);
-//旋转动画
-var rotateAni = {};
-rotateAni.type = "rotate";
-rotateAni.duration = 1000;
-rotateAni.curve = "ease_out";
-rotateAni.fromDegree = 0;
-rotateAni.toDegree = 180;
-animationSet.push(rotateAni);
-
-jsonData.animationSet = animationSet;
-//启动动画
-button.startAnimation(jsonData,function(code){
-//动画结束后，回调里面做处理
-});
-
-```  
-
 **void startAnimator(jsonData,function)**  
 
 <code>启动UI组件属性动画</code>  
