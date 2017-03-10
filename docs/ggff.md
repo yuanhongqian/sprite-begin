@@ -4,13 +4,15 @@
   
 ## 事件相关 ##
 
-[void on(messageName,function)](#jjxg_1)   
-
-[void fire(messageName,params)](#jjxg_2)   
-
-[void off(messageName,function)](#jjxg_3)  
- 
-[Array getOn(messageName)](#jjxg_4)   
+本节目录：  
+> 
+> [void on(messageName,function)](#jjxg_1)   
+> 
+> [void fire(messageName,params)](#jjxg_2)   
+> 
+> [void off(messageName,function)](#jjxg_3)  
+>  
+> [Array getOn(messageName)](#jjxg_4)   
 
 
 <span id="jjxg_1">**void on(messageName,function)**</span>
