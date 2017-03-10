@@ -4,7 +4,16 @@
   
 ## 事件相关 ##
 
-**void on(messageName,function)**
+[void on(messageName,function)](#jjxg_1)   
+
+[void fire(messageName,params)](#jjxg_2)   
+
+[void off(messageName,function)](#jjxg_3)  
+ 
+[Array getOn(messageName)](#jjxg_4)   
+
+
+<span id="jjxg_1">**void on(messageName,function)**</span>
 
 <code> 组件注册事件的触发函数</code>
 
@@ -47,7 +56,7 @@ button.on("login", function (event, param1, param2) {
 ```
 
 
-**void fire(messageName,params)**
+<span id="jjxg_2">**void fire(messageName,params)**</span>
 
 <code>组件事件的触发函数</code>
 
@@ -71,7 +80,7 @@ params.concat("George","John");
 button.fire("login", params);
 ``` 
 
-**void off(messageName,function)**  
+<span id="jjxg_3">**void off(messageName,function)** </span>
 
 <code>组件移除事件的触发函数</code>  
 
@@ -98,7 +107,7 @@ function onButtonClick(){
 }
 ```  
 
-**Array getOn(messageName)**  
+<span id="jjxg_2">**Array getOn(messageName)**</span>  
 
 <code>获取已绑定的事件的触发函数</code>  
 
@@ -534,7 +543,27 @@ jsonData：组件关键帧动画设置对象，json类型，定义如下：
 settings数组中每个成员均为json对象，定义如下：
 
 
-> value：动画关键帧设置；
+> value：动画关键帧设置，不同type，value值对应如下；
+> 
+> - translationX：控件X轴方向位移，数字；
+> 
+> - translationY：控件Y轴方向位移，数字；
+>  
+> - scaleX：控件X轴方向缩放比例，数字；
+>  
+> - scaleY：控件Y轴方向缩放比例，数字；
+>  
+> - scale：控件缩放比例，数字；
+>  
+> - rotation：控件Z轴旋转角度，数字；
+>  
+> - rotationX：控件X轴旋转角度，数字；
+>  
+> - rotationY：控件Y轴旋转角度，数字；
+>  
+> - opacity：控件透明度设置，数字，取值，[0,1]；
+>  
+> - backgroundColor：背景色设置，字符串类型，#rrggbbaa；
 > 
 >  keyTimes：到关键帧时指定时间点比例，数字类型，0-1之间；
 >  
@@ -549,28 +578,8 @@ settings数组中每个成员均为json对象，定义如下：
 > -  linear动画速度不变（默认）；
 
 
-不同动画类型value值设置定义如下：    
 
-> translationX：控件X轴方向位移，数字；
-> 
-> translationY：控件Y轴方向位移，数字；
-> 
-> scaleX：控件X轴方向缩放比例，数字；
-> 
-> scaleY：控件Y轴方向缩放比例，数字；
-> 
-> scale：控件缩放比例，数字；
-> 
-> rotation：控件Z轴旋转角度，数字；
-> 
-> rotationX：控件X轴旋转角度，数字；
-> 
-> rotationY：控件Y轴旋转角度，数字；
-> 
-> opacity：控件透明度设置，数字，取值，[0,1]；
-> 
-> backgroundColor：背景色设置，字符串类型，#rrggbbaa；  
-
+ 
 
 function：组件动画结束回调函数，可选参数，入参为Json对象，定义如下：  
 
