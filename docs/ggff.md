@@ -115,8 +115,9 @@ messageName：注册消息标识，字符串类型，必选项；
 ```javascript
 var eventarr = boxObj.getOn("click");
 ```  
+  
 
-## 动画相关 ##  
+## 动画相关 ##   
 
 **void startAnimation(jsonData,function)**  
 
@@ -211,13 +212,13 @@ button.startAnimation(jsonData,function(code){
 > 
 > - linear动画速度不变（默认）；
 > 
-> fromX：起始x坐标；
+> fromX：起始x坐标； 
 > 
-> fromY：起始y坐标；
+> fromY：起始y坐标；  
 > 
-> toX：结束x坐标；
+> toX：结束x坐标；  
 > 
-> toY：结束y坐标；
+> toY：结束y坐标；  
 
 示例： 
 
@@ -325,7 +326,47 @@ button.startAnimation(jsonData,function(code){
 > toDegree：结束旋转角度，数字；
 
 
-示例： 
+示例：  
+
+
+```javascript  
+var jsonData = {};
+//这里设置从右下角旋转
+jsonData.pivotX = 1;
+jsonData.pivotY = 1;
+jsonData.fillAfter = 0;
+var animationSet = new Array();
+
+var rotateAni = {};
+rotateAni.type = "rotate";
+rotateAni.duration = 1000;
+rotateAni.curve = "ease_out";
+rotateAni.fromDegree = 0;
+rotateAni.toDegree = 180;
+animationSet.push(rotateAni);
+
+jsonData.animationSet = animationSet;
+
+//启动动画
+button.startAnimation(jsonData,function(code){
+//动画结束后，回调里面做处理
+});  
+
+```   
+
+function：组件动画结束回调函数，可选参数，入参为Json对象，定义如下：  
+
+> code：回应状态码，数字【0,-1】  
+> 
+> -  0：执行动画成功；
+> 
+> - -1：执行动画失败；
+
+返回值：无
+
+**注：**  该方法仅做动画效果，并不涉及UI组件真实属性变化，如果不设置fillAfter=1，那么该方法做完动画后，直接还原。 
+
+示例：  
 
 ```javascript
 
@@ -363,49 +404,6 @@ button.startAnimation(jsonData,function(code){
 });
 
 ```  
-
-function：组件动画结束回调函数，可选参数，入参为Json对象，定义如下：  
-
-> code：回应状态码，数字【0,-1】  
-> 
-> -  0：执行动画成功；
-> 
-> - -1：执行动画失败； 
-
-
-返回值：无
-
-**注：** 该方法仅做动画效果，并不涉及UI组件真实属性变化，如果不设置fillAfter=1，那么该方法做完动画后，直接还原。 
-
-示例：
-
-```javascript  
-var jsonData = {};
-//这里设置从右下角旋转
-jsonData.pivotX = 1;
-jsonData.pivotY = 1;
-jsonData.fillAfter = 0;
-var animationSet = new Array();
-
-
-
-
-var rotateAni = {};
-rotateAni.type = "rotate";
-rotateAni.duration = 1000;
-rotateAni.curve = "ease_out";
-rotateAni.fromDegree = 0;
-rotateAni.toDegree = 180;
-animationSet.push(rotateAni);
-
-jsonData.animationSet = animationSet;
-
-//启动动画
-button.startAnimation(jsonData,function(code){
-//动画结束后，回调里面做处理
-});
-```  
-
 
 **void startAnimator(jsonData,function)**  
 
@@ -469,9 +467,9 @@ function：组件动画结束回调函数，可选参数，入参为Json对象�
 
 > code：回应状态码，数字【0,-1】
 > 
-> - 0：执行动画成功；
+> -   0：执行动画成功；
 > 
-> - -1：执行动画失败； 
+> -  -1：执行动画失败； 
 
 返回值：无
 
@@ -516,9 +514,10 @@ testBtn.startAnimator(jsonData, function(code){
 });
 ```
 
-
+  
 ## 尺寸和位置 ##  
 
 **jsonData getFrame()**  
 
-<code>获取组件在父容器中的位置</code>
+<code>获取组件在父容器中的位置</code>  
+
