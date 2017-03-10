@@ -328,6 +328,7 @@ button.startAnimation(jsonData,function(code){
 示例： 
 
 ```javascript
+
 //多种动画组合
 var jsonData = {};
 //这里设置从右下角旋转
@@ -335,7 +336,6 @@ jsonData.pivotX = 1;
 jsonData.pivotY = 1;
 jsonData.fillAfter = 0;
 var animationSet = new Array();
-
 //缩放动画
 var scaleAni = {};
 scaleAni.type = "scale";
@@ -347,7 +347,6 @@ scaleAni.scaleToX = 2;
 scaleAni.scaleFromY = 1;
 scaleAni.scaleToY = 2;
 animationSet.push(scaleAni);
-
 //旋转动画
 var rotateAni = {};
 rotateAni.type = "rotate";
@@ -358,11 +357,11 @@ rotateAni.toDegree = 180;
 animationSet.push(rotateAni);
 
 jsonData.animationSet = animationSet;
-
 //启动动画
 button.startAnimation(jsonData,function(code){
 //动画结束后，回调里面做处理
 });
+
 ```  
 
 function：组件动画结束回调函数，可选参数，入参为Json对象，定义如下：  
@@ -380,7 +379,7 @@ function：组件动画结束回调函数，可选参数，入参为Json对象�
 
 示例：
 
-```javascript
+```javascript  
 var jsonData = {};
 //这里设置从右下角旋转
 jsonData.pivotX = 1;
