@@ -109,7 +109,7 @@ function onButtonClick(){
 }
 ```  
 
-<span id="jjxg_2">**Array getOn(messageName)**</span>  
+<span id="jjxg_4">**Array getOn(messageName)**</span>  
 
 <code>获取已绑定的事件的触发函数</code>  
 
@@ -128,9 +128,19 @@ var eventarr = boxObj.getOn("click");
 ```  
   
 
-## 动画相关 ##   
+## 动画相关 ##     
 
-**void startAnimation(jsonData,function)**  
+本节目录：  
+> 
+> [void startAnimation(jsonData,function)](#dhxg_1)   
+> 
+> [void startAnimator(jsonData,function)](#dhxg_2)   
+> 
+> [void startKeyFrameAnimator(jsonData,function)](#dhxg_3)  
+>  
+> [void  releaseAnimator()](#dhxg_4)   
+
+<span id="dhxg_1">**void startAnimation(jsonData,function)**</span>
 
 <code>启动UI组件动画</code>   
 
@@ -416,7 +426,7 @@ button.startAnimation(jsonData,function(code){
 
 ```  
 
-**void startAnimator(jsonData,function)**  
+<span id="dhxg_2">**void startAnimator(jsonData,function)**</span>  
 
 <code>启动UI组件属性动画</code>  
 
@@ -525,7 +535,7 @@ testBtn.startAnimator(jsonData, function(code){
 });
 ```
 
-**void startKeyFrameAnimator(jsonData,function)**  
+<span id="dhxg_3">**void startKeyFrameAnimator(jsonData,function)**</span>  
 
 <code>启动UI组件关键帧动画</code>    
 
@@ -633,7 +643,7 @@ thisDom.startKeyFrameAnimator(jsonData, aniCallBack);
 - 帧动画执行后需要调用releaseAnimator()方法释放动画，效果和属性动画一样。
 
   
-**releaseAnimator**  
+<span id="dhxg_4">**void releaseAnimator()**</span>  
 
 <code>结束控件动画</code>    
 
@@ -646,6 +656,8 @@ thisDom.startKeyFrameAnimator(jsonData, aniCallBack);
  
 
 ## 尺寸和位置 ##  
+
+
 
 **jsonData getFrame()**  
 
