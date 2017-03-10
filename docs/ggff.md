@@ -656,7 +656,15 @@ thisDom.startKeyFrameAnimator(jsonData, aniCallBack);
  
 
 ## 尺寸和位置 ##  
-
+本节目录：  
+> 
+> [jsonData getFrame()](#cchwz_1)   
+> 
+> [void setFrame(frame)](#cchwz_2)   
+> 
+> [jsonData getCenter()](#cchwz_3)  
+>  
+> [jsonData getAbsoluteFrame()](#cchwz_4)   
 
 
 **jsonData getFrame()**  
