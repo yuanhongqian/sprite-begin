@@ -514,12 +514,131 @@ testBtn.startAnimator(jsonData, function(code){
 });
 ```
 
+**void startKeyFrameAnimator(jsonData,function)**  
+
+<code>启动UI组件关键帧动画</code>    
+
+
+参数：  
+
+jsonData：组件关键帧动画设置对象，json类型，定义如下：  
+
+> type：关键帧动画类型，包括【translationX, translationY,scaleX,scaleY,scale,rotate, rotationX , rotationY,opacity, backgroundColor】  
+> 
+> duration：动画过渡时间，数字类型，单位毫秒；
+> 
+> settings：关键帧设置，顺序执行，数组类型：
+
+
+
+settings数组中每个成员均为json对象，定义如下：
+
+
+> value：动画关键帧设置；
+> 
+>  keyTimes：到关键帧时指定时间点比例，数字类型，0-1之间；
+>  
+> curve：动画速率，字符串枚举型，【ease_in, ease_out, ease_in_out, linear】
+> 
+> -  ease_in：动画启动的时候慢；
+> 
+> -  ease_out：动画结束的时候慢；
+> 
+> -  ease_in_out：动画启动时候慢，中间快，结束的时候慢；
+> 
+> -  linear动画速度不变（默认）；
+
+
+不同动画类型value值设置定义如下：    
+
+> translationX：控件X轴方向位移，数字；
+> 
+> translationY：控件Y轴方向位移，数字；
+> 
+> scaleX：控件X轴方向缩放比例，数字；
+> 
+> scaleY：控件Y轴方向缩放比例，数字；
+> 
+> scale：控件缩放比例，数字；
+> 
+> rotation：控件Z轴旋转角度，数字；
+> 
+> rotationX：控件X轴旋转角度，数字；
+> 
+> rotationY：控件Y轴旋转角度，数字；
+> 
+> opacity：控件透明度设置，数字，取值，[0,1]；
+> 
+> backgroundColor：背景色设置，字符串类型，#rrggbbaa；  
+
+
+function：组件动画结束回调函数，可选参数，入参为Json对象，定义如下：  
+
+> code：回应状态码，数字【0,-1】  
+> 
+> -  0：执行动画成功；
+> 
+> - -1：执行动画失败； 
+
+
+返回值：无  
+
+示例：  
+
+```javascript
+var jsonData = {};
+jsonData.type = "scale";
+jsonData.duration = 300;
+
+var settings = new Array();
+
+var json = {};
+json.value = 0.01;
+json.keyTimes = 0;
+json.curve = "linear";
+settings.push(json);
+
+json = {};
+json.value = 1.1;
+json.keyTimes = 0.5;
+json.curve = "linear";
+settings.push(json);
+
+json = {};
+json.value = 1.0;
+json.keyTimes = 1.0;
+json.curve = "ease_out";
+settings.push(json);
+
+jsonData.settings = settings;
+thisDom.startKeyFrameAnimator(jsonData, aniCallBack);
+
+```
+
+**注：**   
+
+- 帧动画本质上也是属性动画，其值修改后，组件真实属性也会变化，与属性动画不同的时，可以自己控制，在某个时间段上的动画效果的值。
+ 
+- 帧动画执行后需要调用releaseAnimator()方法释放动画，效果和属性动画一样。
+
   
+**releaseAnimator**  
+
+<code>结束控件动画</code>    
+
+参数：无
+
+返回值：无  
+
+**注：** UI组件执行startAnimator() ，startKeyFrameAnimator()后，需要调用该方法告知系统动画已完成，document.refresh()刷新方法方可生效。  
+
+ 
+
 ## 尺寸和位置 ##  
 
 **jsonData getFrame()**  
 
-<code>获取组件在父容器中的位置</code>    
+<code>获取组件在父容器中的位置</code> 
 
 参数：无  
 
@@ -557,12 +676,47 @@ frame：json数据格式，定义如下：
 
 **注：**   
 
-通过该方法设置frame， width，height设置至组件css样式中，x、y不会修改样式中的left和top属性。
+- 通过该方法设置frame， width，height设置至组件css样式中，x、y不会修改样式中的left和top属性。
 
-设置frame后，如果执行了document.refresh()，x和y就会还原，如果不希望还原可以在通过setStyle()手动设置对应样式。
+- 设置frame后，如果执行了document.refresh()，x和y就会还原，如果不希望还原可以在通过setStyle()手动设置对应样式。
 
 
 
+**jsonData getCenter()**  
+
+<code>获取组件中心点在父容器中的位置</code>  
+
+参数：无  
+
+返回值：json数据格式，定义如下：  
+
+> x：float型，水平位置；
+>
+> y：float型，垂直位置；
+
+
+**jsonData getAbsoluteFrame()**  
+
+
+<code>获取组件在绘制窗口中的位置</code>
+
+参数：无 
+
+返回值：json数据格式，定义如下： 
+
+> x：float型，水平位置；
+> 
+> y：float型，垂直位置；
+> 
+> width：float型，宽度；
+> 
+> height：float型，高度；
+
+**注：**  如果组件通过js动态加载进行布局，在android上可能不能马上获取到getAbsoluteFrame的值，需要做一个定时处理来获取。  
+
+
+
+## 普通Dom节点操作 ##   
 
 
 
