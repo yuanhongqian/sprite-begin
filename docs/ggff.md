@@ -519,5 +519,51 @@ testBtn.startAnimator(jsonData, function(code){
 
 **jsonData getFrame()**  
 
-<code>获取组件在父容器中的位置</code>  
+<code>获取组件在父容器中的位置</code>    
+
+参数：无  
+
+返回值：json数据格式，定义如下：  
+
+> x：float型，水平位置；  
+> 
+> y：float型，垂直位置；  
+> 
+> width：float型，宽度；  
+> 
+> height：float型，高度；
+
+**注：** 该方法获取的是组件布局完毕后在父容器中的实际位置，与样式中的width和height是有区别的，比如style样式里面设置的是flex:1，该组件布局完成后就会有个实际的width、height、x和y值，但是样式是没有设置width和height样式属性的，所以只能通过v.getFrame().width来得到宽度，不能通过v.getStyle("width");得到宽度，如果没有定义width样式v.getStyle("width")会得到一个null值。  
+
+
+
+**setFrame(frame)**  
+
+<code>设置组件在父容器中的位置</code>  
+
+参数：   
+
+frame：json数据格式，定义如下：  
+
+> x：float型，水平位置，必选项；
+> 
+> y：float型，垂直位置，必选项；
+> 
+> width：float型，宽度，必选项；
+> 
+> height：float型，高度，必选项；
+
+返回值：无  
+
+**注：**   
+
+通过该方法设置frame， width，height设置至组件css样式中，x、y不会修改样式中的left和top属性。
+
+设置frame后，如果执行了document.refresh()，x和y就会还原，如果不希望还原可以在通过setStyle()手动设置对应样式。
+
+
+
+
+
+
 
