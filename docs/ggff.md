@@ -328,6 +328,7 @@ button.startAnimation(jsonData,function(code){
 示例： 
 
 ```javascript
+//多种动画组合
 var jsonData = {};
 //这里设置从右下角旋转
 jsonData.pivotX = 1;
@@ -335,6 +336,19 @@ jsonData.pivotY = 1;
 jsonData.fillAfter = 0;
 var animationSet = new Array();
 
+//缩放动画
+var scaleAni = {};
+scaleAni.type = "scale";
+scaleAni.delay = 0;
+scaleAni.duration = 1000;
+scaleAni.curve = "ease_out";
+scaleAni.scaleFromX = 1;
+scaleAni.scaleToX = 2;
+scaleAni.scaleFromY = 1;
+scaleAni.scaleToY = 2;
+animationSet.push(scaleAni);
+
+//旋转动画
 var rotateAni = {};
 rotateAni.type = "rotate";
 rotateAni.duration = 1000;
@@ -363,3 +377,149 @@ function：组件动画结束回调函数，可选参数，入参为Json对象�
 返回值：无
 
 **注：** 该方法仅做动画效果，并不涉及UI组件真实属性变化，如果不设置fillAfter=1，那么该方法做完动画后，直接还原。 
+
+示例：
+
+```javascript
+var jsonData = {};
+//这里设置从右下角旋转
+jsonData.pivotX = 1;
+jsonData.pivotY = 1;
+jsonData.fillAfter = 0;
+var animationSet = new Array();
+
+
+
+
+var rotateAni = {};
+rotateAni.type = "rotate";
+rotateAni.duration = 1000;
+rotateAni.curve = "ease_out";
+rotateAni.fromDegree = 0;
+rotateAni.toDegree = 180;
+animationSet.push(rotateAni);
+
+jsonData.animationSet = animationSet;
+
+//启动动画
+button.startAnimation(jsonData,function(code){
+//动画结束后，回调里面做处理
+});
+```  
+
+
+**void startAnimator(jsonData,function)**  
+
+<code>启动UI组件属性动画</code>  
+
+参数：  
+
+jsonData：组件属性动画设置对象，json类型，定义如下：  
+
+> animators：动画集数组，动画顺序执行，数组中每个成员均为json对象，必选项；
+
+**注：** animators组数中动画会按照数组顺序依次执行。
+
+animators中 json属性定义如下：  
+
+> delay：动画延迟时间，数字类型，单位毫秒；
+> 
+> duration：动画过渡时间，数字类型，单位毫秒；
+> 
+> curve：动画速率，字符串枚举型，【ease_in, ease_out, ease_in_out, linear】  
+> 
+> - ease_in：动画启动的时候慢；
+> 
+> - ease_out：动画结束的时候慢；
+> 
+> - ease_in_out：动画启动时候慢，中间快，结束的时候慢；
+> 
+> - linear动画速度不变（默认）；
+> 
+> pivotX：缩放/旋转动画时设置起点x轴起点位置，取值0 - 1，可选项；；
+> 
+> pivotY：缩放/旋转动画时设置起点y轴起点位置，取值0 - 1，可选项；
+  
+> props：需要修改的属性动画值，Json对象，属性定义如下：  
+> 
+> - x：控件左上角X轴坐标，数字；
+> 
+> - y：控件左上角Y轴坐标，数字；
+> 
+> - translationX：控件X轴方向位移，数字；
+> 
+> - translationY：控件Y轴方向位移，数字；
+> 
+> - scaleX：控件X轴方向缩放比例，数字；
+> 
+> - scaleY：控件Y轴方向缩放比例，数字；
+> 
+> - rotation：控件Z轴旋转角度，数字；
+> 
+> - rotationX：控件X轴旋转角度，数字；
+> 
+> - rotationY：控件Y轴旋转角度，数字；
+> 
+> - opacity：控件透明度设置，数字，取值，[0,1]；
+> 
+> - backgroundColor：背景色设置，字符串类型，#rrggbbaa，red、yellow等，可以用rgba(0, 0, 0, 0.5)方式来设置。  
+
+**注：** 如果需要组合动画同时执行，都设置在props里面即可。
+
+function：组件动画结束回调函数，可选参数，入参为Json对象，定义如下：  
+
+> code：回应状态码，数字【0,-1】
+> 
+> - 0：执行动画成功；
+> 
+> - -1：执行动画失败； 
+
+返回值：无
+
+**注：** 
+
+- 该方法调用会引起UI组件真实属性变化，不过如果动画结束后调用releaseAnimator()方法释放动画，并执行document.refresh()，动画会全部还原。 如果希望后续有document.refresh()操作继续刷新组件，有不希望组件动画还原，可以在动画结束的回调函数里面通过setStyle方式，修改其style样式，这样控件就永远固定在动画结束位置了。
+ 
+- 属性动画开始后，组件会受到动画的保护，如果在没有releaseAnimator()释放动画前，组件是不会被document.refresh()刷新的。
+
+示例：
+
+```javascript
+
+//示例中，两个动画会按照先后顺序执行，其中动画一里面是组合动画
+
+var jsonData = {};
+var aniAry = new Array();
+//第一个动画，同时做缩放和旋转动画
+var jsonAni1 = {};
+jsonAni1.delay = 0;
+jsonAni1.duration = 1000;
+jsonAni1.curve = "linear";
+jsonAni1.props = {};
+jsonAni1.props.scaleX = 0.5;
+jsonAni1.props.scaleY = 0.5;
+jsonAni1.props.rotation = 350;
+jsonAni1.props.y = 150;
+jsonAni1.props.x = 200;
+aniAry.push(jsonAni1);
+
+//第二个动画，做背景色动画
+var jsonAni2 = {};
+jsonAni2.delay = 0;
+jsonAni2.duration = 1000;
+jsonAni2.curve = "ease_out";
+jsonAni2.props = {};          
+jsonAni2.props.backgroundColor = "rgba(0, 0, 0, 0.5)"; 
+aniAry.push(jsonAni2);
+jsonData.animators = aniAry;
+testBtn.startAnimator(jsonData, function(code){
+
+});
+```
+
+
+## 尺寸和位置 ##  
+
+**jsonData getFrame()**  
+
+<code>获取组件在父容器中的位置</code>
