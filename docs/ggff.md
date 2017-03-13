@@ -655,7 +655,8 @@ thisDom.startKeyFrameAnimator(jsonData, aniCallBack);
 
  
 
-## 尺寸和位置 ##  
+## 尺寸和位置 ##   
+
 本节目录：  
 > 
 > [jsonData getFrame()](#cchwz_1)   
@@ -1118,6 +1119,8 @@ var classstr =  v.getClassStyle();
 
 返回值：UI组件类型，字符串类型，如button组件则返回"button",box组件则返回"box";  
 
+示例：
+
 ```javascript  
 var v = document.getElement("v_id");  
 var domstr =  v.getTag();  
@@ -1127,11 +1130,119 @@ var domstr =  v.getTag();
 
 <code>获取UI组件Id标识</code>   
 
+示例：
+
 ```javascript  
 var v = document.getElement("v_id");  
 var domid =  v.getId();  
 ```  
 
-
 ## 容器类Dom节点操作 ##   
 
+本节目录：  
+> 
+> [domObj getElement (id)](#rqczdom_1)   
+> 
+> [Array getElements(rule)](#rqczdom_2)   
+> 
+> [Array getChildren()](#rqczdom_3)  
+>  
+> [domObj getFirstChild()](#rqczdom_4) 
+>  
+> [domObj getLastChild()](#rqczdom_5) 
+>  
+> [void appendChild(domObj)](#rqczdom_6) 
+>  
+> [void insertBefore(domObj,beforeDomObj)](#rqczdom_7) 
+>  
+> [void insertAfter (domObj,afterDomObj)](#rqczdom_8) 
+>  
+> [void replaceChild(newDomObj,oldDomObj)](#rqczdom_9) 
+>  
+> [void clear()](#rqczdom_10) 
+>  
+> [String getInnerHTML()](#rqczdom_11)   
+
+
+
+
+<span id="rqczdom_1">**domObj getElement (id)**</span>  
+
+<code>根据Id获取容器内UI控件对象</code>   
+
+参数：  
+
+id：UI组件的唯一标识，字符串类型；
+
+返回值：控件dom对象，若查找失败则返回null  
+
+示例：
+
+```javascript  
+var box = document.getElement("box_id");  
+
+//得到box内部某一个组件对象
+var v = v.getElement("v_id");  
+
+```  
+
+
+
+<span id="rqczdom_2">**Array getElements(rule)**</span>   
+
+<code>根据特定规则获取容器内UI控件对象集</code>   
+
+参数：  
+
+rule：查询规则，字符串类型，支持多规则同时匹配取合集，不同规则直接以,分割，支持规则包括：  
+
+> 类型选择器：如button
+> 
+> ID选择器： 如 #submit
+> 
+> 类选择器： 如 .login
+> 
+> 属性选择器[att="val"）：如 [type="text"]
+ 
+返回值：数组，数组成员为控件dom对象，若查找失败则返回length为0的空数组
+
+示例：
+
+```javascript  
+var box = document.getElement("box_id");  
+
+//根据类型选择器， 得到box下级节点里面所有text组件对象数组
+var v = v.getElements("text");  
+
+//根据ID选择器， 得到box下级节点里面所有id为ext_id对象数组
+var v = v.getElements("#text_id");  
+
+//类选择器， 得到box下级节点里面所有class类为text_class对象数组,，如：<text class="text_class">11</text>
+var v = v.getElements("#text_class");  
+
+//属性选择器， 得到box下级节点里面所有属性gourp="abc"对象数组,，如：<text gourp="abc">11</text>
+var v = v.getElements('[gourp="abc"]');  
+
+```    
+
+
+<span id="rqczdom_3">**Array getChildren()**</span>   
+
+<span id="rqczdom_4">**domObj getFirstChild()**</span>  
+
+<span id="rqczdom_5">**domObj getLastChild()**</span>  
+
+<span id="rqczdom_6">**void appendChild(domObj)**</span>  
+
+<span id="rqczdom_7">**void insertBefore(domObj,beforeDomObj)**</span>  
+
+
+<span id="rqczdom_8">**void insertAfter (domObj,afterDomObj)**</span>  
+
+<span id="rqczdom_9">**void replaceChild(newDomObj,oldDomObj)**</span>
+
+<span id="rqczdom_10">**void clear()**</span>
+
+<span id="rqczdom_11">**String getInnerHTML()**</span>
+
+  
