@@ -1393,7 +1393,7 @@ box.clear();
 返回值：容器内子节点xml，字符串类型 
 
 示例：
-
+ 
 ```javascript  
 var box = document.getElement("box_id");  
 var strxml =  box.getInnerHTML(); 
