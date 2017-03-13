@@ -251,6 +251,6 @@ Sprite支持多种取值类型，具体描述如下：
 
 在使用显影控制时，如果不涉及整个页面布局变动，建议用visibility来做显影，这样就不要刷新布局，提高显影效率。那么什么情况下是布局变动呢，比如隐藏一个控件后，这个控件下面的控件都会网上移动，这种情况下需要使用document.refresh()刷新页面布局。  
 
-**flexbox布局**
+## flexbox布局 ##
 
 参考 [flexbox布局原理](https://gitdocument.exmobi.cn/sprite-begin/flexbjyl.html)  

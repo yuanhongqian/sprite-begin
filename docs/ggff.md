@@ -160,7 +160,7 @@ jsonData：组件动画定义，Json类型 ，json属性如下：
 > 
 > animationSet：组件动画定义，Json数组格式，必选项，动画包括：opacity透明度动画，transfer位移动画，scale缩放动画，rotate旋转动画四种类型，Json参数定义如下：
 
-** 注：** 
+** 注：**   
 
 - pivotX，pivotY 设置的是位置比例，比如pivotX=0;pivotY=0 表示的控件左上角顶点位置；pivotX=0;pivotY=0.5 表示控件左侧Y轴中间位置；pivotX=0.5;pivotY=0.5标示控件中心点位置（默认就是该位置）；
 
@@ -577,7 +577,7 @@ settings数组中每个成员均为json对象，定义如下：
 >  
 > - backgroundColor：背景色设置，字符串类型，#rrggbbaa；
 > 
->  keyTimes：到关键帧时指定时间点比例，数字类型，0-1之间；
+> keyTimes：到关键帧时指定时间点比例，数字类型，0-1之间；
 >  
 > curve：动画速率，字符串枚举型，【ease_in, ease_out, ease_in_out, linear】
 > 
@@ -749,6 +749,389 @@ frame：json数据格式，定义如下：
 
 ## 普通Dom节点操作 ##   
 
+本节目录：  
+> 
+> [domObj getParent()](#ptdom_1)   
+> 
+> [domObj getNext()](#ptdom_2)   
+> 
+> [domObj getPrevious()](#ptdom_3)  
+> 
+> [void remove()](#ptdom_4)  
+> 
+> [domObj clone(isDeep)](#ptdom_5)  
+>  
+> [void setAttr(attrName,attrValue)](#ptdom_6)   
+>
+> [String getAttr(attrName)](#ptdom_7) 
+>
+> [Json getAttrs()](#ptdom_8) 
+>
+> [void removeAttr(attrName)](#ptdom_9) 
+>
+> [bool hasAttr(attrName)](#ptdom_10) 
+>
+> [void setText(content)](#ptdom_11)
+>
+> [void getText(content)](#ptdom_12)
+> 
+> [void setStyle(styleName,styleValue)](#ptdom_13)  
+>
+> [String getStyle(styleName)](#ptdom_14)   
+>
+> [void clearStyle(styleName)](#ptdom_15)    
+>
+> [void setClassStyle(className，domobj)](#ptdom_16) 
+>  
+> [String getClassStyle()](#ptdom_17)  
+>  
+> [String getTag()](#ptdom_18)  
+>  
+> [String getId()](#ptdom_19)  
 
 
+
+<span id="ptdom_1">**String getId()**</span>  
+
+<code>获取父节点</code>  
+
+参数：无  
+
+返回值：父节点dom对象  
+
+示例： 
+
+```javascript
+var v = document.getElement("v_id");
+var parentdom = v.getParent();
+```  
+
+
+<span id="ptdom_2">**domObj getNext()**</span>  
+
+<code>获取同级下一个节点</code> 
+
+参数：无  
+
+返回值：同级下一个节点 
+
+示例：  
+
+```javascript
+var v = document.getElement("v_id");
+var nextdom = v.getNext();
+```  
+
+<span id="ptdom_3">**domObj getPrevious()**</span>  
+
+<code>获取同级前一个节点</code>   
+
+参数：无  
+
+返回值：同级前一个节点  
+
+示例：  
+
+```javascript
+var v = document.getElement("v_id");
+var previousdom = v.getPrevious();
+```  
+
+<span id="ptdom_4">**void remove()**</span>  
+
+<code>从父容器中移除自身</code>  
+
+参数：无  
+
+返回值：无  
+
+**注：**  该方法可以移除控件自身，不过控件对象并没有销毁，只是该控件的view被移除，比如移除后，可以继续使用void appendChild(domObj)这类方法，把该控件的view添加到其他容器中。  
+
+示例： 
+
+```javascript  
+var v = document.getElement("v_id");
+v.remove();
+document.refresh();
+```  
+
+<span id="ptdom_5">**domObj clone(isDeep)**</span>  
+
+<code>对当前Dom节点进行克隆</code>   
+
+参数：  
+
+isDeep：是否深度拷贝，可选项，【true,false】，若参数不存在等同于false  
+> 
+> true：克隆节点并递归地克隆子节点；
+> 
+> false：则只克隆该节点本身；  
+
+**注：** id属性不支持拷贝  
+
+示例： 
+
+```javascript  
+var v = document.getElement("v_id");
+var clonedom  =  v.clone("true");
+``` 
+
+<span id="ptdom_6">**void setAttr(attrName,attrValue)**</span>  
+
+<code>设置节点属性</code>  
+
+参数：  
+
+attrName：需设置节点属性名，字符串类型，必选项； 
+
+attrValue：需设置节点属性值，字符串类型，必选项；
+
+**注：** 这里设置节点的属性，不一定是组件本就具备的属性，也可以是自定义的属性名称和属性值。
+
+示例： 
+
+```javascript  
+var v = document.getElement("v_id");
+v.setAttr("value","123");
+```   
+
+<span id="ptdom_7">**String getAttr(attrName)**</span>  
+
+<code>获取节点属性</code>  
+
+参数：
+attrName：需查询节点属性名，字符串，必选项类型；  
+
+返回值：查询的节点属性值，字符串类型；  
+
+示例： 
+
+```javascript  
+var v = document.getElement("v_id");
+v.getAttr("value");
+```   
+
+<span id="ptdom_8">**Json getAttrs()**</span>  
+
+<code>获取节点所有属性</code>  
+
+参数：无  
+
+返回值：获取节点所有属性，Json类型；  
+
+示例：
+
+```javascript  
+var v = document.getElement("v_id");
+var attrs = v.getAttrs();
+
+for (var ar in attrs) {
+    if (ar != "style" && ar != "id" && ar != "class") {
+       console.log(ar+":"+attrs[ar]);  
+    }
+}
+```   
+
+<span id="ptdom_9">**void removeAttr(attrName)**</span>  
+
+<code>移除节点属性</code>  
+
+参数： 
+
+attrName：需移除节点属性名，字符串，必选项类型；  
+
+返回值：无 
+
+示例：
+
+```javascript  
+var v = document.getElement("v_id");
+v.removeAttr("value");
+```   
+
+<span id="ptdom_10">**bool hasAttr(attrName)**</span>  
+
+<code>节点是否具有该属性</code>  
+
+参数：  
+
+attrName：需查询节点名，字符串，必选项类型；  
+
+返回值：节点是否具有该属性，bool型  
+ 
+> true：具有该属性；
+> 
+> false：不具有该属性；
+
+```javascript  
+var v = document.getElement("v_id");
+var bl = v.hasAttr("value");
+```   
+
+<span id="ptdom_11">**void setText(content)**</span>  
+
+<code>设置节点文本内容</code>  
+
+参数：
+
+content：需要设置文本内容，一般用于设施text组件的文本内容，字符串类型 
+
+返回：无
+
+示例：
+
+```javascript  
+var v = document.getElement("text_id");  
+v.setText("123");  
+```   
+
+
+
+<span id="ptdom_12">**void getText()**</span>  
+
+<code>获取节点文本内容</code>  
+
+参数：无 
+
+返回值：当前节点文本内容，字符串类型
+
+示例：
+
+```javascript  
+var v = document.getElement("text_id");  
+var textstr = v.getText();  
+```   
+
+
+<span id="ptdom_13">**void setStyle(styleName,styleValue)**</span>  
+
+<code>设置节点样式值</code>  
+
+参数：  
+
+styleName：需设置节点样式名，字符串类型，必选项；  
+
+styleValue：需设置节点样式值，字符串类型，必选项；  
+
+返回值：无  
+
+**注：**  如果修改样式里面，包含有修改布局的样式，需要对布局进行刷新方可生效，一般影响布局的样式有width、height，flex等，如果只是修改颜色，不需要刷新。
+
+示例：
+
+```javascript  
+var v = document.getElement("v_id");  
+v.setStyle("background-color","red");  
+```  
+
+
+<span id="ptdom_14">**String getStyle(styleName)**</span>  
+
+<code>获取节点样式值</code>  
+
+参数： 
+
+styleName：需查询节点样式名，字符串类型，必选项；  
+
+返回值：查询的节点样式值，字符串类型；  
+
+示例：
+
+```javascript  
+var v = document.getElement("v_id");  
+v.getStyle("background-color");  
+```  
+
+<span id="ptdom_15">**void clearStyle(styleName)**</span>  
+
+<code>移除节点样式值</code>  
+
+参数：  
+
+styleName：需设置节点样式名，字符串类型，必选项；  
+
+返回值：无  
+
+示例：
+
+```javascript  
+var v = document.getElement("v_id");  
+v.clearStyle("background-color");  
+```   
+
+<span id="ptdom_16">**void setClassStyle(className，domobj)**</span>  
+
+<code>设置节点对应Class样式</code>  
+
+参数：  
+
+className：需设置Class样式名，支持多个样式，以空格分隔，字符串类型，必选项；   
+
+
+domObj：当前js运行环境对象，可选参数，component模板中使用，传入this即可；
+
+返回值：无  
+
+**注：**   
+
+- 该法设置class后，以前的通过class设置的样式会全部清除，不过style设置的不会清除。
+ 
+- 由于style的优先级要高于class，如果class设置的样式里面，包含之前style设置的样式，还是以style中的样式为优先，如果让class设置的样式值生效，可以清除style中相同的样式属性。
+
+
+示例： 
+
+```javascript  
+//在uixml页面中
+var v = document.getElement("v_id");  
+v.setClassStyle("class1 class2");  
+```   
+
+```javascript  
+//在模板页面中
+var v = document.getElement("v_id");  
+v.setClassStyle("class1 class2",this);  
+```   
+
+
+<span id="ptdom_17">**String getClassStyle()**</span>  
+
+<code>获取节点已设置Class样式</code>
+
+参数：无 
+
+返回值：已设置Class样式，字符串类型； 
+
+示例： 
+
+```javascript  
+var v = document.getElement("v_id");  
+var classstr =  v.getClassStyle();  
+```   
+
+
+<span id="ptdom_18">**String getTag()**</span>  
+
+<code>获取UI组件类型</code>   
+
+参数：无  
+
+返回值：UI组件类型，字符串类型，如button组件则返回"button",box组件则返回"box";  
+
+```javascript  
+var v = document.getElement("v_id");  
+var domstr =  v.getTag();  
+```  
+
+<span id="ptdom_19">**String getId()**</span>  
+
+<code>获取UI组件Id标识</code>   
+
+```javascript  
+var v = document.getElement("v_id");  
+var domid =  v.getId();  
+```  
+
+
+## 容器类Dom节点操作 ##   
 
