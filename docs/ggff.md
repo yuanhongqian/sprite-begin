@@ -6,13 +6,13 @@
 
 本节目录：  
 > 
-> [void on(messageName,function)](#jjxg_1)   
+> [void on(messageName,function)   组件注册事件的触发函数](#jjxg_1)   
 > 
-> [void fire(messageName,params)](#jjxg_2)   
+> [void fire(messageName,params)  组件事件的触发函数](#jjxg_2)   
 > 
-> [void off(messageName,function)](#jjxg_3)  
+> [void off(messageName,function)  组件移除事件的触发函数](#jjxg_3)  
 >  
-> [Array getOn(messageName)](#jjxg_4)   
+> [Array getOn(messageName)  获取已绑定的事件的触发函数](#jjxg_4)   
 
 
 <span id="jjxg_1">**void on(messageName,function)**</span>
@@ -132,13 +132,13 @@ var eventarr = boxObj.getOn("click");
 
 本节目录：  
 > 
-> [void startAnimation(jsonData,function)](#dhxg_1)   
+> [void startAnimation(jsonData,function)  启动UI组件动画](#dhxg_1)   
 > 
-> [void startAnimator(jsonData,function)](#dhxg_2)   
+> [void startAnimator(jsonData,function)  启动UI组件属性动画](#dhxg_2)   
 > 
-> [void startKeyFrameAnimator(jsonData,function)](#dhxg_3)  
+> [void startKeyFrameAnimator(jsonData,function)  启动UI组件关键帧动画](#dhxg_3)  
 >  
-> [void  releaseAnimator()](#dhxg_4)   
+> [void  releaseAnimator()  结束控件动画](#dhxg_4)   
 
 <span id="dhxg_1">**void startAnimation(jsonData,function)**</span>
 
@@ -659,13 +659,13 @@ thisDom.startKeyFrameAnimator(jsonData, aniCallBack);
 
 本节目录：  
 > 
-> [jsonData getFrame()](#cchwz_1)   
+> [jsonData getFrame()  获取组件在父容器中的位置](#cchwz_1)   
 > 
-> [void setFrame(frame)](#cchwz_2)   
+> [void setFrame(frame)  设置组件在父容器中的位置](#cchwz_2)   
 > 
-> [jsonData getCenter()](#cchwz_3)  
+> [jsonData getCenter()  获取组件中心点在父容器中的位置](#cchwz_3)  
 >  
-> [jsonData getAbsoluteFrame()](#cchwz_4)   
+> [jsonData getAbsoluteFrame()  获取组件在绘制窗口中的位置](#cchwz_4)   
 
 
 **jsonData getFrame()**  
@@ -752,43 +752,43 @@ frame：json数据格式，定义如下：
 
 本节目录：  
 > 
-> [domObj getParent()](#ptdom_1)   
+> [domObj getParent()  获取父节点](#ptdom_1)   
 > 
-> [domObj getNext()](#ptdom_2)   
+> [domObj getNext()  获取同级下一个节点](#ptdom_2)   
 > 
-> [domObj getPrevious()](#ptdom_3)  
+> [domObj getPrevious()  获取同级前一个节点](#ptdom_3)  
 > 
-> [void remove()](#ptdom_4)  
+> [void remove()  从父容器中移除自身](#ptdom_4)  
 > 
-> [domObj clone(isDeep)](#ptdom_5)  
+> [domObj clone(isDeep)  对当前Dom节点进行克隆](#ptdom_5)  
 >  
-> [void setAttr(attrName,attrValue)](#ptdom_6)   
+> [void setAttr(attrName,attrValue)  设置节点属性](#ptdom_6)   
 >
-> [String getAttr(attrName)](#ptdom_7) 
+> [String getAttr(attrName)  获取节点属性](#ptdom_7) 
 >
-> [Json getAttrs()](#ptdom_8) 
+> [Json getAttrs()  获取节点所有属性](#ptdom_8) 
 >
-> [void removeAttr(attrName)](#ptdom_9) 
+> [void removeAttr(attrName)  移除节点属性](#ptdom_9) 
 >
-> [bool hasAttr(attrName)](#ptdom_10) 
+> [bool hasAttr(attrName)  节点是否具有该属性](#ptdom_10) 
 >
-> [void setText(content)](#ptdom_11)
+> [void setText(content)  设置节点文本内容](#ptdom_11)
 >
-> [void getText(content)](#ptdom_12)
+> [void getText(content)  获取节点文本内容](#ptdom_12)
 > 
-> [void setStyle(styleName,styleValue)](#ptdom_13)  
+> [void setStyle(styleName,styleValue)  设置节点样式值](#ptdom_13)  
 >
-> [String getStyle(styleName)](#ptdom_14)   
+> [String getStyle(styleName)  获取节点样式值](#ptdom_14)   
 >
-> [void clearStyle(styleName)](#ptdom_15)    
+> [void clearStyle(styleName)  移除节点样式值](#ptdom_15)    
 >
-> [void setClassStyle(className，domobj)](#ptdom_16) 
+> [void setClassStyle(className，domobj)   设置节点对应Class样式](#ptdom_16) 
 >  
-> [String getClassStyle()](#ptdom_17)  
+> [String getClassStyle()  获取节点已设置Class样式](#ptdom_17)  
 >  
-> [String getTag()](#ptdom_18)  
+> [String getTag()  获取UI组件类型](#ptdom_18)  
 >  
-> [String getId()](#ptdom_19)  
+> [String getId()  获取UI组件Id标识](#ptdom_19)  
 
 
 
@@ -1141,27 +1141,27 @@ var domid =  v.getId();
 
 本节目录：  
 > 
-> [domObj getElement (id)](#rqczdom_1)   
+> [domObj getElement (id)  根据Id获取容器内UI控件对象](#rqczdom_1)   
 > 
-> [Array getElements(rule)](#rqczdom_2)   
+> [Array getElements(rule)  根据特定规则获取容器内UI控件对象集](#rqczdom_2)   
 > 
-> [Array getChildren()](#rqczdom_3)  
+> [Array getChildren()  容器获取子节点集](#rqczdom_3)  
 >  
-> [domObj getFirstChild()](#rqczdom_4) 
+> [domObj getFirstChild()  容器获取首子节点](#rqczdom_4) 
 >  
-> [domObj getLastChild()](#rqczdom_5) 
+> [domObj getLastChild()  容器获取尾节点](#rqczdom_5) 
 >  
-> [void appendChild(domObj)](#rqczdom_6) 
+> [void appendChild(domObj)  容器添加子节点至尾部](#rqczdom_6) 
 >  
-> [void insertBefore(domObj,beforeDomObj)](#rqczdom_7) 
+> [void insertBefore(domObj,beforeDomObj)  容器在指定的已有的子节点之前插入新节点](#rqczdom_7) 
 >  
-> [void insertAfter (domObj,afterDomObj)](#rqczdom_8) 
+> [void insertAfter (domObj,afterDomObj)  容器在指定的已有的子节点之后插入新节点](#rqczdom_8) 
 >  
-> [void replaceChild(newDomObj,oldDomObj)](#rqczdom_9) 
+> [void replaceChild(newDomObj,oldDomObj)  容器替换子节点](#rqczdom_9) 
 >  
-> [void clear()](#rqczdom_10) 
+> [void clear()  清空容器内所有子节点](#rqczdom_10) 
 >  
-> [String getInnerHTML()](#rqczdom_11)   
+> [String getInnerHTML()  动态获取容器内子节点xml](#rqczdom_11)   
 
 
 
