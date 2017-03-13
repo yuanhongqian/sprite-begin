@@ -1182,7 +1182,7 @@ id：UI组件的唯一标识，字符串类型；
 var box = document.getElement("box_id");  
 
 //得到box内部某一个组件对象
-var v = v.getElement("v_id");  
+var v =box.getElement("v_id");  
 
 ```  
 
@@ -1212,37 +1212,189 @@ rule：查询规则，字符串类型，支持多规则同时匹配取合集，�
 var box = document.getElement("box_id");  
 
 //根据类型选择器， 得到box下级节点里面所有text组件对象数组
-var v = v.getElements("text");  
+var v = boxgetElements("text");  
 
 //根据ID选择器， 得到box下级节点里面所有id为ext_id对象数组
-var v = v.getElements("#text_id");  
+var v = box.getElements("#text_id");  
 
 //类选择器， 得到box下级节点里面所有class类为text_class对象数组,，如：<text class="text_class">11</text>
-var v = v.getElements("#text_class");  
+var v = box.getElements("#text_class");  
 
 //属性选择器， 得到box下级节点里面所有属性gourp="abc"对象数组,，如：<text gourp="abc">11</text>
-var v = v.getElements('[gourp="abc"]');  
+var v = box.getElements('[gourp="abc"]');  
 
 ```    
 
 
 <span id="rqczdom_3">**Array getChildren()**</span>   
 
-<span id="rqczdom_4">**domObj getFirstChild()**</span>  
+<code>容器获取子节点集</code>   
+
+参数：无  
+
+返回值：包含子节点dom对象数组，若无子节点则返回空数组  
+
+示例：
+
+```javascript  
+var box = document.getElement("box_id");  
+var arr = box.getChildren();  
+```  
+
+
+<span id="rqczdom_4">**domObj getFirstChild()**</span>   
+
+<code>容器获取首子节点</code>  
+
+参数：无 
+
+返回值：获取容器首节点，若不存则返回null  
+
+示例：
+
+```javascript  
+var box = document.getElement("box_id");  
+var v = box.getFirstChild();  
+```  
+
 
 <span id="rqczdom_5">**domObj getLastChild()**</span>  
 
-<span id="rqczdom_6">**void appendChild(domObj)**</span>  
+<code>容器获取尾节点</code>  
 
-<span id="rqczdom_7">**void insertBefore(domObj,beforeDomObj)**</span>  
+参数：无 
+
+返回值：获取容器首节点，若不存则返回null 
+
+示例：
+
+```javascript  
+var box = document.getElement("box_id");  
+var v = box.getLastChild();  
+```   
 
 
-<span id="rqczdom_8">**void insertAfter (domObj,afterDomObj)**</span>  
 
-<span id="rqczdom_9">**void replaceChild(newDomObj,oldDomObj)**</span>
+<span id="rqczdom_6">**void appendChild(domObj)**</span>   
 
-<span id="rqczdom_10">**void clear()**</span>
+<code>容器添加子节点至尾部</code>  
+
+参数： 
+
+domObj：需添加的子节点对象，必选项； 
+
+返回值：无
+
+**注：** 执行该方法，需要刷新容器布局方可生效。
+
+示例：
+
+```javascript  
+var box = document.getElement("box_id");  
+var box1 = document.getElement("box1_id");  
+box.appendChild(box1);  
+```   
+
+
+
+<span id="rqczdom_7">**void insertBefore(domObj,beforeDomObj)**</span>   
+
+<code>容器在指定的已有的子节点之前插入新节点</code> 
+
+参数：  
+
+domObj：需添加Dom节点，必选项；  
+
+beforeDomObj：  在其之前插入新节点的子节点，必选项；   
+
+返回值：无  
+
+**注：** 执行该方法，需要刷新容器布局方可生效。
+
+示例：
+
+```javascript  
+var box = document.getElement("box_id");  
+var box1 = document.getElement("box1_id");  
+box.insertBefore(box1);  
+```   
+
+
+<span id="rqczdom_8">**void insertAfter (domObj,afterDomObj)**</span>   
+
+<code>容器在指定的已有的子节点之后插入新节点</code>  
+
+参数：  
+
+domObj：需添加Dom节点，必选项；  
+
+afterDomObj：在其之后插入新节点的子节点，必选项；   
+
+返回值：无
+
+**注：** 执行该方法，需要刷新容器布局方可生效。
+
+示例：
+
+```javascript  
+var box = document.getElement("box_id");  
+var box1 = document.getElement("box1_id");  
+box.insertAfter(box1);  
+```    
+
+
+<span id="rqczdom_9">**void replaceChild(newDomObj,oldDomObj)**</span>  
+
+<code>容器替换子节点</code>
+
+参数：
+
+newDomObj：新Dom节点，必选项；
+
+oldDomObj：老Dom节点，必选项；
+
+返回值：无  
+
+**注：** 执行该方法，需要刷新容器布局方可生效。
+
+示例：
+
+```javascript  
+var box = document.getElement("box_id");  
+var box1 = document.getElement("box1_id");  
+var box2 = document.getElement("box2_id"); 
+box.replaceChild(box1,box2);  
+```  
+
+
+<span id="rqczdom_10">**void clear()**</span>  
+
+<code>清空容器内所有子节点</code>   
+
+参数：无 
+
+返回值：无 
+
+**注：** 执行该方法，需要刷新容器布局方可生效。
+
+示例：
+
+```javascript  
+var box = document.getElement("box_id");  
+box.clear();  
+```  
 
 <span id="rqczdom_11">**String getInnerHTML()**</span>
 
-  
+<code>动态获取容器内子节点xml</code>   
+
+参数：无 
+
+返回值：容器内子节点xml，字符串类型 
+
+示例：
+
+```javascript  
+var box = document.getElement("box_id");  
+var strxml =  box.getInnerHTML(); 
+```  
