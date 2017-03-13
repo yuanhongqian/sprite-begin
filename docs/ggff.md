@@ -791,7 +791,7 @@ frame：json数据格式，定义如下：
 
 
 
-<span id="ptdom_1">**String getId()**</span>  
+<span id="ptdom_1">**String getParent()**</span>  
 
 <code>获取父节点</code>  
 
