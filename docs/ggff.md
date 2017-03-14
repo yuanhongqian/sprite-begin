@@ -651,7 +651,7 @@ thisDom.startKeyFrameAnimator(jsonData, aniCallBack);
 
 返回值：无  
 
-**注：** UI组件执行startAnimator() ，startKeyFrameAnimator()后，需要调用该方法告知系统动画已完成，document.refresh()刷新方法方可生效。  
+**注：** UI组件执行startAnimator() ，startKeyFrameAnimator()后，需要调用该方法告知系统动画已完成，组件自身才能被document.refresh()刷新方法刷新。  
 
  
 
@@ -668,7 +668,7 @@ thisDom.startKeyFrameAnimator(jsonData, aniCallBack);
 > [jsonData getAbsoluteFrame()  获取组件在绘制窗口中的位置](#cchwz_4)   
 
 
-**jsonData getFrame()**  
+<span id="cchwz_1">**jsonData getFrame()**</span>  
 
 <code>获取组件在父容器中的位置</code> 
 
@@ -688,7 +688,7 @@ thisDom.startKeyFrameAnimator(jsonData, aniCallBack);
 
 
 
-**setFrame(frame)**  
+<span id="cchwz_2">**setFrame(frame)**</span>  
 
 <code>设置组件在父容器中的位置</code>  
 
@@ -710,11 +710,11 @@ frame：json数据格式，定义如下：
 
 - 通过该方法设置frame， width，height设置至组件css样式中，x、y不会修改样式中的left和top属性。
 
-- 设置frame后，如果执行了document.refresh()，x和y就会还原，如果不希望还原可以在通过setStyle()手动设置对应样式。
+- 设置frame后，如果执行了document.refresh()，x和y就会还原，如果不希望还原可以在通过setStyle()手动设置对应样式left和top。
 
 
 
-**jsonData getCenter()**  
+<span id="cchwz_3">**jsonData getCenter()**</span>  
 
 <code>获取组件中心点在父容器中的位置</code>  
 
@@ -727,7 +727,7 @@ frame：json数据格式，定义如下：
 > y：float型，垂直位置；
 
 
-**jsonData getAbsoluteFrame()**  
+<span id="cchwz_4">**jsonData getAbsoluteFrame()**</span>  
 
 
 <code>获取组件在绘制窗口中的位置</code>
@@ -1186,8 +1186,6 @@ var v =box.getElement("v_id");
 
 ```  
 
-
-
 <span id="rqczdom_2">**Array getElements(rule)**</span>   
 
 <code>根据特定规则获取容器内UI控件对象集</code>   
@@ -1240,7 +1238,6 @@ var v = box.getElements('[gourp="abc"]');
 var box = document.getElement("box_id");  
 var arr = box.getChildren();  
 ```  
-
 
 <span id="rqczdom_4">**domObj getFirstChild()**</span>   
 
