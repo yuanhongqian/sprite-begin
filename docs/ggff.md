@@ -1,8 +1,8 @@
-<h1>公共方法</h1>
+# 公共方法
 
 ----------
   
-## 事件相关 ##
+<h2 id="cid_0">事件相关</h2>
 
 本节目录：  
 > 
@@ -128,7 +128,7 @@ var eventarr = boxObj.getOn("click");
 ```  
   
 
-## 动画相关 ##     
+<h2 id="cid_1">动画相关</h2>
 
 本节目录：  
 > 
@@ -655,7 +655,7 @@ thisDom.startKeyFrameAnimator(jsonData, aniCallBack);
 
  
 
-## 尺寸和位置 ##   
+<h2 id="cid_2">尺寸和位置</h2>
 
 本节目录：  
 > 
@@ -748,7 +748,7 @@ frame：json数据格式，定义如下：
 
 
 
-## 普通Dom节点操作 ##   
+<h2 id="cid_3">普通Dom节点操作</h2>
 
 本节目录：  
 > 
@@ -1137,7 +1137,7 @@ var v = document.getElement("v_id");
 var domid =  v.getId();  
 ```  
 
-## 容器类Dom节点操作 ##   
+<h2 id="cid_4">容器类Dom节点操作</h2>
 
 本节目录：  
 > 

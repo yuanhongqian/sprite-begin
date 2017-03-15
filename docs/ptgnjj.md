@@ -1,8 +1,8 @@
-<h1>平台功能简介</h1>
+# 平台功能简介
 
 ----------
 
-## 平台架构  
+<h2 id="cid_0">平台架构</h2>
 
 Sprite支持iOS和Android平台，iOS支持8.0及以上系统，Android支持4.5及以上系统。  
 
@@ -14,7 +14,7 @@ Sprite特点如下：
 
 <img width="750"  src="image/ptgnjj_1.png" />   
 
-##  应用程序入口  
+<h2 id="cid_1">应用程序入口</h2>
 
 Sprite的应用入口配置文件是app.json，该文件必须放在apps根目录下。  
 
@@ -95,7 +95,7 @@ css样式文件的引用，如图：
 <img  src="image/ptgnjj_5.png" />    
 
 
-##  UI组件简介
+<h2 id="cid_2">UI组件简介</h2>
 
 ###  页面结构  
 
@@ -117,7 +117,7 @@ Sprite中的组件依赖于sprite客户端的解析引擎才能够识别，解�
 
 关于sprite的基础标签API说明，可以参考《Sprite详细设计文档》，本教程后面章节也会对每个组件具体使用做讲解。  
 
-##  功能组件简介（js接口）  
+<h2 id="cid_3">功能组件简介（js接口）</h2>
 
 Sprite平台除了提供了布局UI组件，还提供了一非常丰富了JSAPI功能组件，通过JSAPI功能组件开发者可以非常方便了调用本地能力，比如定位、电话、拍照、短信、本地数据库、网络请求等。其中网络请求能力是原生的网络请求，不会出现html的ajax的跨域问题。  
 
@@ -125,7 +125,7 @@ Sprite平台除了提供了布局UI组件，还提供了一非常丰富了JSAPI�
 
 如果开发者想自己扩展功能，sprite还可以作为sdk提供开发者进行功能扩展。 
 
-##  CSS语法规范   
+<h2 id="cid_4">CSS语法规范</h2>
 
 Sprite中css全部是官方定义的，可能部分写法和标准css3类似，开发者不能全部照搬css3的样式规范，可以视为css3的一个子集。具体那个控件支持什么样式还是要查看《sprite详细设计文档》中具体标签的样式定义。  
 
@@ -217,7 +217,7 @@ css样式和css文件导入都必须写在&lt;style&gt;标签里面，sprite中�
 
 Sprite处理逻辑为：@import  url("xxx")不是绝对路径，则进行require.config里配置的标识匹配，若无法匹配则再进行相对路径处理。  
 
-##  js语法规范    
+<h2 id="cid_5">js语法规范</h2>
 
 Sprite平台中，js遵循 JavaScript(ES5)语法规范，基于ES5标准的js函数都可以使用，例如Date和Math对象里面的函数，不过由于平台的差异性android和ios采用的javascript引擎并不一样，Android采用google v8引擎，jni桥接，iOS使用系统Javascript core，可能在某些特殊的函数上有细微的差别，比如Math里面关于三角形勾股定理的函数ios有，android就没有，这个开发者如果遇到需要留意下。  
 

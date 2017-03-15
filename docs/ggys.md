@@ -1,4 +1,4 @@
-<h1>公共样式</h1>
+# 公共样式
 
 ----------
 
@@ -6,7 +6,7 @@ Sprite盒模型基于 CSS 盒模型，每个UI组件均可视作一个盒子，�
 
 <img  src="image/ggys_1.png" />    
 
-## 取值说明   
+<h2 id="cid_0">取值说明</h2>
 
 **Color颜色**   
 
@@ -28,7 +28,7 @@ Sprite支持多种取值类型，具体描述如下：
 > 如： style="width:20;border-size:0.5";  
 
 
-##  尺寸   
+<h2 id="cid_1">尺寸</h2>
 
 **width**  
 
@@ -42,7 +42,7 @@ Sprite支持多种取值类型，具体描述如下：
 > 
 > fill_screen用于占满当前屏幕高度，示例：height:fill_screen;
 
-##  定位  
+<h2 id="cid_2">定位</h2>
 
 
 **position** 
@@ -78,7 +78,7 @@ Sprite支持多种取值类型，具体描述如下：
 - 布局为绝对定位时，如果没有直接给出width和height，其容器大小需要通过设定top、left、right和bottom来限制大小。
 
 
-## 内边距 ##  
+<h2 id="cid_3">内边距</h2>
 
 **padding**  
 
@@ -110,7 +110,7 @@ Sprite支持多种取值类型，具体描述如下：
 
 
 
-## 边框 ##  
+<h2 id="cid_4">边框</h2>
 
 边框样式，【solid,dashed,dotted】  
 
@@ -151,7 +151,7 @@ Sprite支持多种取值类型，具体描述如下：
 > 左下边框弧度，默认0
 
 
-## 背景 ##  
+<h2 id="cid_5">背景</h2>
 
 **background-color**
 
@@ -166,7 +166,7 @@ Sprite支持多种取值类型，具体描述如下：
 
 - opacity设置的是整个控件的透明，如果控件是容器，那么容器内部所有的控件都会跟着一起变透明。如果想实现背景色透明，可以使用background-color:rgba(rgba(255, 0, 0, 0.5))来设置。    
 
-## 文本样式 ##  
+<h2 id="cid_6">文本样式</h2>
 
 文档类组件共享一些共同特性, 如：text，textfiled，textarea；  
 
@@ -230,7 +230,7 @@ Sprite支持多种取值类型，具体描述如下：
 - 如果想设置文字为省略样式，首先必须设置文本单行显示，如text样式singleline：true，并且text宽度应该小于等于父容器的宽度。  
 
 
-## 显影 ##
+<h2 id="cid_7">显影</h2>
 
 **display**  
 
@@ -251,6 +251,6 @@ Sprite支持多种取值类型，具体描述如下：
 
 在使用显影控制时，如果不涉及整个页面布局变动，建议用visibility来做显影，这样就不要刷新布局，提高显影效率。那么什么情况下是布局变动呢，比如隐藏一个控件后，这个控件下面的控件都会网上移动，这种情况下需要使用document.refresh()刷新页面布局。  
 
-## flexbox布局 ##
+<h2 id="cid_8">flexbox布局</h2>
 
 参考 [flexbox布局原理](https://gitdocument.exmobi.cn/sprite-begin/flexbjyl.html)  

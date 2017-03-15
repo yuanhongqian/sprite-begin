@@ -1,10 +1,10 @@
-<h1>从helloworld开始</h1>  
+# 从helloworld开始  
 
 ----------
 
 >示例代码下载：[helloworld.zip](https://github.com/yuanhongqian/sprite_introduction/blob/master/src/helloworld.zip?raw=true "helloworld.zip")
 
-## 开发环境搭建  
+<h2 id="cid_0">开发环境搭建</h2>
 
 1.从官网下载Mbuilder5 IDE，sprite客户端（apk和ipa）和代码同步小工具SpriteHttpServer.exe。  
 
@@ -19,7 +19,7 @@
 5.然后开启SpriteHttpServer.exe。
 
  
-##  新建项目    
+<h2 id="cid_1">新建项目</h2>
 
 1.在apps目录下创建一个名为app.json的文件（文件名固定写法），然后编写如下json内容：  
 
@@ -107,7 +107,7 @@ Index.uixml页面基本格式如下:
 ```  
 其中&lt;page&gt;是uixml页面格式的根节点，没有实际意义。&lt;script&gt;里面写js，&lt;style&gt;里面可以写css，&lt;ui&gt;里面就是页面布局了。  
 
-##  页面布局   
+<h2 id="cid_2">页面布局</h2>
 
 下面开始页面布局，sprite平台中布局容器叫做box，大部分布局效果都用box完成。  
 
@@ -126,7 +126,7 @@ Index.uixml页面基本格式如下:
 <img width="250"  src="image/hw_8.png" />  
 
 
-##  实现一个动画  
+<h2 id="cid_3">实现一个动画</h2>
 
 下面我们实现一个动画，让文字从小变大并且选中起来。代码如下：  
 

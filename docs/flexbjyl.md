@@ -1,10 +1,10 @@
-<h1>Flex布局原理</h1>
+# Flex布局原理
 
 ----------
 
 Sprite从web中借鉴了Flexbox模式，采用facebook提供的布局库css-layout，Flexbox让常见UI布局构建变的简单，比如按比例划分容器区间，同时支持按内容弹性扩展容器大小。  
 
-## flexbox布局
+<h2 id="cid_0">flexbox布局</h2>
 
 Sprite采用Flexbox布局模型，工作原理和web上的CSS基本一致，可视为子集，以下为详细说明。  
 
@@ -74,7 +74,7 @@ Sprite采用Flexbox布局模型，工作原理和web上的CSS基本一致，可�
 > 如果一共有两个成员项，其中一个 flex: 1，另一个 flex: 2，那么第一个将占据 1/3 的空间，另一个占据 2/3。如果所有 flex 成员项都不设置 flex 属性，它们将根据容器的 justify-content 属性来决定如何排列。
 
 
-## 注意问题
+<h2 id="cid_1">注意问题</h2>
 
 1.	一定要注意在sprite中，最外层容器一定要指定容器大小（高和宽），一般设置全屏大小即可。  
 
