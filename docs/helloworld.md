@@ -234,5 +234,7 @@ Index.uixml页面基本格式如下:
 
 <img   src="image/hw_14.png" />   
 
+最终效果如下：
 
+<img  src="image/hw_8.gif" width="250" /> 
 
