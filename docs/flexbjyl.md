@@ -53,13 +53,13 @@ Sprite采用Flexbox布局模型，工作原理和web上的CSS基本一致，可�
 
 定义 flex 容器中 flex 成员项在交叉轴方向上如何排列，[stretch,flex-start ,center ,flex-end]  
  
-> - stretch：拉伸高度至 flex 容器的大小（默认）；  
+>  stretch：拉伸高度至 flex 容器的大小（默认）；  
 > 
-> - flex-start：上/左对齐，所有的成员项排列在容器顶部；  
+>  flex-start：上/左对齐，所有的成员项排列在容器顶部；  
 > 
-> - flex-end：下/右对齐，所有的成员项排列在容器底部；  
+>  flex-end：下/右对齐，所有的成员项排列在容器底部；  
 > 
-> -  center：中间对齐，所有成员项都垂直地居中显示；
+>   center：中间对齐，所有成员项都垂直地居中显示；
 
 
 
