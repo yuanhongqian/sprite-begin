@@ -234,6 +234,138 @@ Index.uixml页面基本格式如下:
 
 <img   src="image/hw_14.png" />   
 
+完整代码如下：
+
+```html
+
+<page>
+    <script>
+        <![CDATA[
+        var window = require("Window");
+        var document = require("Document");
+        var Time = require("Time");
+        var ui = require("UI");
+        //文本区域
+        var textBox;
+
+        //倒计时文本
+        var numText;
+        var numbox;
+        //初始倒计时3
+        var num = 3;
+        window.on("animator", function () {
+            //文本区域
+            textBox = document.getElement("textBox");
+            //倒计时文本
+            numText = document.getElement("numText");
+
+            numbox = document.getElement("numbox");
+            //启动动画
+            startTextAnimation();
+
+        });
+
+        //文本区域动画
+        function startTextAnimation() {
+            //设置文本可见
+            textBox.setStyle("visibility", "visible");
+            //document.refresh();
+
+
+            var jsonData = {};
+            jsonData.fillAfter = 1;
+            var animationSet = new Array();
+            //缩放动画
+            var scaleAni = {};
+            scaleAni.type = "scale";
+            scaleAni.duration = 1500;
+            scaleAni.curve = "linear";
+            scaleAni.scaleFromX = 0.1;
+            scaleAni.scaleToX = 1;
+            scaleAni.scaleFromY = 0.1;
+            scaleAni.scaleToY = 1;
+            animationSet.push(scaleAni);
+            //旋转动画
+            var rotateAni = {};
+            rotateAni.type = "rotate";
+            rotateAni.duration = 1500;
+            rotateAni.curve = "linear";
+            rotateAni.fromDegree = 0;
+            rotateAni.toDegree = 360;
+            animationSet.push(rotateAni);
+            jsonData.animationSet = animationSet;
+            //启动动画
+            textBox.startAnimation(jsonData, function () {
+                numText.setText("倒计时: " + num);
+                numbox.refresh();
+                Time.setInterval(startTextNum, 1000);
+
+            });
+
+        }
+
+        //倒计时
+        function startTextNum() {
+            num--;
+            if (num == 0) {
+                closePage();
+            } else {
+                numText.setText("倒计时: " + num);
+            }
+        }
+
+        function closePage() {
+            window.close();
+        }
+    ]]>
+    </script>
+    <style>
+        .rootBox {
+            background-color: #0099cc;
+            width: fill_screen;
+            height: fill_screen;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .textBox {
+            visibility: hidden;
+        }
+        
+        .text {
+            color: #33b5e5;
+            font-size: 45;
+            text-align: center;
+        }
+        
+        .numbox {
+            position: absolute;
+            top: 20;
+            right: 10;
+            width: 100;
+        }
+        
+        .numText {
+            color: #ffffff;
+            font-size: 15;
+            text-align: right;
+        }
+    </style>
+    <ui>
+        <box class="rootBox">
+            <box id="textBox" class="textBox">
+                <text id="text1" class="text">Sprite</text>
+                <text id="text2" class="text">移动开发平台</text>
+            </box>
+            <box class="numbox" id="numbox">
+                <text id="numText" class="numText"></text>
+            </box>
+        </box>
+    </ui>
+</page>
+
+```
+
 最终效果如下：
 
 <img  src="image/hw_8.gif" width="250" /> 
