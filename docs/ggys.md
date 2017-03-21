@@ -30,46 +30,61 @@ Sprite支持多种取值类型，具体描述如下：
 
 <h2 id="cid_1">尺寸</h2>
 
-**width**  
+**width**   
 
-> UI组件宽度，数字，单位dp（可省略），示例：width:50;    
-> 
-> fill_screen用于占满当前屏幕宽度，示例：width:fill_screen;  
+<code>UI组件宽度 </code>
+
+UI组件宽度，数字，单位dp（可省略），示例：width:50;    
+
+fill_screen用于占满当前屏幕宽度，示例：width:fill_screen;  
 
 **height**  
- 
-> UI组件高度，数字，单位dp（可省略），示例：height:50;    
-> 
-> fill_screen用于占满当前屏幕高度，示例：height:fill_screen;
+
+<code>UI组件高度 </code>  
+
+UI组件高度，数字，单位dp（可省略），示例：height:50;    
+
+fill_screen用于占满当前屏幕高度，示例：height:fill_screen;
+
+
 
 <h2 id="cid_2">定位</h2>
 
-
 **position** 
 
-> 定位模式，【relative ,absolute】  
-> 
-> - relative：生成相对定位的元素，相对于其正常布局位置进行定位。（默认）；  
-> 
-> - absolute：生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位；
+<code>定位模式 </code>
 
-**top**   
+取值 [relative ,absolute]  
 
-> 距离上方的偏移量，数字，默认为 0；
+> relative：生成相对定位的元素，相对于其正常布局位置进行定位。（默认）；  
+> 
+> absolute：生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位；
+
+**top**  
+
+<code>距离上方的偏移量</code>   
+
+取值数字，默认为 0；
 
 
 **bottom**   
 
-> 距离下方的偏移量，数字，默认为 0；
+<code>距离下方的偏移量</code>
+
+取值数字，默认为 0；
 
 **left**  
 
-> 距离左方的偏移量，默认为 0；
+<code>距离左方的偏移量</code>
+
+取值数字，默认为 0；
 
 
-**right**   
+**right**    
 
-> 距离右方的偏移量，默认为 0；
+<code>距离右方的偏移量</code>
+
+取值数字，默认为 0；
 
 **注：**
 
@@ -80,176 +95,226 @@ Sprite支持多种取值类型，具体描述如下：
 
 <h2 id="cid_3">内边距</h2>
 
-**padding**  
+**padding**   
 
-> UI组件内边距，上 右 下 左 ，默认 0 0 0 0， 示例：padding:5 5 5 5 
-> 
-> 值为一个时表示四边，示例：padding:5;   
-> 
-> 值为二个时表示，第一个表示上下，二个表示左右，示例pading:5 4;
+<code>UI组件内边距</code>
+
+UI组件内边距，上 右 下 左 ，默认 0 0 0 0， 示例：padding:5 5 5 5 
+
+值为一个时表示四边，示例：padding:5;   
+
+值为二个时表示，第一个表示上下，二个表示左右，示例pading:5 4;
 
 
 **padding-left**  
 
-> UI组件内左边距，默认 0 示例：padding-left:5;
+<code>UI组件内左边距</code> 
+
+取值数字，默认 0， 示例：padding-left:5;
 
 
 **padding-right**  
 
-> UI组件内右边距，默认 0 示例：padding-right:5;
+<code>UI组件内右边距</code> 
+
+取值数字 ，默认 0， 示例：padding-right:5;
 
 
 **padding-top**  
+
+<code>UI组件内顶边距</code> 
  
-> UI组件内顶边距，默认 0 示例：padding-top:5;
+取值数字 ，默认 0， 示例：padding-top:5;
 
 
 **padding-bottom**  
 
-> UI组件内底边距，默认 0 示例：padding-bottom:5;
+<code>UI组件内底边距</code> 
+
+取值数字，默认 0， 示例：padding-bottom:5;
 
 
 
 <h2 id="cid_4">边框</h2>
 
-边框样式，【solid,dashed,dotted】  
+**border-style**  
 
- - solid：定义实线（默认）  
- 
-- dashed：定义虚线    
- 
-- dotted：定义点状边框  
+<code>边框样式</code> 
+
+取值 [solid,dashed,dotted]  
+
+> solid：定义实线（默认）  
+> 
+> dashed：定义虚线    
+> 
+> dotted：定义点状边框  
+
 
 **border-color**    
 
-> 边框色，默认transparent  
+<code>边框色</code> 
+
+取值参考color取值说明，默认transparent  
 
 **border-width**   
 
-> 边框宽度，默认0dp  
+<code>边框宽度</code>
 
-**border-radius** 
+取值数字，默认0dp  
 
-> 边框弧度，默认0  
+**border-radius**  
+
+<code>边框弧度</code>
+
+取值数字 ，默认0  
 
 **border-bottom-left-radius**
 
+<code> 左下边框弧度</code>
 
-> 左下边框弧度，默认0  
+取值数字，默认0  
 
-**border-bottom-right-radius**
+**border-bottom-right-radius**  
 
+<code> 右下边框弧度</code>
 
-> 右下边框弧度，默认0  
+取值数字 ，默认0  
 
-**border-top-left-radius**
+**border-top-left-radius**  
 
-> 左上边框弧度，默认0  
+<code> 左上边框弧度</code>
+
+取值数字，默认0  
 
 **border-bottom-left-radius**  
 
-> 左下边框弧度，默认0
+<code> 左下边框弧度</code> 
+
+取值数字，默认0
 
 
 <h2 id="cid_5">背景</h2>
 
-**background-color**
+**background-color**  
 
+<code> 设置背景色</code> 
 
-> 设置背景色，默认值transparent透明色；  
+取值参考color取值说明，默认值transparent透明色；  
 
-**opacity**  
+**opacity**   
 
-> 透明度，数字，取值范围为 [0, 1]。默认值是 1，即完全不透明；0 是完全透明；0.5 是 50% 的透明度；  
+<code>组件透明度</code> 
 
-**注：**  
+取值数字，取值范围为 [0, 1]
 
-- opacity设置的是整个控件的透明，如果控件是容器，那么容器内部所有的控件都会跟着一起变透明。如果想实现背景色透明，可以使用background-color:rgba(rgba(255, 0, 0, 0.5))来设置。    
+> 1，即完全不透明（默认值）；
+> 
+> 0 是完全透明；0.5 是 50% 的透明度；  
+
+**注：**   opacity设置的是整个控件的透明，如果控件是容器，那么容器内部所有的控件都会跟着一起变透明。如果想实现背景色透明，可以使用background-color:rgba(rgba(255, 0, 0, 0.5))来设置。    
 
 <h2 id="cid_6">文本样式</h2>
 
 文档类组件共享一些共同特性, 如：text，textfiled，textarea；  
 
-**color**
+**color**  
 
-> 文字颜色，默认值#333333；  
+<code>文字颜色</code>
 
-**font-size**
+取值参考color取值说明，默认值#333333；  
 
-> 文字大小，数字，单位dp，默认16  
+**font-size**  
 
-**font-style**
+<code>文字大小</code>
 
-> 字体类别，【normal,italic】 
->
-> - normal：普通字体；（默认）
+取值数字，单位dp，默认16  
+
+**font-style** 
+
+<code>字体类别</code>
+
+取值 [normal,italic] 
+
+>  normal：普通字体（默认）；
 > 
-> -  italic：斜体；  
+>   italic：斜体；  
 
-**font-weight**  
+**font-weight** 
 
-> 字体粗细程度，【normal,bold】  
-> 
->  -  normal：正常字体；（默认）  
+<code>字体粗细程度</code> 
+
+取值 [normal,bold]  
+ 
+>   normal：正常字体（默认） ； 
 >  
->  -  bold：粗体；  
+>   bold：粗体；  
 
 
-**text-decoration**  
+**text-decoration**   
 
-> 字体装饰样式，【none,underline,line-through】  
+<code>字体装饰样式</code> 
+
+取值 [none,underline,line-through]  
+ 
+>   none: 无装饰（默认）；  
 > 
-> -  none: 无装饰；（默认）  
+>   underline：文字装饰为下划线；  
 > 
-> -  underline：文字装饰为下划线；  
-> 
-> -  line-through：文字装饰为中间贯穿线；  
+>  line-through：文字装饰为中间贯穿线；  
 
 
 **text-align**
 
-> 文字水平方向对齐方式，【left,center,right】
+<code>文字水平方向对齐方式</code> 
+
+取值 [left,center,right]
+ 
+>  left：文本水平方向左对齐；（默认）
 > 
-> - left：文本水平方向左对齐；（默认）
+>  center：文本水平方向居中对齐；
 > 
-> - center：文本水平方向居中对齐；
-> 
-> - right：文本水平方向右对齐；
+>  right：文本水平方向右对齐；
 
 
 **text-overflow**  
 
-> 内容超长时文本省略样式，【clip,ellipsis】
+<code>内容超长时文本省略样式</code> 
+
+取值 [clip,ellipsis]
+
+>  clip：省略无法显示文本（默认）；
 > 
-> - clip：省略无法显示文本；（默认）
-> 
-> - ellipsis：显示省略符号来代表被裁剪的文本；
+>  ellipsis：显示省略符号来代表被裁剪的文本；
 
-**注：** 
-
-- 如果想设置文字为省略样式，首先必须设置文本单行显示，如text样式singleline：true，并且text宽度应该小于等于父容器的宽度。  
+**注：**   如果想设置文字为省略样式，首先必须设置文本单行显示，如text样式singleline：true，并且text宽度应该小于等于父容器的宽度。  
 
 
-<h2 id="cid_7">显影</h2>
+<h2 id="cid_7">显影</h2> 
 
 **display**  
 
-> 控件是否显示，字符串枚举型，【block,none】 
-> - block：显示；
+<code>控件是否显示</code> 
+
+取值字符串枚举型 [block,none] 
+ 
+>  block：显示；
 > 
-> - none：隐藏，且不分配占位空间，注：使用该属性显隐控件后，需要调用document.refresh()刷新布局；  
+>  none：隐藏，且不分配占位空间，
+ 
+**注：** 使用该属性显隐控件后，需要调用document.refresh()刷新布局；  
+
 
 **visibility**  
 
-> 控件是否可见，字符串枚举型，【visible, hidden】  
-> 
-> - visible：显示； 
-> 
-> - hidden：隐藏，分配占位空间，不需要document.refresh()进行布局刷新;  
+<code>控件是否可见</code> 
 
-**注：**  
+取值字符串枚举型， [visible, hidden]  
 
-在使用显影控制时，如果不涉及整个页面布局变动，建议用visibility来做显影，这样就不要刷新布局，提高显影效率。那么什么情况下是布局变动呢，比如隐藏一个控件后，这个控件下面的控件都会网上移动，这种情况下需要使用document.refresh()刷新页面布局。  
+>  visible：显示； 
+> 
+>  hidden：隐藏，分配占位空间，不需要document.refresh()进行布局刷新;  
+
+**注：**   在使用显影控制时，如果不涉及整个页面布局变动，建议用visibility来做显影，这样就不要刷新布局，提高显影效率。那么什么情况下是布局变动呢，比如隐藏一个控件后，这个控件下面的控件都会网上移动，这种情况下需要使用document.refresh()刷新页面布局。  
 
 <h2 id="cid_8">flexbox布局</h2>
 
