@@ -748,7 +748,7 @@ frame：json数据格式，定义如下：
 
 - 如果组件通过js动态加载进行布局，在android上可能不能马上获取到getAbsoluteFrame的值，需要做一个定时处理来获取。  
 
-如果在页面加载的时候获取某一个组件的getAbsoluteFrame的值，在android上 在window的loaded事件里面可能获取不到，需要放在window的animator事件里面获取。
+- 如果在页面加载的时候获取某一个组件的getAbsoluteFrame的值，在android上 在window的loaded事件里面可能获取不到，需要放在window的animator事件里面获取。
 
 
 
