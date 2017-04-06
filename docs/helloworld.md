@@ -6,34 +6,40 @@
 
 <h2 id="cid_0">开发环境搭建</h2>
 
-1.从官网下载Mbuilder5 IDE，sprite客户端（apk和ipa）和代码同步小工具SpriteHttpServer.exe。  
+1.从官网下载Mbuilder5 IDE，sprite客户端（apk和ipa）。  
 
 2.在手机上安装sprite.apk或者aprite.ipa，注意ios提供的是企业版，可以直接通过手机助手进行安装，安装后需要手动的在“设置-通用-描述文件与设备管理”对应用添加信任。  
 
-3.随便在某个磁盘下创建一个文件目录，然后在目录里面创建一个apps目录，然后再把SpriteHttpServer.exe同步小工具放在和apps同级的目录下。  
-
-<img  src="image/hw_1.png" /> 
+3.安装Mubilder5，注意安装过程中关闭360等拦截软件。  
 
 4.要保证手机和自己的开发电脑在同一个wifi内，并且可以网通。  
 
-5.然后开启SpriteHttpServer.exe。
+
 
  
 <h2 id="cid_1">新建项目</h2>
 
-1.在apps目录下创建一个名为app.json的文件（文件名固定写法），然后编写如下json内容：  
+1.打开mbuilder新建一个sprite项目工程：  
 
-<img   src="image/hw_2.png" />   
+<img   src="image/hw_1.png" />    
+
+创建好工程后，会有一些项目中最基础的文件代码，如果app.json
+
+<img   src="image/hw_2_1.png" />   
 
 homeJs:应用的入口js地址，res:前缀是基于apps目录开始；  
 
 orientation:横竖屏设置，portrait:竖屏（默认）、landscape:横屏、device:支持横竖屏切换；  
 
-syncip:设置同步小工具所在开发电脑的IP地址，一般情况就是自己电脑的ip地址。  
+syncip:设置同步工具所在开发电脑的IP地址，一般情况就是自己电脑的ip地址。  
 
-syncname：设置同步小工具服务器名称，随便定义。  
+syncname：设置同步工具服务器名称，随便定义。  
 
-由于app.json这个文件不会被同步，所以暂时需要手动的拷贝到手机对应的目录里，通过手机助手找到对应目录spirte/apps:  
+这里同步工具指的是Mbuilder，开发者也可以不用关心这些同步配置，在手机端第一个页面进行配置即可。
+
+<img   src="image/hw_16.png" width="250" />   
+
+点更新即可同步代码，如果没有同步也可以手动直接拷贝到手机对应目录里，通过手机助手找到对应目录spirte/apps:  
 
 Ios手机对应目录：  
 
