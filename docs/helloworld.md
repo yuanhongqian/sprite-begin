@@ -6,11 +6,14 @@
 
 <h2 id="cid_0">开发环境搭建</h2>
 
-1.从官网下载Mbuilder5 IDE，sprite客户端（apk和ipa）。  
+1.从官网下载Mbuilder5 IDE，sprite客户端（apk和ipa）。
+  
+2.安装Mubilder5，注意安装过程中关闭360等拦截软件。 
 
-2.在手机上安装sprite.apk或者aprite.ipa，注意ios提供的是企业版，可以直接通过手机助手进行安装，安装后需要手动的在“设置-通用-描述文件与设备管理”对应用添加信任。  
+3.在手机上安装sprite.apk或者aprite.ipa，注意ios提供的是企业版，可以直接通过手机助手进行安装，安装后需要手动的在“设置-通用-描述文件与设备管理”对应用添加信任。  
 
-3.安装Mubilder5，注意安装过程中关闭360等拦截软件。  
+开发者也可以扫描Mbuilder提供的二维码进行安装。
+<img   src="image/hw_1.png" />  
 
 4.要保证手机和自己的开发电脑在同一个wifi内，并且可以网通。  
 
@@ -21,7 +24,7 @@
 
 1.打开mbuilder新建一个sprite项目工程：  
 
-<img   src="image/hw_1.png" />    
+<img   src="image/hw_2.png" />    
 
 创建好工程后，会有一些项目中最基础的文件代码，如果app.json
 
@@ -36,6 +39,7 @@ syncip:设置同步工具所在开发电脑的IP地址，一般情况就是自�
 syncname：设置同步工具服务器名称，随便定义。  
 
 这里同步工具指的是Mbuilder，开发者也可以不用关心这些同步配置，在手机端第一个页面进行配置即可。
+<img   src="image/hw_1.png" />  
 
 <img   src="image/hw_16.png" width="250" />   
 
