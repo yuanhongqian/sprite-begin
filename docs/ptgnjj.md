@@ -4,7 +4,7 @@
 
 <h2 id="cid_0">平台架构</h2>
 
-Sprite支持iOS和Android平台，iOS支持8.0及以上系统，Android支持4.5及以上系统。  
+Sprite支持iOS和Android平台，iOS支持8.0及以上系统，Android支持4.4及以上系统。  
 
 开发语言：领域专用语言（domain specific language / DSL），自有原生UI体系,xml + css + js开发模式。  
 
