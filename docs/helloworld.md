@@ -34,11 +34,11 @@ homeJs:应用的入口js地址，res:前缀是基于apps目录开始；
 
 orientation:横竖屏设置，portrait:竖屏（默认）、landscape:横屏、device:支持横竖屏切换；  
 
-syncip:设置同步工具所在开发电脑的IP地址，一般情况就是自己电脑的ip地址。  
+syncip:暂无意义。  
 
-syncname：设置同步工具服务器名称，随便定义。  
+syncname：暂无意义。  
 
-这里同步工具指的是Mbuilder，开发者也可以不用关心这些同步配置，在手机端第一个页面进行配置即可。
+在手机端第一个页面配置Mbuilder同步工具的IP地址和端口，具体的IP端口信息查看下图所示。
 <img   src="image/hw_1.png" />  
 
 <img   src="image/hw_16.png" width="250" />   
