@@ -66,18 +66,19 @@ app.on("launch",function(e,jsonData){
 
 launch启动参数jsonData为Json对象，定义如下：  
   
-**jsonData.type：启动类型，字符串枚举型，[normal,app]**
+**jsonData.type：启动类型，字符串枚举型，[normal,app]：**
 
 >  normal ：桌面启动
 > 
 >  app：第三方程序调用
 > 
 > notification：点击推送通知调用
-> 
-**jsonData.data：传递参数**
-> 
+
+
+**jsonData.data：传递参数：**
+
 当jsonData.type为app类型时
-> 
+
 >   Android为Json对象；
 > 
 >   iOS为字符串类型；
