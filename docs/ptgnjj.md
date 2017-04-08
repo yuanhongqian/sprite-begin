@@ -97,11 +97,11 @@ launch启动参数jsonData为Json对象，定义如下：
 >   
 >  - subappid第三方 Native 应用 appid，即应用唯一标识，字符串类型
 >   
->   - page：用户点击后打开的本地页面地址，字符串类型
+>  - page：用户点击后打开的本地页面地址，字符串类型
 >    
->  -  badge：快捷图标显示数字，数字类型，注：仅ios支持
+>  - badge：快捷图标显示数字，数字类型，注：仅ios支持
 >   
->  -  param：自定义透传参数列表，Json对象
+>  - param：自定义透传参数列表，Json对象
 
 homeJs.js内放置纯js，示例：
 
