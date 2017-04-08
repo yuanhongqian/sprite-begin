@@ -20,12 +20,13 @@ Sprite的应用入口配置文件是app.json，该文件必须放在apps根目�
 
 <img  src="image/ptgnjj_2.png" />    
 
-homeJs:应用的入口js地址，res:前缀是基于apps目录开始；  
-
-orientation:横竖屏设置，portrait:竖屏（默认）、landscape:横屏、device:支持横竖屏切换；  
-
-syncip:设置同步小工具所在开发电脑的IP地址，一般情况就是自己电脑的ip地址。
-syncname：设置同步小工具服务器名称，随便定义。  
+> homeJs：应用的入口js地址，res:前缀是基于apps目录开始；  
+>
+>orientation：横竖屏设置，portrait:竖屏（默认）、landscape:横屏、device:支持横竖屏切换；  
+>
+>syncip：无意义，不需要关心。
+>
+>syncname：无意义，不需要关心。  
 
 在home.js里面主要配置一些全局的js、css和模板的路径，也可以定义一些全局的监听事件。当然最主要的还是配置应用启动类型。代码示例如下：  
 
@@ -63,17 +64,46 @@ app.on("launch",function(e,jsonData){
 
 通过监听app对象的launch事件，可以判断是哪种类型启动的应用，从而我们可以在应用启动的时候就做一些逻辑判断。该事件第二个参数jsonData里面有两个key属性：  
 
-jsonData.type:启动类型和jsondData.data:启动得到的参数。  
+launch启动参数jsonData为Json对象，定义如下：  
+  
+**jsonData.type：启动类型，字符串枚举型，[normal,app]**
 
-启动类型主要有：  
+>  normal ：桌面启动
+> 
+>  app：第三方程序调用
+> 
+> notification：点击推送通知调用
+> 
+**jsonData.data：传递参数**
+> 
+当jsonData.type为app类型时
+> 
+>   Android为Json对象；
+> 
+>   iOS为字符串类型；
 
-normal：正常从桌面点击进入，大部分情况应该都是这种。  
+当jsonData.type为notification类型且为ExMobi Push时，为Json对象，定义如下：
+ 
+>  type：推送类型，字符串类型
+> 
+>  content：推送内容，Json对象，定义如下：
+> 
+>  - titlehead：标题，字符串类型
+>   
+>  -  title：内容，字符串类型
+>   
+>  - app：推送消息归属的应用标识，字符串类型
+>   
+>  - subappid第三方 Native 应用 appid，即应用唯一标识，字符串类型
+>   
+>   - page：用户点击后打开的本地页面地址，字符串类型
+>    
+>  -  badge：快捷图标显示数字，数字类型，注：仅ios支持
+>   
+>  -  param：自定义透传参数列表，Json对象
 
-app：第三方app调起sprite会进入，一般情况下可以在这个逻辑判断，通过jsondData.data可以得到第三方应用传过来的参数，关于data里面具体的参数由第三方app确定。  
+homeJs.js内放置纯js，示例：
 
-notification：当客户端接收到push消息后，用户点击状态栏的push消息可进入这个逻辑判断。  
-
-localNotification：当客户端本地收到通知消息的时候，用户点击状态消息可以进入这个逻辑，比如闹铃就是本地消息。  
 
 在入口文件还可以通过app对象监听其他事件，比如横竖屏切换，这个地方的监听是全局，还可以监听自定义事件，开发者在后面的任何页面通过fire来触发事件。  
 
