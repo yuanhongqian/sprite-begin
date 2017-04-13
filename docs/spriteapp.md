@@ -1180,7 +1180,7 @@ module.exports = ListNews;
 
 **第二步，创建myapp/detail_news.uixml文件**
 
-在该页面中直接用webview进行网页显示，代码如下：
+在该页面中直接用webview进行网页显示，代码如下：  
 
 ```html
 <page>
