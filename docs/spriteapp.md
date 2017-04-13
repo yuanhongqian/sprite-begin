@@ -1,4 +1,4 @@
-# 完成一个sprite应用
+# 完成一个sprite应用1
 
 ----------
 
@@ -1240,7 +1240,6 @@ module.exports = ListNews;
 效果图如下：
 
 <img src="image/spriteapp_9.png" width="250"/>
-
 
 <h2 id="cid_0">应用打包</h2>
 
