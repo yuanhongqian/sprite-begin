@@ -764,7 +764,7 @@ frame：json数据格式，定义如下：
 > 
 > [remove(): void 从父容器中移除自身](#ptdom_4)  
 > 
-> [clone(isDeep:string): IElement 对当前Dom节点进行克隆](#ptdom_5)  
+> [clone(isDeep:boolean): IElement 对当前Dom节点进行克隆](#ptdom_5)  
 >  
 > [setAttr(attrName:string,attrValue:string): void  设置节点属性](#ptdom_6)   
 >
@@ -1151,7 +1151,7 @@ var domid =  v.getId();
 > 
 > [getElements(rule:string): Array&lt;object&gt; 根据特定规则获取容器内UI控件对象集](#rqczdom_2)   
 > 
-> [getChildren():Array<IElement>  容器获取子节点集](#rqczdom_3)  
+> [getChildren():Array&lt;IElement&gt;  容器获取子节点集](#rqczdom_3)  
 >  
 > [getFirstChild(): IElement 容器获取首子节点](#rqczdom_4) 
 >  
@@ -1192,7 +1192,7 @@ var v =box.getElement("v_id");
 
 ```  
 
-<span id="rqczdom_2">**getElements(rule:string):Array<IElement>**</span>   
+<span id="rqczdom_2">**getElements(rule:string):Array&lt;IElement&gt;**</span>   
 
 <code>根据特定规则获取容器内UI控件对象集</code>   
 
