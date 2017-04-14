@@ -12,7 +12,7 @@
 > 
 > [off(messageName:string,function:Function): void  组件移除事件的触发函数](#jjxg_3)  
 >  
-> [getOn(messageName:string): Array<object> 获取已绑定的事件的触发函数](#jjxg_4)   
+> [getOn(messageName:string): Array&lt;object&gt; 获取已绑定的事件的触发函数](#jjxg_4)   
 
 
 <span id="jjxg_1">**on(messageName:string,function:Function): void**</span>
@@ -1149,7 +1149,7 @@ var domid =  v.getId();
 > 
 > [getElement (id:string): IElement 根据Id获取容器内UI控件对象](#rqczdom_1)   
 > 
-> [getElements(rule:string): Array<object> 根据特定规则获取容器内UI控件对象集](#rqczdom_2)   
+> [getElements(rule:string): Array&lt;object&gt; 根据特定规则获取容器内UI控件对象集](#rqczdom_2)   
 > 
 > [getChildren():Array<IElement>  容器获取子节点集](#rqczdom_3)  
 >  
