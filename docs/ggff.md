@@ -8,7 +8,7 @@
 > 
 > [on(messageName:string,callback:Function): void   组件注册事件的触发函数](#jjxg_1)   
 > 
-> [fire(messageName:string,params:string): void  组件事件的触发函数](#jjxg_2)   
+> [fire(messageName:string,params:Array&lt;any&gt;): void  组件事件的触发函数](#jjxg_2)   
 > 
 > [off(messageName:string,callback:Function): void  组件移除事件的触发函数](#jjxg_3)  
 >  
@@ -23,7 +23,7 @@
 
 messageName：注册消息标识，字符串类型，必选项；
 
-function：绑定回调触发函数，函数类型，必选项，函数入参定义如下：
+callback：绑定回调触发函数，函数类型，必选项，函数入参定义如下：
 
 > event：事件类型，Event对象，定义包括：
 > 
@@ -58,7 +58,7 @@ button.on("login", function (event, param1, param2) {
 ```
 
 
-<span id="jjxg_2">**fire(messageName:string,params:string): void**</span>
+<span id="jjxg_2">**fire(messageName:string,params:Array&lt;any&gt;): void**</span>
 
 <code>组件事件的触发函数</code>
 
@@ -90,7 +90,7 @@ button.fire("login", params);
 
 messageName：注册消息标识，字符串类型，必选项；  
 
-function：指定移除回调触发函数，函数类型，可选项；
+callback：指定移除回调触发函数，函数类型，可选项；
 
 返回值：无  
 
@@ -375,7 +375,7 @@ button.startAnimation(jsonData,function(code){
 
 ```   
 
-function：组件动画结束回调函数，可选参数，入参为Json对象，定义如下：  
+callback：组件动画结束回调函数，可选参数，入参为Json对象，定义如下：  
 
 > code：回应状态码，数字【0,-1】  
 > 
@@ -484,7 +484,7 @@ animators中 json属性定义如下：
 
 **注：** 如果需要组合动画同时执行，都设置在props里面即可。
 
-function：组件动画结束回调函数，可选参数，入参为Json对象，定义如下：  
+callback：组件动画结束回调函数，可选参数，入参为Json对象，定义如下：  
 
 > code：回应状态码，数字【0,-1】
 > 
@@ -593,7 +593,7 @@ settings数组中每个成员均为json对象，定义如下：
 
  
 
-function：组件动画结束回调函数，可选参数，入参为Json对象，定义如下：  
+callback：组件动画结束回调函数，可选参数，入参为Json对象，定义如下：  
 
 > code：回应状态码，数字【0,-1】  
 > 
@@ -778,7 +778,7 @@ frame：json数据格式，定义如下：
 >
 > [setText(content:string):void  设置节点文本内容](#ptdom_11)
 >
-> [getText(content:string):void  获取节点文本内容](#ptdom_12)
+> [getText():void  获取节点文本内容](#ptdom_12)
 > 
 > [setStyle(styleName:string,styleValue:string): void  设置节点样式值](#ptdom_13)  
 >
