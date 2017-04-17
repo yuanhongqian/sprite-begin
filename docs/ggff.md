@@ -12,7 +12,7 @@
 > 
 > [off(messageName:string,callback:Function): void  组件移除事件的触发函数](#jjxg_3)  
 >  
-> [getOn(messageName:string): Array&lt;object&gt; 获取已绑定的事件的触发函数](#jjxg_4)   
+> [getOn(messageName:string): Array&lt;Object&gt; 获取已绑定的事件的触发函数](#jjxg_4)   
 
 
 <span id="jjxg_1">**on(messageName:string,callback:Function): void**</span>
@@ -109,7 +109,7 @@ function onButtonClick(){
 }
 ```  
 
-<span id="jjxg_4">**getOn(messageName:string): Array&lt;object&gt;**</span>  
+<span id="jjxg_4">**getOn(messageName:string): Array&lt;Object&gt;**</span>  
 
 <code>获取已绑定的事件的触发函数</code>  
 
@@ -132,15 +132,15 @@ var eventarr = boxObj.getOn("click");
 
 本节目录：  
 > 
-> [startAnimation(jsonData:object,callback:Function): void  启动UI组件动画](#dhxg_1)   
+> [startAnimation(jsonData:Object,callback:Function): void  启动UI组件动画](#dhxg_1)   
 > 
-> [startAnimator(jsonData:object,callback:Function): void  启动UI组件属性动画](#dhxg_2)   
+> [startAnimator(jsonData:Object,callback:Function): void  启动UI组件属性动画](#dhxg_2)   
 > 
-> [startKeyFrameAnimator(jsonData:object,callback:Function): void  启动UI组件关键帧动画](#dhxg_3)  
+> [startKeyFrameAnimator(jsonData:Object,callback:Function): void  启动UI组件关键帧动画](#dhxg_3)  
 >  
 > [releaseAnimator(): void 结束控件动画](#dhxg_4)   
 
-<span id="dhxg_1">**startAnimation(jsonData:object,callback:Function): void**</span>
+<span id="dhxg_1">**startAnimation(jsonData:Object,callback:Function): void**</span>
 
 <code>启动UI组件动画</code>   
 
@@ -196,7 +196,7 @@ animationSet数组格式中各个动画Json属性定义如下：
 ```javascript
 var = {};
 jsonData.fillAfter = 0;
-var animationSet = new Array(): object;
+var animationSet = new Array(): Object;
 var opacityAni = {};
 opacityAni.type = "opacity";
 opacityAni.delay = 1000;
@@ -246,7 +246,7 @@ button.startAnimation(jsonData,function(code){
 ```javascript
 var = {};
 jsonData.fillAfter = 0;
-var animationSet = new Array(): object;
+var animationSet = new Array(): Object;
 
 var transferAni = {};
 transferAni.type = "transfer";
@@ -301,7 +301,7 @@ button.startAnimation(jsonData,function(code){
 ```javascript
 var = {};
 jsonData.fillAfter = 0;
-var animationSet = new Array(): object;
+var animationSet = new Array(): Object;
 
 var scaleAni = {};
 scaleAni.type = "scale";
@@ -356,7 +356,7 @@ var = {};
 jsonData.pivotX = 1;
 jsonData.pivotY = 1;
 jsonData.fillAfter = 0;
-var animationSet = new Array(): object;
+var animationSet = new Array(): Object;
 
 var rotateAni = {};
 rotateAni.type = "rotate";
@@ -397,7 +397,7 @@ var = {};
 jsonData.pivotX = 1;
 jsonData.pivotY = 1;
 jsonData.fillAfter = 0;
-var animationSet = new Array(): object;
+var animationSet = new Array(): Object;
 //缩放动画
 var scaleAni = {};
 scaleAni.type = "scale";
@@ -426,7 +426,7 @@ button.startAnimation(jsonData,function(code){
 
 ```  
 
-<span id="dhxg_2">**startAnimator(jsonData:object,callback:Function): void**</span>  
+<span id="dhxg_2">**startAnimator(jsonData:Object,callback:Function): void**</span>  
 
 <code>启动UI组件属性动画</code>  
 
@@ -507,7 +507,7 @@ callback：组件动画结束回调函数，可选参数，入参为Json对象�
 //示例中，两个动画会按照先后顺序执行，其中动画一里面是组合动画
 
 var = {};
-var aniAry = new Array(): object;
+var aniAry = new Array(): Object;
 //第一个动画，同时做缩放和旋转动画
 var jsonAni1 = {};
 jsonAni1.delay = 0;
@@ -535,7 +535,7 @@ testBtn.startAnimator(jsonData, function(code){
 });
 ```
 
-<span id="dhxg_3">**startKeyFrameAnimator(jsonData:object,callback:Function): void**</span>  
+<span id="dhxg_3">**startKeyFrameAnimator(jsonData:Object,callback:Function): void**</span>  
 
 <code>启动UI组件关键帧动画</code>    
 
@@ -611,7 +611,7 @@ var = {};
 jsonData.type = "scale";
 jsonData.duration = 300;
 
-var settings = new Array(): object;
+var settings = new Array(): Object;
 
 var json = {};
 json.value = 0.01;
@@ -659,16 +659,16 @@ thisDom.startKeyFrameAnimator(jsonData, aniCallBack);
 
 本节目录：  
 > 
-> [getFrame(): object  获取组件在父容器中的位置](#cchwz_1)   
+> [getFrame(): Object  获取组件在父容器中的位置](#cchwz_1)   
 > 
-> [setFrame(frame:object):void  设置组件在父容器中的位置](#cchwz_2)   
+> [setFrame(frame:Object):void  设置组件在父容器中的位置](#cchwz_2)   
 > 
-> [getCenter(): object 获取组件中心点在父容器中的位置](#cchwz_3)  
+> [getCenter(): Object 获取组件中心点在父容器中的位置](#cchwz_3)  
 >  
-> [getAbsoluteFrame(): object  获取组件在绘制窗口中的位置](#cchwz_4)   
+> [getAbsoluteFrame(): Object  获取组件在绘制窗口中的位置](#cchwz_4)   
 
 
-<span id="cchwz_1">**getFrame(): object**</span>  
+<span id="cchwz_1">**getFrame(): Object**</span>  
 
 <code>获取组件在父容器中的位置</code> 
 
@@ -688,7 +688,7 @@ thisDom.startKeyFrameAnimator(jsonData, aniCallBack);
 
 
 
-<span id="cchwz_2">**setFrame(frame: object): void**</span>  
+<span id="cchwz_2">**setFrame(frame: Object): void**</span>  
 
 <code>设置组件在父容器中的位置</code>  
 
@@ -714,7 +714,7 @@ frame：json数据格式，定义如下：
 
 
 
-<span id="cchwz_3">**getCenter(): object**</span>  
+<span id="cchwz_3">**getCenter(): Object**</span>  
 
 <code>获取组件中心点在父容器中的位置</code>  
 
@@ -727,7 +727,7 @@ frame：json数据格式，定义如下：
 > y：float型，垂直位置；
 
 
-<span id="cchwz_4">**getAbsoluteFrame(): object**</span>  
+<span id="cchwz_4">**getAbsoluteFrame(): Object**</span>  
 
 
 <code>获取组件在绘制窗口中的位置</code>
@@ -770,7 +770,7 @@ frame：json数据格式，定义如下：
 >
 > [getAttr(attrName:string):string  获取节点属性](#ptdom_7) 
 >
-> [getAttrs(): object 获取节点所有属性](#ptdom_8) 
+> [getAttrs(): Object 获取节点所有属性](#ptdom_8) 
 >
 > [removeAttr(attrName:string):void  移除节点属性](#ptdom_9)
 >
@@ -916,7 +916,7 @@ var v = document.getElement("v_id");
 v.getAttr("value");
 ```   
 
-<span id="ptdom_8">**getAttrs(): object**</span>  
+<span id="ptdom_8">**getAttrs(): Object**</span>  
 
 <code>获取节点所有属性</code>  
 
@@ -1149,7 +1149,7 @@ var domid =  v.getId();
 > 
 > [getElement (id:string): IElement 根据Id获取容器内UI控件对象](#rqczdom_1)   
 > 
-> [getElements(rule:string): Array&lt;object&gt; 根据特定规则获取容器内UI控件对象集](#rqczdom_2)   
+> [getElements(rule:string): Array&lt;Object&gt; 根据特定规则获取容器内UI控件对象集](#rqczdom_2)   
 > 
 > [getChildren():Array&lt;IElement&gt;  容器获取子节点集](#rqczdom_3)  
 >  
