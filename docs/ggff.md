@@ -77,7 +77,8 @@ params：需要传递的参数集，数组类型，可选项；
 button.fire("click");
 //带参数事件触发
 var params = new Array();
-params.concat("George","John");
+param.push("George");
+param.push("John");
 //params 是数组，这里传递了2个参数给login事件，接受参数参考上面on的示例
 button.fire("login", params);
 ``` 
