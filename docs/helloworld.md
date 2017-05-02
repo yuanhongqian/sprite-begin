@@ -33,9 +33,9 @@ homeJs:应用的入口js地址，res:前缀是基于apps目录开始；
 
 orientation:横竖屏设置，portrait:竖屏（默认）、landscape:横屏、device:支持横竖屏切换；  
 
-syncip:暂无意义，不用关心。  
+appversion:应用资源版本号。  
 
-syncname：暂无意义，不用关心。  
+appname:应用名称。  
 
 在手机端第一个页面配置Mbuilder同步工具的IP地址和端口，具体的IP端口信息查看下图所示。 
 

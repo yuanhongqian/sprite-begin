@@ -24,9 +24,9 @@ Sprite的应用入口配置文件是app.json，该文件必须放在apps根目�
 >
 >orientation：横竖屏设置，portrait:竖屏（默认）、landscape:横屏、device:支持横竖屏切换；  
 >
->syncip：无意义，不需要关心。
+>appversion：应用资源版本号。
 >
->syncname：无意义，不需要关心。  
+>appname：应用名称。  
 
 在home.js里面主要配置一些全局的js、css和模板的路径，也可以定义一些全局的监听事件。当然最主要的还是配置应用启动类型。代码示例如下：  
 
