@@ -6,16 +6,16 @@
 
 本节目录：  
 > 
-> [void on(messageName,function)   组件注册事件的触发函数](#jjxg_1)   
+> [on(messageName:string,callback:Function): void   组件注册事件的触发函数](#jjxg_1)   
 > 
-> [void fire(messageName,params)  组件事件的触发函数](#jjxg_2)   
+> [fire(messageName:string,params:Array&lt;any&gt;): void  组件事件的触发函数](#jjxg_2)   
 > 
-> [void off(messageName,function)  组件移除事件的触发函数](#jjxg_3)  
+> [off(messageName:string,callback:Function): void  组件移除事件的触发函数](#jjxg_3)  
 >  
-> [Array getOn(messageName)  获取已绑定的事件的触发函数](#jjxg_4)   
+> [getOn(messageName:string): Array&lt;Object&gt; 获取已绑定的事件的触发函数](#jjxg_4)   
 
 
-<span id="jjxg_1">**void on(messageName,function)**</span>
+<span id="jjxg_1">**on(messageName:string,callback:Function): void**</span>
 
 <code> 组件注册事件的触发函数</code>
 
@@ -23,7 +23,7 @@
 
 messageName：注册消息标识，字符串类型，必选项；
 
-function：绑定回调触发函数，函数类型，必选项，函数入参定义如下：
+callback：绑定回调触发函数，函数类型，必选项，函数入参定义如下：
 
 > event：事件类型，Event对象，定义包括：
 > 
@@ -58,7 +58,7 @@ button.on("login", function (event, param1, param2) {
 ```
 
 
-<span id="jjxg_2">**void fire(messageName,params)**</span>
+<span id="jjxg_2">**fire(messageName:string,params:Array&lt;any&gt;): void**</span>
 
 <code>组件事件的触发函数</code>
 
@@ -77,12 +77,13 @@ params：需要传递的参数集，数组类型，可选项；
 button.fire("click");
 //带参数事件触发
 var params = new Array();
-params.concat("George","John");
+params.push("George");
+params.push("John");
 //params 是数组，这里传递了2个参数给login事件，接受参数参考上面on的示例
 button.fire("login", params);
 ``` 
 
-<span id="jjxg_3">**void off(messageName,function)** </span>
+<span id="jjxg_3">**off(messageName:string,callback:Function): void** </span>
 
 <code>组件移除事件的触发函数</code>  
 
@@ -90,7 +91,7 @@ button.fire("login", params);
 
 messageName：注册消息标识，字符串类型，必选项；  
 
-function：指定移除回调触发函数，函数类型，可选项；
+callback：指定移除回调触发函数，函数类型，可选项；
 
 返回值：无  
 
@@ -109,7 +110,7 @@ function onButtonClick(){
 }
 ```  
 
-<span id="jjxg_4">**Array getOn(messageName)**</span>  
+<span id="jjxg_4">**getOn(messageName:string): Array&lt;Object&gt;**</span>  
 
 <code>获取已绑定的事件的触发函数</code>  
 
@@ -132,15 +133,15 @@ var eventarr = boxObj.getOn("click");
 
 本节目录：  
 > 
-> [void startAnimation(jsonData,function)  启动UI组件动画](#dhxg_1)   
+> [startAnimation(jsonData:Object,callback:Function): void  启动UI组件动画](#dhxg_1)   
 > 
-> [void startAnimator(jsonData,function)  启动UI组件属性动画](#dhxg_2)   
+> [startAnimator(jsonData:Object,callback:Function): void  启动UI组件属性动画](#dhxg_2)   
 > 
-> [void startKeyFrameAnimator(jsonData,function)  启动UI组件关键帧动画](#dhxg_3)  
+> [startKeyFrameAnimator(jsonData:Object,callback:Function): void  启动UI组件关键帧动画](#dhxg_3)  
 >  
-> [void  releaseAnimator()  结束控件动画](#dhxg_4)   
+> [releaseAnimator(): void 结束控件动画](#dhxg_4)   
 
-<span id="dhxg_1">**void startAnimation(jsonData,function)**</span>
+<span id="dhxg_1">**startAnimation(jsonData:Object,callback:Function): void**</span>
 
 <code>启动UI组件动画</code>   
 
@@ -194,9 +195,9 @@ animationSet数组格式中各个动画Json属性定义如下：
 示例：  
 
 ```javascript
-var jsonData = {};
+var = {};
 jsonData.fillAfter = 0;
-var animationSet = new Array();
+var animationSet = new Array(): Object;
 var opacityAni = {};
 opacityAni.type = "opacity";
 opacityAni.delay = 1000;
@@ -244,9 +245,9 @@ button.startAnimation(jsonData,function(code){
 示例： 
 
 ```javascript
-var jsonData = {};
+var = {};
 jsonData.fillAfter = 0;
-var animationSet = new Array();
+var animationSet = new Array(): Object;
 
 var transferAni = {};
 transferAni.type = "transfer";
@@ -299,9 +300,9 @@ button.startAnimation(jsonData,function(code){
 示例： 
 
 ```javascript
-var jsonData = {};
+var = {};
 jsonData.fillAfter = 0;
-var animationSet = new Array();
+var animationSet = new Array(): Object;
 
 var scaleAni = {};
 scaleAni.type = "scale";
@@ -351,12 +352,12 @@ button.startAnimation(jsonData,function(code){
 
 
 ```javascript  
-var jsonData = {};
+var = {};
 //这里设置从右下角旋转
 jsonData.pivotX = 1;
 jsonData.pivotY = 1;
 jsonData.fillAfter = 0;
-var animationSet = new Array();
+var animationSet = new Array(): Object;
 
 var rotateAni = {};
 rotateAni.type = "rotate";
@@ -375,7 +376,7 @@ button.startAnimation(jsonData,function(code){
 
 ```   
 
-function：组件动画结束回调函数，可选参数，入参为Json对象，定义如下：  
+callback：组件动画结束回调函数，可选参数，入参为Json对象，定义如下：  
 
 > code：回应状态码，数字【0,-1】  
 > 
@@ -392,12 +393,12 @@ function：组件动画结束回调函数，可选参数，入参为Json对象�
 ```javascript
 
 //多种动画组合
-var jsonData = {};
+var = {};
 //这里设置从右下角旋转
 jsonData.pivotX = 1;
 jsonData.pivotY = 1;
 jsonData.fillAfter = 0;
-var animationSet = new Array();
+var animationSet = new Array(): Object;
 //缩放动画
 var scaleAni = {};
 scaleAni.type = "scale";
@@ -426,7 +427,7 @@ button.startAnimation(jsonData,function(code){
 
 ```  
 
-<span id="dhxg_2">**void startAnimator(jsonData,function)**</span>  
+<span id="dhxg_2">**startAnimator(jsonData:Object,callback:Function): void**</span>  
 
 <code>启动UI组件属性动画</code>  
 
@@ -484,7 +485,7 @@ animators中 json属性定义如下：
 
 **注：** 如果需要组合动画同时执行，都设置在props里面即可。
 
-function：组件动画结束回调函数，可选参数，入参为Json对象，定义如下：  
+callback：组件动画结束回调函数，可选参数，入参为Json对象，定义如下：  
 
 > code：回应状态码，数字【0,-1】
 > 
@@ -506,8 +507,8 @@ function：组件动画结束回调函数，可选参数，入参为Json对象�
 
 //示例中，两个动画会按照先后顺序执行，其中动画一里面是组合动画
 
-var jsonData = {};
-var aniAry = new Array();
+var = {};
+var aniAry = new Array(): Object;
 //第一个动画，同时做缩放和旋转动画
 var jsonAni1 = {};
 jsonAni1.delay = 0;
@@ -535,7 +536,7 @@ testBtn.startAnimator(jsonData, function(code){
 });
 ```
 
-<span id="dhxg_3">**void startKeyFrameAnimator(jsonData,function)**</span>  
+<span id="dhxg_3">**startKeyFrameAnimator(jsonData:Object,callback:Function): void**</span>  
 
 <code>启动UI组件关键帧动画</code>    
 
@@ -593,7 +594,7 @@ settings数组中每个成员均为json对象，定义如下：
 
  
 
-function：组件动画结束回调函数，可选参数，入参为Json对象，定义如下：  
+callback：组件动画结束回调函数，可选参数，入参为Json对象，定义如下：  
 
 > code：回应状态码，数字【0,-1】  
 > 
@@ -607,11 +608,11 @@ function：组件动画结束回调函数，可选参数，入参为Json对象�
 示例：  
 
 ```javascript
-var jsonData = {};
+var = {};
 jsonData.type = "scale";
 jsonData.duration = 300;
 
-var settings = new Array();
+var settings = new Array(): Object;
 
 var json = {};
 json.value = 0.01;
@@ -643,7 +644,7 @@ thisDom.startKeyFrameAnimator(jsonData, aniCallBack);
 - 帧动画执行后需要调用releaseAnimator()方法释放动画，效果和属性动画一样。
 
   
-<span id="dhxg_4">**void releaseAnimator()**</span>  
+<span id="dhxg_4">**releaseAnimator(): void**</span>  
 
 <code>结束控件动画</code>    
 
@@ -659,16 +660,16 @@ thisDom.startKeyFrameAnimator(jsonData, aniCallBack);
 
 本节目录：  
 > 
-> [jsonData getFrame()  获取组件在父容器中的位置](#cchwz_1)   
+> [getFrame(): Object  获取组件在父容器中的位置](#cchwz_1)   
 > 
-> [void setFrame(frame)  设置组件在父容器中的位置](#cchwz_2)   
+> [setFrame(frame:Object):void  设置组件在父容器中的位置](#cchwz_2)   
 > 
-> [jsonData getCenter()  获取组件中心点在父容器中的位置](#cchwz_3)  
+> [getCenter(): Object 获取组件中心点在父容器中的位置](#cchwz_3)  
 >  
-> [jsonData getAbsoluteFrame()  获取组件在绘制窗口中的位置](#cchwz_4)   
+> [getAbsoluteFrame(): Object  获取组件在绘制窗口中的位置](#cchwz_4)   
 
 
-<span id="cchwz_1">**jsonData getFrame()**</span>  
+<span id="cchwz_1">**getFrame(): Object**</span>  
 
 <code>获取组件在父容器中的位置</code> 
 
@@ -688,7 +689,7 @@ thisDom.startKeyFrameAnimator(jsonData, aniCallBack);
 
 
 
-<span id="cchwz_2">**setFrame(frame)**</span>  
+<span id="cchwz_2">**setFrame(frame: Object): void**</span>  
 
 <code>设置组件在父容器中的位置</code>  
 
@@ -714,7 +715,7 @@ frame：json数据格式，定义如下：
 
 
 
-<span id="cchwz_3">**jsonData getCenter()**</span>  
+<span id="cchwz_3">**getCenter(): Object**</span>  
 
 <code>获取组件中心点在父容器中的位置</code>  
 
@@ -727,7 +728,7 @@ frame：json数据格式，定义如下：
 > y：float型，垂直位置；
 
 
-<span id="cchwz_4">**jsonData getAbsoluteFrame()**</span>  
+<span id="cchwz_4">**getAbsoluteFrame(): Object**</span>  
 
 
 <code>获取组件在绘制窗口中的位置</code>
@@ -756,47 +757,47 @@ frame：json数据格式，定义如下：
 
 本节目录：  
 > 
-> [domObj getParent()  获取父节点](#ptdom_1)   
+> [getParent(): IElement 获取父节点](#ptdom_1)   
 > 
-> [domObj getNext()  获取同级下一个节点](#ptdom_2)   
+> [getNext(): IElement 获取同级下一个节点](#ptdom_2)   
 > 
-> [domObj getPrevious()  获取同级前一个节点](#ptdom_3)  
+> [getPrevious(): IElement 获取同级前一个节点](#ptdom_3)  
 > 
-> [void remove()  从父容器中移除自身](#ptdom_4)  
+> [remove(): void 从父容器中移除自身](#ptdom_4)  
 > 
-> [domObj clone(isDeep)  对当前Dom节点进行克隆](#ptdom_5)  
+> [clone(isDeep:boolean): IElement 对当前Dom节点进行克隆](#ptdom_5)  
 >  
-> [void setAttr(attrName,attrValue)  设置节点属性](#ptdom_6)   
+> [setAttr(attrName:string,attrValue:string): void  设置节点属性](#ptdom_6)   
 >
-> [String getAttr(attrName)  获取节点属性](#ptdom_7) 
+> [getAttr(attrName:string):string  获取节点属性](#ptdom_7) 
 >
-> [Json getAttrs()  获取节点所有属性](#ptdom_8) 
+> [getAttrs(): Object 获取节点所有属性](#ptdom_8) 
 >
-> [void removeAttr(attrName)  移除节点属性](#ptdom_9) 
+> [removeAttr(attrName:string):void  移除节点属性](#ptdom_9)
 >
-> [bool hasAttr(attrName)  节点是否具有该属性](#ptdom_10) 
+> [hasAttr(attrName:string): boolean  节点是否具有该属性](#ptdom_10) 
 >
-> [void setText(content)  设置节点文本内容](#ptdom_11)
+> [setText(content:string):void  设置节点文本内容](#ptdom_11)
 >
-> [void getText(content)  获取节点文本内容](#ptdom_12)
+> [getText():void  获取节点文本内容](#ptdom_12)
 > 
-> [void setStyle(styleName,styleValue)  设置节点样式值](#ptdom_13)  
+> [setStyle(styleName:string,styleValue:string): void  设置节点样式值](#ptdom_13)  
 >
-> [String getStyle(styleName)  获取节点样式值](#ptdom_14)   
+> [getStyle(styleName:string):string  获取节点样式值](#ptdom_14)   
 >
-> [void clearStyle(styleName)  移除节点样式值](#ptdom_15)    
+> [clearStyle(styleName:string): void 移除节点样式值](#ptdom_15)   
 >
-> [void setClassStyle(className，domobj)   设置节点对应Class样式](#ptdom_16) 
+> [setClassStyle(className:string,domobj:IElement): void  设置节点对应Class样式](#ptdom_16) 
 >  
-> [String getClassStyle()  获取节点已设置Class样式](#ptdom_17)  
+> [getClassStyle(): string 获取节点已设置Class样式](#ptdom_17)  
 >  
-> [String getTag()  获取UI组件类型](#ptdom_18)  
+> [getTag(): string 获取UI组件类型](#ptdom_18)  
 >  
-> [String getId()  获取UI组件Id标识](#ptdom_19)  
+> [getId(): string 获取UI组件Id标识](#ptdom_19)  
 
 
 
-<span id="ptdom_1">**String getParent()**</span>  
+<span id="ptdom_1">**getParent(): string**</span>  
 
 <code>获取父节点</code>  
 
@@ -812,7 +813,7 @@ var parentdom = v.getParent();
 ```  
 
 
-<span id="ptdom_2">**domObj getNext()**</span>  
+<span id="ptdom_2">**getNext(): IElement**</span>  
 
 <code>获取同级下一个节点</code> 
 
@@ -827,7 +828,7 @@ var v = document.getElement("v_id");
 var nextdom = v.getNext();
 ```  
 
-<span id="ptdom_3">**domObj getPrevious()**</span>  
+<span id="ptdom_3">**getPrevious(): IElement**</span>  
 
 <code>获取同级前一个节点</code>   
 
@@ -842,7 +843,7 @@ var v = document.getElement("v_id");
 var previousdom = v.getPrevious();
 ```  
 
-<span id="ptdom_4">**void remove()**</span>  
+<span id="ptdom_4">**remove(): void**</span>  
 
 <code>从父容器中移除自身</code>  
 
@@ -850,7 +851,7 @@ var previousdom = v.getPrevious();
 
 返回值：无  
 
-**注：**  该方法可以移除控件自身，不过控件对象并没有销毁，只是该控件的view被移除，比如移除后，可以继续使用void appendChild(domObj)这类方法，把该控件的view添加到其他容器中。  
+**注：**  该方法可以移除控件自身，不过控件对象并没有销毁，只是该控件的view被移除，比如移除后，可以继续使用appendChild(domObj:IElement): void这类方法，把该控件的view添加到其他容器中。  
 
 示例： 
 
@@ -860,7 +861,7 @@ v.remove();
 document.refresh();
 ```  
 
-<span id="ptdom_5">**domObj clone(isDeep)**</span>  
+<span id="ptdom_5">**clone(isDeep:boolean): IElement**</span>  
 
 <code>对当前Dom节点进行克隆</code>   
 
@@ -881,7 +882,7 @@ var v = document.getElement("v_id");
 var clonedom  =  v.clone("true");
 ``` 
 
-<span id="ptdom_6">**void setAttr(attrName,attrValue)**</span>  
+<span id="ptdom_6">**setAttr(attrName:string,attrValue:string): void**</span>  
 
 <code>设置节点属性</code>  
 
@@ -900,7 +901,7 @@ var v = document.getElement("v_id");
 v.setAttr("value","123");
 ```   
 
-<span id="ptdom_7">**String getAttr(attrName)**</span>  
+<span id="ptdom_7">**getAttr(attrName:string):string**</span>  
 
 <code>获取节点属性</code>  
 
@@ -916,7 +917,7 @@ var v = document.getElement("v_id");
 v.getAttr("value");
 ```   
 
-<span id="ptdom_8">**Json getAttrs()**</span>  
+<span id="ptdom_8">**getAttrs(): Object**</span>  
 
 <code>获取节点所有属性</code>  
 
@@ -937,7 +938,7 @@ for (var ar in attrs) {
 }
 ```   
 
-<span id="ptdom_9">**void removeAttr(attrName)**</span>  
+<span id="ptdom_9">**removeAttr(attrName:string): void**</span>  
 
 <code>移除节点属性</code>  
 
@@ -954,7 +955,7 @@ var v = document.getElement("v_id");
 v.removeAttr("value");
 ```   
 
-<span id="ptdom_10">**bool hasAttr(attrName)**</span>  
+<span id="ptdom_10">**hasAttr(attrName:string): boolean**</span>  
 
 <code>节点是否具有该属性</code>  
 
@@ -973,7 +974,7 @@ var v = document.getElement("v_id");
 var bl = v.hasAttr("value");
 ```   
 
-<span id="ptdom_11">**void setText(content)**</span>  
+<span id="ptdom_11">**setText(content:string): void**</span>  
 
 <code>设置节点文本内容</code>  
 
@@ -992,7 +993,7 @@ v.setText("123");
 
 
 
-<span id="ptdom_12">**void getText()**</span>  
+<span id="ptdom_12">**getText(): void**</span>  
 
 <code>获取节点文本内容</code>  
 
@@ -1008,7 +1009,7 @@ var textstr = v.getText();
 ```   
 
 
-<span id="ptdom_13">**void setStyle(styleName,styleValue)**</span>  
+<span id="ptdom_13">**setStyle(styleName:string,styleValue:string): void**</span>  
 
 <code>设置节点样式值</code>  
 
@@ -1030,7 +1031,7 @@ v.setStyle("background-color","red");
 ```  
 
 
-<span id="ptdom_14">**String getStyle(styleName)**</span>  
+<span id="ptdom_14">**getStyle(styleName:string):string**</span>  
 
 <code>获取节点样式值</code>  
 
@@ -1049,7 +1050,7 @@ var v = document.getElement("v_id");
 v.getStyle("background-color");  
 ```  
 
-<span id="ptdom_15">**void clearStyle(styleName)**</span>  
+<span id="ptdom_15">**clearStyle(styleName:string): void**</span>  
 
 <code>移除节点样式值</code>  
 
@@ -1066,7 +1067,7 @@ var v = document.getElement("v_id");
 v.clearStyle("background-color");  
 ```   
 
-<span id="ptdom_16">**void setClassStyle(className，domobj)**</span>  
+<span id="ptdom_16">**setClassStyle(className:string,domobj:IElement): void**</span>  
 
 <code>设置节点对应Class样式</code>  
 
@@ -1101,7 +1102,7 @@ v.setClassStyle("class1 class2",this);
 ```   
 
 
-<span id="ptdom_17">**String getClassStyle()**</span>  
+<span id="ptdom_17">**getClassStyle(): string**</span>  
 
 <code>获取节点已设置Class样式</code>
 
@@ -1117,7 +1118,7 @@ var classstr =  v.getClassStyle();
 ```   
 
 
-<span id="ptdom_18">**String getTag()**</span>  
+<span id="ptdom_18">**getTag(): string**</span>  
 
 <code>获取UI组件类型</code>   
 
@@ -1132,7 +1133,7 @@ var v = document.getElement("v_id");
 var domstr =  v.getTag();  
 ```  
 
-<span id="ptdom_19">**String getId()**</span>  
+<span id="ptdom_19">**getId(): string**</span>  
 
 <code>获取UI组件Id标识</code>   
 
@@ -1147,32 +1148,32 @@ var domid =  v.getId();
 
 本节目录：  
 > 
-> [domObj getElement (id)  根据Id获取容器内UI控件对象](#rqczdom_1)   
+> [getElement (id:string): IElement 根据Id获取容器内UI控件对象](#rqczdom_1)   
 > 
-> [Array getElements(rule)  根据特定规则获取容器内UI控件对象集](#rqczdom_2)   
+> [getElements(rule:string): Array&lt;Object&gt; 根据特定规则获取容器内UI控件对象集](#rqczdom_2)   
 > 
-> [Array getChildren()  容器获取子节点集](#rqczdom_3)  
+> [getChildren():Array&lt;IElement&gt;  容器获取子节点集](#rqczdom_3)  
 >  
-> [domObj getFirstChild()  容器获取首子节点](#rqczdom_4) 
+> [getFirstChild(): IElement 容器获取首子节点](#rqczdom_4) 
 >  
-> [domObj getLastChild()  容器获取尾节点](#rqczdom_5) 
+> [getLastChild(): IElement 容器获取尾节点](#rqczdom_5) 
 >  
-> [void appendChild(domObj)  容器添加子节点至尾部](#rqczdom_6) 
+> [appendChild(domObj:IElement):void  容器添加子节点至尾部](#rqczdom_6)
 >  
-> [void insertBefore(domObj,beforeDomObj)  容器在指定的已有的子节点之前插入新节点](#rqczdom_7) 
+> [insertBefore(domObj:IElement,beforeDomObj:IElement): void 容器在指定的已有的子节点之前插入新节点](#rqczdom_7) 
 >  
-> [void insertAfter (domObj,afterDomObj)  容器在指定的已有的子节点之后插入新节点](#rqczdom_8) 
+> [insertAfter (domObj:IElement,afterDomObj:IElement): void  容器在指定的已有的子节点之后插入新节点](#rqczdom_8) 
 >  
-> [void replaceChild(newDomObj,oldDomObj)  容器替换子节点](#rqczdom_9) 
+> [replaceChild(newDomObj:IElement,oldDomObj:IElement): void  容器替换子节点](#rqczdom_9) 
 >  
-> [void clear()  清空容器内所有子节点](#rqczdom_10) 
+> [clear(): void 清空容器内所有子节点](#rqczdom_10) 
 >  
-> [String getInnerHTML()  动态获取容器内子节点xml](#rqczdom_11)   
+> [getInnerHTML(): string 动态获取容器内子节点xml](#rqczdom_11)   
 
 
 
 
-<span id="rqczdom_1">**domObj getElement (id)**</span>  
+<span id="rqczdom_1">**getElement(id:string): IElement**</span>  
 
 <code>根据Id获取容器内UI控件对象</code>   
 
@@ -1192,7 +1193,7 @@ var v =box.getElement("v_id");
 
 ```  
 
-<span id="rqczdom_2">**Array getElements(rule)**</span>   
+<span id="rqczdom_2">**getElements(rule:string):Array&lt;IElement&gt;**</span>   
 
 <code>根据特定规则获取容器内UI控件对象集</code>   
 
@@ -1230,7 +1231,7 @@ var v = box.getElements('[gourp="abc"]');
 ```    
 
 
-<span id="rqczdom_3">**Array getChildren()**</span>   
+<span id="rqczdom_3">**getChildren():Array<IElement>**</span>   
 
 <code>容器获取子节点集</code>   
 
@@ -1245,7 +1246,7 @@ var box = document.getElement("box_id");
 var arr = box.getChildren();  
 ```  
 
-<span id="rqczdom_4">**domObj getFirstChild()**</span>   
+<span id="rqczdom_4">**getFirstChild(): IElement**</span>   
 
 <code>容器获取首子节点</code>  
 
@@ -1261,7 +1262,7 @@ var v = box.getFirstChild();
 ```  
 
 
-<span id="rqczdom_5">**domObj getLastChild()**</span>  
+<span id="rqczdom_5">**getLastChild(): IElement**</span>  
 
 <code>容器获取尾节点</code>  
 
@@ -1278,7 +1279,7 @@ var v = box.getLastChild();
 
 
 
-<span id="rqczdom_6">**void appendChild(domObj)**</span>   
+<span id="rqczdom_6">**appendChild(domObj:IElement): void**</span>   
 
 <code>容器添加子节点至尾部</code>  
 
@@ -1288,7 +1289,11 @@ domObj：需添加的子节点对象，必选项；
 
 返回值：无
 
-**注：** 执行该方法，需要刷新容器布局方可生效。
+**注：** 
+
+- 执行该方法，需要刷新容器布局方可生效。
+
+- 向某个容器添加节点的时候，如果该容器正在监听touch系列事件，会造成事件中断。
 
 示例：
 
@@ -1300,7 +1305,7 @@ box.appendChild(box1);
 
 
 
-<span id="rqczdom_7">**void insertBefore(domObj,beforeDomObj)**</span>   
+<span id="rqczdom_7">**insertBefore(domObj:IElement,beforeDomObj:IElement): void**</span>   
 
 <code>容器在指定的已有的子节点之前插入新节点</code> 
 
@@ -1323,7 +1328,7 @@ box.insertBefore(box1);
 ```   
 
 
-<span id="rqczdom_8">**void insertAfter (domObj,afterDomObj)**</span>   
+<span id="rqczdom_8">**insertAfter (domObj:IElement,afterDomObj:IElement): void**</span>   
 
 <code>容器在指定的已有的子节点之后插入新节点</code>  
 
@@ -1346,7 +1351,7 @@ box.insertAfter(box1);
 ```    
 
 
-<span id="rqczdom_9">**void replaceChild(newDomObj,oldDomObj)**</span>  
+<span id="rqczdom_9">**replaceChild(newDomObj:IElement,oldDomObj:IElement): void**</span>  
 
 <code>容器替换子节点</code>
 
@@ -1370,7 +1375,7 @@ box.replaceChild(box1,box2);
 ```  
 
 
-<span id="rqczdom_10">**void clear()**</span>  
+<span id="rqczdom_10">**clear(): void**</span>  
 
 <code>清空容器内所有子节点</code>   
 
@@ -1387,7 +1392,7 @@ var box = document.getElement("box_id");
 box.clear();  
 ```  
 
-<span id="rqczdom_11">**String getInnerHTML()**</span>
+<span id="rqczdom_11">**getInnerHTML(): string**</span>
 
 <code>动态获取容器内子节点xml</code>   
 
