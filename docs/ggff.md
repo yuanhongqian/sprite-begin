@@ -1040,6 +1040,8 @@ styleName：需查询节点样式名，字符串类型，必选项；
 
 返回值：查询的节点样式值，字符串类型；  
 
+**注：**  如果通过组件style或class属性设置的color样式（如：#ff0000），在android上由于css引擎的差异性，通过getStyle("color")获取的颜色值是rgb(255,0,0)这种形式，通过js设置的颜色值则没有影响。
+
 示例：
 
 ```javascript  
