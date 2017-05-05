@@ -26,19 +26,29 @@ Sprite的应用入口配置文件是app.json，该文件必须放在apps根目�
 >
 >appversion：应用资源版本号。
 >
->appname：应用名称。  
+>appname：应用名称。
+>
+> require： js,css,模板路径的全局配置的json地址。
 
-在home.js里面主要配置一些全局的js、css和模板的路径，也可以定义一些全局的监听事件。当然最主要的还是配置应用启动类型。代码示例如下：  
+在require.json里面主要配置一些全局的js、css和模板的路径，也
 
 ```javascript
-require.config({
+{
         jsPaths: {
+		"myapp": "res:yuanhongqian/js/myapp.js"
         },
         componentPaths:{
+ 		"buttonUI": "res:sprite_component/button/button.component"
         },
         cssPaths:{
+		"spriteLayout": "res:yuanhongqian/css/sprite.layout.css"
         }
-});
+}
+
+```
+
+home.js 可以定义一些全局的监听事件。当然最主要的还是配置应用启动类型。代码示例如下：  
+```
 var app = require("App");
 var window = require("Window");
 app.on("launch",function(e,jsonData){
@@ -66,7 +76,7 @@ app.on("launch",function(e,jsonData){
 
 launch启动参数jsonData为Json对象，定义如下：  
   
-**jsonData.type：启动类型，字符串枚举型，[normal,app]：**
+**jsonData.type：启动类型，字符串枚举型，[normal,app,notification]：**
 
 >  normal ：桌面启动
 > 
@@ -104,15 +114,6 @@ launch启动参数jsonData为Json对象，定义如下：
 >  - param：自定义透传参数列表，Json对象
 
 homeJs.js内放置纯js，示例：
-
-
-在入口文件还可以通过app对象监听其他事件，比如横竖屏切换，这个地方的监听是全局，还可以监听自定义事件，开发者在后面的任何页面通过fire来触发事件。  
-
-另外有一些全局的配置信息也可以在入口文件配置中，比如js、css和component组件模板文件路径。配置以后在具体uixml里面就可以直接通过标识引用。注意：require.config需放置于JS顶部。
-
-如下图：  
-
-<img  src="image/ptgnjj_3.png" />  
 
 
 在uixml里面就可以这样引用：  

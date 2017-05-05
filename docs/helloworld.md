@@ -33,6 +33,8 @@ homeJs:应用的入口js地址，res:前缀是基于apps目录开始；
 
 orientation:横竖屏设置，portrait:竖屏（默认）、landscape:横屏、device:支持横竖屏切换；  
 
+requrie:配制应用需要的css,js,模板的全局路径。
+
 appversion:应用资源版本号。  
 
 appname:应用名称。  
@@ -55,45 +57,66 @@ android手机对应目录：
 <img width="750"  src="image/hw_15.png" />    
 
 
-2.创建程序入口文件home.js  
+2.创建require.json文件
+
+该文件里面主要是配置js,css,模板文件引用的全局路径。
+
+```javascrpt
+
+{
+    "jsPaths": {
+        "myappjs": "res:myapp/js/myapp.js"
+    },
+    "componentPaths": {},
+    "cssPaths": {
+        "myappcss": "res:myapp/css/myapp.css"
+    }
+}
+
+```
+
+
+3.创建程序入口文件home.js  
 
 该文件名和文件路径和app.json里面指向的保存一致即可，上图示例中home.js文件是直接放在apps根目录下。然后编写home.js里面的内容代码如下：  
 
 ```javascript
-require.config({
-        jsPaths: {
-        },
-        componentPaths:{
-        },
-        cssPaths:{
-        }
-});
 var app = require("App");
 var window = require("Window");
-app.on("launch",function(e,jsonData){
+
+app.on("launch", function (e, jsonData) {
+
     var type = jsonData.type;
-     if(type =="normal"){
+    if (type == "normal") {
+
         //正常桌面启动
         var json = {};
         json.url = "res:myapp/index.uixml";
+        json.target = "_blank";
+        json.id = "helloword";
+        json.statusBarColor = "#f9f9f9";
+        json.openAnimation = "push_r2l";
+        json.closeAnimation = "push_l2r";
+        json.data = {};
+        json.data.text = "传值参数";
         window.open(json);
-     }
-     else if(type =="app"){
+    }
+    else if (type == "app") {
         //其他应用调用启动
-     } 
-     else if(type =="notification"){
-        //推送消息启动
-     } 
-     else if(type =="localNotification"){
-        //本地通知启动
-     }
- });
 
+    }
+    else if (type == "notification") {
+        //推送消息启动
+    }
+    else if (type == "localNotification") {
+        //本地通知启动
+    }
+});
 ```  
 
 关于home.js里面的配置说明，我们后面会详细介绍，home.js作为程序入口，那么就需要指定一个应用程序的起始页面，示例代码里面指向了res:myapp/index.uixml。  
 
-3.根据指定的路径创建myapp文件目录，并且创建一个index.uixml文件。  
+4.根据指定的路径创建myapp文件目录，并且创建一个index.uixml文件。  
 
 <img  src="image/hw_3.png" />  
 <img  src="image/hw_4.png" />   
@@ -129,91 +152,128 @@ Index.uixml页面基本格式如下:
 
 <img  src="image/hw_7.png" /> 
 
-这个时候，可以用手机查看效果，注意：手机端会在页面关闭和程序关闭的时候进行代码同步。如果没有看到效果，尝试多关闭几次页面。  
+这个时候，可以用手机查看效果，注意：mbuilder保存会同步代码。如果没有看到效果，尝试多关闭几次页面。  
 
 手机效果如下图：  
 
 <img width="250"  src="image/hw_8.png" />  
 
+为了代码编写规范，我们可以把css样式提出去，放到css文件里面引用。
+
+mapp/css/myapp.css文件内容如下：
+
+```css
+.rootBox {
+    background-color: #0099cc;
+    width: fill_screen;
+    height: fill_screen;
+    justify-content: center;
+    align-items: center;
+}
+
+text {
+    color: #33b5e5;
+    font-size: 45;
+    text-align: center;
+}
+
+.textclose {
+    font-size: 20;
+    margin: 50 0 0 0;
+}
+```
+在程序入口处我们已经配置过css路径，那么index.uixml中引用如下：
+
+```
+<style>
+        @import url("myappcss");
+</style>
+```
+
+
 
 <h2 id="cid_3">实现一个动画</h2>
 
-下面我们实现一个动画，让文字从小变大并且旋转起来。代码如下：  
+动画需要靠js来实现，编写js同样放在js文件中引用：myapp/js/myapp.js
+
+下面我们实现一个动画，让文字从小变大并且旋转起来。js代码如下：  
 
 ```html
 
+(function () {
+    var window = require("Window");
+    var document = require("Document");
+    var app = require("App");
+    var textBox;
+    window.on("loaded", function (e) {
+        var textclose = document.getElement("textclose");
+        //文本区域
+        textBox = document.getElement("textBox");
+        //初始的时候先隐藏
+        textBox.setStyle("visibility", "hidden");
+        textclose.on("click", function (e) {
+            app.exitNoAsk();
+        });
+    });
+
+    window.on("animator", function () {
+        //启动动画
+        startTextAnimation();
+    });
+    //文本区域动画
+    function startTextAnimation() {
+        //设置文本可见
+        textBox.setStyle("visibility", "visible");
+
+        var jsonData = {};
+        jsonData.fillAfter = 1;
+        var animationSet = new Array();
+        //缩放动画
+        var scaleAni = {};
+        scaleAni.type = "scale";
+        scaleAni.duration = 1500;
+        scaleAni.curve = "linear";
+        scaleAni.scaleFromX = 0.1;
+        scaleAni.scaleToX = 1;
+        scaleAni.scaleFromY = 0.1;
+        scaleAni.scaleToY = 1;
+        animationSet.push(scaleAni);
+        //旋转动画
+        var rotateAni = {};
+        rotateAni.type = "rotate";
+        rotateAni.duration = 1500;
+        rotateAni.curve = "linear";
+        rotateAni.fromDegree = 0;
+        rotateAni.toDegree = 360;
+        animationSet.push(rotateAni);
+        jsonData.animationSet = animationSet;
+        //启动动画
+        textBox.startAnimation(jsonData, function () {
+        });
+    }
+})();
+```
+
+index.uixml代码如下：
+
+```
 <page>
     <script>
         <![CDATA[
-        var window = require("Window");
-        var document = require("Document");
-        var textBox  ; 
-        //页面如果加载的时候有控件动画必须放在animator监听页面加载动画结束之后进行
-        window.on("animator", function() {
-            //文本区域
-           textBox =  document.getElement("textBox"); 
-            //启动动画
-           startTextAnimation(); 
-        });
-        //文本区域动画
-        function startTextAnimation(){
-            //设置文本可见
-           textBox.setStyle("visibility","visible");
-           document.refresh();
-            var jsonData = {};
-            jsonData.fillAfter = 1;
-            var animationSet = new Array();
-            //缩放动画
-            var scaleAni = {};
-            scaleAni.type = "scale";
-            scaleAni.duration = 1500;
-            scaleAni.curve = "linear";
-            scaleAni.scaleFromX = 0.1;
-            scaleAni.scaleToX = 1;
-            scaleAni.scaleFromY = 0.1;
-            scaleAni.scaleToY = 1;
-            animationSet.push(scaleAni);
-            //旋转动画
-            var rotateAni = {};
-            rotateAni.type = "rotate";
-            rotateAni.duration = 1500;
-            rotateAni.curve = "linear";
-            rotateAni.fromDegree = 0;
-            rotateAni.toDegree = 360;
-            animationSet.push(rotateAni);
-            jsonData.animationSet = animationSet;
-            //启动动画
-            textBox.startAnimation(jsonData,function (){
-                
-            });
-        }
+       var myappjs = require("myappjs"); 
         ]]>
     </script>
     <style>
-        .rootBox {
-            background-color: #0099cc;
-            width: fill_screen;
-            height: fill_screen;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .text {
-            color: #33b5e5;
-            font-size: 45;
-            text-align: center;
-        }
-        
-        .textBox {
-            visibility: hidden;
-        }
+        @import url("myappcss");
     </style>
     <ui>
         <box class="rootBox">
-            <box id="textBox" class="textBox">
+            <box id="textBox">
                 <text class="text">Sprite</text>
                 <text class="text">移动开发平台</text>
+                <text class="textclose" id="textclose">点我关闭</text>
             </box>
+           
         </box>
     </ui>
 </page>
@@ -244,137 +304,7 @@ Index.uixml页面基本格式如下:
 
 <img   src="image/hw_14.png" />   
 
-完整代码如下：
 
-```html
-
-<page>
-    <script>
-        <![CDATA[
-        var window = require("Window");
-        var document = require("Document");
-        var Time = require("Time");
-        var ui = require("UI");
-        //文本区域
-        var textBox;
-
-        //倒计时文本
-        var numText;
-        var numbox;
-        //初始倒计时3
-        var num = 3;
-        window.on("animator", function () {
-            //文本区域
-            textBox = document.getElement("textBox");
-            //倒计时文本
-            numText = document.getElement("numText");
-
-            numbox = document.getElement("numbox");
-            //启动动画
-            startTextAnimation();
-
-        });
-
-        //文本区域动画
-        function startTextAnimation() {
-            //设置文本可见
-            textBox.setStyle("visibility", "visible");
-            //document.refresh();
-
-
-            var jsonData = {};
-            jsonData.fillAfter = 1;
-            var animationSet = new Array();
-            //缩放动画
-            var scaleAni = {};
-            scaleAni.type = "scale";
-            scaleAni.duration = 1500;
-            scaleAni.curve = "linear";
-            scaleAni.scaleFromX = 0.1;
-            scaleAni.scaleToX = 1;
-            scaleAni.scaleFromY = 0.1;
-            scaleAni.scaleToY = 1;
-            animationSet.push(scaleAni);
-            //旋转动画
-            var rotateAni = {};
-            rotateAni.type = "rotate";
-            rotateAni.duration = 1500;
-            rotateAni.curve = "linear";
-            rotateAni.fromDegree = 0;
-            rotateAni.toDegree = 360;
-            animationSet.push(rotateAni);
-            jsonData.animationSet = animationSet;
-            //启动动画
-            textBox.startAnimation(jsonData, function () {
-                numText.setText("倒计时: " + num);
-                numbox.refresh();
-                Time.setInterval(startTextNum, 1000);
-
-            });
-
-        }
-
-        //倒计时
-        function startTextNum() {
-            num--;
-            if (num == 0) {
-                closePage();
-            } else {
-                numText.setText("倒计时: " + num);
-            }
-        }
-
-        function closePage() {
-            window.close();
-        }
-    ]]>
-    </script>
-    <style>
-        .rootBox {
-            background-color: #0099cc;
-            width: fill_screen;
-            height: fill_screen;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .textBox {
-            visibility: hidden;
-        }
-        
-        .text {
-            color: #33b5e5;
-            font-size: 45;
-            text-align: center;
-        }
-        
-        .numbox {
-            position: absolute;
-            top: 20;
-            right: 10;
-            width: 100;
-        }
-        
-        .numText {
-            color: #ffffff;
-            font-size: 15;
-            text-align: right;
-        }
-    </style>
-    <ui>
-        <box class="rootBox">
-            <box id="textBox" class="textBox">
-                <text id="text1" class="text">Sprite</text>
-                <text id="text2" class="text">移动开发平台</text>
-            </box>
-            <box class="numbox" id="numbox">
-                <text id="numText" class="numText"></text>
-            </box>
-        </box>
-    </ui>
-</page>
-
-```
 
 最终效果如下：
 
