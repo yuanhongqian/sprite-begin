@@ -2,8 +2,13 @@
 
 ----------
 
+<<<<<<< HEAD
 **示例代码下载**：[helloword.sprite](https://github.com/yuanhongqian/sprite-api/blob/master/src/helloword.sprite")  
 xx.sprite文件是sprite工程文件，可以直接通过mbuilder5的导入sprite应用，导入该工程文件，开发者可以通过zip解压该文件，源码在src目录。
+=======
+**示例代码下载**：[mytest.sprite](https://github.com/yuanhongqian/sprite-begin/blob/master/src/mytest.sprite")  
+xx.sprite文件是sprite工程文件，可以直接通过mbuilder5的导入sprite应用，导入该工程文件，如果只是想看源码开发者可以通过zip解压该文件，源码在src目录。
+>>>>>>> cd2e866dbf90bfb7830fd16cdf54914fd5c8a6ca
 
 <h2 id="cid_0">开发环境搭建</h2>
 
