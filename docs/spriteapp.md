@@ -235,7 +235,7 @@ require.config({
 
 **第二步，编写ajax请求**
 
-接着，要开始编写列表请求的ajax，因为需要页面在已加载的时候执行，所以ajax方法放在loaded事件中，关于ajax的使用可以参考“[http 网络连接类](https://gitdocument.exmobi.cn/sprite-advanced/http.html)” 关键代码如下：  
+接着，要开始编写列表请求的ajax，因为需要页面在已加载的时候执行，所以ajax方法放在loaded事件中，关于ajax的使用可以参考“[http 网络连接类](https://gitdocument.exmobi.cn/sprite-api/http.html)” 关键代码如下：  
 
 在前面需要引用Http类 和 Console类：
 
@@ -286,7 +286,7 @@ function getListData() {
 
 **第三步，填充列表：**
 
-请求到数据后就要用数据来填充列表，列表的展示，我们需要用到 [list列表组件](https://gitdocument.exmobi.cn/sprite-advanced/list.html) 和 [ListAdpter列表适配器组件](https://gitdocument.exmobi.cn/sprite-advanced/ListAdapter.html) ，实现后代码如下：
+请求到数据后就要用数据来填充列表，列表的展示，我们需要用到 [list列表组件](https://gitdocument.exmobi.cn/sprite-api/list.html) 和 [ListAdpter列表适配器组件](https://gitdocument.exmobi.cn/sprite-api/ListAdapter.html) ，实现后代码如下：
 
 ```html
 <page>
@@ -574,7 +574,7 @@ function getListData() {
 
 **第四步，下拉刷新和上拉翻页：**
 
-在上述代码的list组件一头一尾加上[refresh刷新控件](https://gitdocument.exmobi.cn/sprite-advanced/refresh.html)，分别用于下拉刷新和上拉翻页操作，局部代码如下：
+在上述代码的list组件一头一尾加上[refresh刷新控件](https://gitdocument.exmobi.cn/sprite-api/refresh.html)，分别用于下拉刷新和上拉翻页操作，局部代码如下：
 
 ```html
  <list id="list" style="flex:1" scrollToTop="true">
