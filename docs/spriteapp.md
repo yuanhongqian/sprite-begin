@@ -1,6 +1,12 @@
-# 完成一个sprite应用1
+# 完成一个sprite应用
 
 ----------
+
+**示例代码下载：** [newsdemo.sprite](https://github.com/yuanhongqian/sprite-begin/blob/master/src/newsdemo.sprite)  
+
+xx.sprite文件是sprite工程文件，可以直接通过mbuilder5的导入sprite应用，导入该工程文件，如果只是想看源码开发者可以通过zip解压该文件，源码在src目录。 
+
+
 
 本节主要通过一个示例讲解Sprite应用开发过程细节，以及使用中的一些注意事项，本章节应用的数据来源以  天行数据网提供的 社会新闻接口为数据源。[http://www.tianapi.com/#news](http://www.tianapi.com/#news)，开发者学习过程中可自行注册一个账号，避免接口有试用次数限制。
 
@@ -20,33 +26,31 @@
 
 <img src="image/spriteapp_3.png"/>
 
-在home.js入口文件地方，添加需要应用的组件，代码如下：
+在app.json入口文件地方，require属性里面配置res:require.json，代码如下： 
 
 ```javascript
-require.config({
-    jsPaths: {
+{
+    "homeJs": "res:home.js",
+    "orientation": "portrait",
+    "require": "res:require.json",
+    "appname": "newsdemo",
+    "appversion": "1.0.0"
+}
+```
 
-    },
-    componentPaths: {
-        //官方封装组件引用  
+对应require.json代码如下：
+
+```javascript
+{
+    "jsPaths": {},
+    "componentPaths": {
         "buttonUI": "res:sprite_component/button/button.component",
         "titlebarUI": "res:sprite_component/titlebar/titlebar.component",
-        "menubarUI": "res:sprite_component/menubar/menubar.component",
-        "gridmenuUI": "res:sprite_component/gridmenu/gridmenu.component",
-        "newsliderUI": "res:sprite_component/newslider/newslider.component",
-        "checkboxUI": "res:sprite_component/checkbox/checkbox.component",
-        "radioUI": "res:sprite_component/radio/radio.component",
-        "switchUI": "res:sprite_component/switch/switch.component",
-        "selectUI": "res:sprite_component/select/select.component",
         "tabbarUI": "res:sprite_component/tabbar/tabbar.component",
-        "indexbarUI": "res:sprite_component/indexbar/indexbar.component",
-        "popmenuUI": "res:sprite_component/popmenu/popmenu.component",
-        "popbottommenuUI": "res:sprite_component/popbottommenu/popbottommenu.component"
+        "list_news": "res:myapp/list_news.component"
     },
-    cssPaths: {
-
-    }
-});
+    "cssPaths": {}
+}
 ```
 
 
@@ -1240,6 +1244,8 @@ module.exports = ListNews;
 效果图如下：
 
 <img src="image/spriteapp_9.png" width="250"/>
+
+
 
 <h2 id="cid_0">应用打包</h2>
 
