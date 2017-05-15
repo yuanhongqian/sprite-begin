@@ -30,7 +30,7 @@ Sprite的应用入口配置文件是app.json，该文件必须放在apps根目�
 >
 > require： js,css,模板路径的全局配置的json地址。
 
-在require.json里面主要配置一些全局的js、css和模板的路径，也
+在require.json里面主要配置一些全局的js、css和模板的路径
 
 ```javascript
 {
@@ -47,7 +47,22 @@ Sprite的应用入口配置文件是app.json，该文件必须放在apps根目�
 
 ```
 
-home.js 可以定义一些全局的监听事件。当然最主要的还是配置应用启动类型。代码示例如下：  
+
+配置后，可以在uixml里面就可以这样引用：  
+
+Js和组件模板的引用 ，如图：
+
+<img  src="image/ptgnjj_4.png" />  
+
+css样式文件的引用，如图：
+
+<img  src="image/ptgnjj_5.png" />    
+
+
+
+
+home.js 可以定义一些全局的监听事件。当然最主要的还是配置应用启动类型。代码示例如下：   
+
 ```
 var app = require("App");
 var window = require("Window");
@@ -113,18 +128,6 @@ launch启动参数jsonData为Json对象，定义如下：
 >   
 >  - param：自定义透传参数列表，Json对象
 
-homeJs.js内放置纯js，示例：
-
-
-在uixml里面就可以这样引用：  
-
-Js和组件模板的引用 ，如图：
-
-<img  src="image/ptgnjj_4.png" />  
-
-css样式文件的引用，如图：
-
-<img  src="image/ptgnjj_5.png" />    
 
 
 <h2 id="cid_2">UI组件简介</h2>
