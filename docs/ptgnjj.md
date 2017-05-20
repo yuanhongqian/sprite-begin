@@ -16,7 +16,7 @@ Sprite特点如下：
 
 <h2 id="cid_1">应用程序入口</h2>
 
-Sprite的应用入口配置文件是app.json，该文件必须放在应用工程src根目录下，在手机段里面默认对应的是apps目录。  
+Sprite的应用入口配置文件是app.json，该文件必须放在应用工程src根目录下，在手机端里面默认对应的是apps目录。  
 
 <img  src="image/ptgnjj_2.png" />    
 
