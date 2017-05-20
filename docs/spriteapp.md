@@ -2,7 +2,7 @@
 
 ----------
 
-**示例代码下载：** [newsdemo.sprite](https://github.com/yuanhongqian/sprite-begin/blob/master/src/newsdemo.sprite)  
+**示例代码下载：** [newsdemo.sprite](https://www.exmobi.cn/downloadRedirect.jsp?type=sprite_template_newsdemo)  
 
 xx.sprite文件是sprite工程文件，可以直接通过mbuilder5的导入sprite应用，导入该工程文件，如果只是想看源码开发者可以通过zip解压该文件，源码在src目录。 
 

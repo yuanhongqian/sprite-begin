@@ -16,11 +16,11 @@ Sprite特点如下：
 
 <h2 id="cid_1">应用程序入口</h2>
 
-Sprite的应用入口配置文件是app.json，该文件必须放在apps根目录下。  
+Sprite的应用入口配置文件是app.json，该文件必须放在应用工程src根目录下，在手机段里面默认对应的是apps目录。  
 
 <img  src="image/ptgnjj_2.png" />    
 
-> homeJs：应用的入口js地址，res:前缀是基于apps目录开始；  
+> homeJs：应用的入口js地址，res:前缀是基于src目录开始；  
 >
 >orientation：横竖屏设置，portrait:竖屏（默认）、landscape:横屏、device:支持横竖屏切换；  
 >
