@@ -619,6 +619,7 @@ function getListData() {
 定义相关组件对象，在window的loaded事件里面
 
 ```javascript
+var top = document.getElement("top");
 var topimage = document.getElement("topimage");
 var toptext = document.getElement("toptext");
 var bottomimage = document.getElement("bottomimage");
