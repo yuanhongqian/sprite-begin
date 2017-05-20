@@ -300,19 +300,19 @@ module.exports = {
 根据模块标识引用：  
 
 ```javascript 
-//在home.js文件里面配置相关require
-require.config({
-	jsPaths: {
+//在require.json文件里面配置相关require
+{
+	"jsPaths": {
 		"sumjs": "res: testSprite/js/calculate.js "
 	}
-});
+}
 
 
 ```
 
 ```javascript 
 //页面中使用
-var calculate  = require(“sumjs”);
+var calculate  = require("sumjs");
 var  result = calculate.sum(8,12);
 
 ```
@@ -321,7 +321,7 @@ var  result = calculate.sum(8,12);
 
 ```javascript 
 //页面中使用
-var calculate  = require(“res: testSprite/js/calculate.js”);
+var calculate  = require("res: testSprite/js/calculate.js");
 var  result = calculate.sum(8,12);
 ```
 
@@ -330,7 +330,7 @@ var  result = calculate.sum(8,12);
 ```javascript 
 
 //页面中使用
-var calculate  = require(“../js/calculate.js”);
+var calculate  = require("../js/calculate.js");
 var  result = calculate.sum(8,12);
 
 ```
