@@ -150,7 +150,7 @@ Sprite平台提供了一些基础的布局元素组件，如box、list、grid等
 
 Sprite中的组件依赖于sprite客户端的解析引擎才能够识别，解析引擎会把uixml格式标签直接转换为原生view，从而给使用者一种原生app的使用体验。除了使用sprite自身组件外，还可以在webview中使用标准的html5页面元素进行页面布局。从而实现一个页面窗口多种混合布局的效果。  
 
-关于sprite的基础标签API说明，可以参考《Sprite详细设计文档》，本教程后面章节也会对每个组件具体使用做讲解。  
+关于sprite的基础标签API说明，可以参考[《Sprite API 手册》](https://gitdocument.exmobi.cn/sprite-api/index.html)，本教程后面章节也会对每个组件具体使用做讲解。  
 
 <h2 id="cid_3">功能组件简介（js接口）</h2>
 
@@ -162,7 +162,7 @@ Sprite平台除了提供了布局UI组件，还提供了一非常丰富了JSAPI�
 
 <h2 id="cid_4">CSS语法规范</h2>
 
-Sprite中css全部是官方定义的，可能部分写法和标准css3类似，开发者不能全部照搬css3的样式规范，可以视为css3的一个子集。具体那个控件支持什么样式还是要查看《sprite详细设计文档》中具体标签的样式定义。  
+Sprite中css全部是官方定义的，可能部分写法和标准css3类似，开发者不能全部照搬css3的样式规范，可以视为css3的一个子集。具体那个控件支持什么样式还是要查看[《Sprite API 手册》](https://gitdocument.exmobi.cn/sprite-api/index.html)中具体标签的样式定义。  
 
 开发者如果自己封装组件，也可以自己定义样式key的名称，最终在自己封装的组件里面做解析即可。  
 
