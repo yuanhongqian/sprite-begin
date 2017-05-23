@@ -244,13 +244,26 @@ css样式和css文件导入都必须写在&lt;style&gt;标签里面，sprite中�
 
 绝对路径：res:开头的都是基于apps的具体对路径；  
 
-相对路径：如果在uixml里面引入就写基于uixml页面的相对路径，如果在模板文件里面引入，相对路径就是具有模板文件的；  
+```
+@import  url("res:myapp/css/xxx.css");
+```
+
+相对路径：如果在uixml里面引入就写基于uixml页面的相对路径，如果在模板文件里面引入，相对路径就是具有模板文件的；   
+
+```
+@import  url("../css/xxx.css");
+```
+
 
 路径标识：在入口文件的require.config中的cssPaths节点配置css文件的标识，引入时直接写标识即可；     
 
+```
+@import  url("mycss");
+```
+
 **优先级：**  
 
-Sprite处理逻辑为：@import  url("xxx")不是绝对路径，则进行require.config里配置的标识匹配，若无法匹配则再进行相对路径处理。  
+Sprite处理逻辑为：@import  url("xxx")不是绝对路径，则进行require.json里配置的标识匹配，若无法匹配则再进行相对路径处理。  
 
 <h2 id="cid_5">js语法规范</h2>
 
