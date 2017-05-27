@@ -7,6 +7,21 @@
 xx.sprite文件是sprite工程文件，可以直接通过mbuilder5的导入sprite应用，导入该工程文件，如果只是想看源码开发者可以通过zip解压该文件，源码在src目录。 
 
 
+在进行本节示例开发之前，强烈建议开发者先了解以下几章内容：
+
+> [Flex布局原理](https://gitdocument.exmobi.cn/sprite-api/flexbjyl.html)
+> 
+> [公共样式](https://gitdocument.exmobi.cn/sprite-api/ggys.html)
+> 
+> [公共事件](https://gitdocument.exmobi.cn/sprite-api/ggsj.html)  
+> 
+> [公共方法](https://gitdocument.exmobi.cn/sprite-api/ggff.html)
+> 
+> [Window页面操作类](https://gitdocument.exmobi.cn/sprite-api/window.html)
+> 
+> [Document页面Dom操作类](https://gitdocument.exmobi.cn/sprite-api/document.html)
+
+
 
 本节主要通过一个示例讲解Sprite应用开发过程细节，以及使用中的一些注意事项，本章节应用的数据来源以  天行数据网提供的 社会新闻接口为数据源。[http://www.tianapi.com/#news](http://www.tianapi.com/#news)，开发者学习过程中可自行注册一个账号，避免接口有试用次数限制。
 
