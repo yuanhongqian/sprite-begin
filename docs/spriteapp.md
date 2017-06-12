@@ -248,7 +248,7 @@ xx.sprite文件是sprite工程文件，可以直接通过mbuilder5的导入sprit
 ```
 上述示例先编写了页面大体结构，里面用了官方封装组件titlebar和tabbar，具体是使用说明可以参考[《Sprite官方UI组件》](https://gitdocument.exmobi.cn/sprite-official-ui/index.html)  
 
-在代码中还用到了[window类 ](https://gitdocument.exmobi.cn/sprite-api/window.html)和 [document类](https://gitdocument.exmobi.cn/sprite-api/document.html)，对控件的操作要全部放在window的loaded事件之后，否者页面在布局过程中是得不到控件对象的。
+在代码中还用到了[window类 ](https://gitdocument.exmobi.cn/sprite-api/window.html)和 [document类](https://gitdocument.exmobi.cn/sprite-api/document.html)，对控件的操作要全部放在window的loaded事件之后，否则页面在布局过程中是得不到控件对象的。
 
 控件对象的引用直接var xxx = require("xxx")即可。
 
